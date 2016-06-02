@@ -22,29 +22,100 @@
 // Changelog:
 //          6/2/16 - hocnguyen - Init first revision.
 // =============================================================================
+import '../../imports/plugin/slider/slider.js'
+import '../../imports/plugin/slider/slider.css'
+import '../../imports/plugin/star-rating/star-rating.js'
+
 Template.inputTemplate.helpers({
   'user': function(){
     return Meteor.user();
   },
-  'rating': function(){
-    return [1,2,3,4,5];
+  'email': function(){
+   return ENUM.getEmailCurrentUser();
   },
-  'isSelected': function(){
+  'phone': function(){
     var user = Meteor.user();
-    if ((!user || !user.quickInfo || !user.quickInfo.rating) && parseInt(this) === 5) return 'selected';
-    if (user && user.quickInfo  && user.quickInfo.rating === parseInt(this)) return 'selected';
+    try {
+      return user.profile.phone;
+    }catch (e){
+      return "";
+    }
+  },
+  'Ages': function(){
+    return ENUM.Ages();
+  },
+  'Titles': function(){
+    return ENUM.Titles;
+  },
+  'avatar': function(){
+    var user = Meteor.user();
+    try{
+      return user.services.google.picture || ENUM.NO_AVATAR;
+    } catch (e){
+      return ENUM.NO_AVATAR
+    }
+  },
+  'isSelectedTitle': function(){
+    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId, email: ENUM.getEmailCurrentUser()}).fetch();
+    if (eventQuiz.length){
+      if (eventQuiz[0].title === ""+this) return 'selected';
+    }
+  },
+  'isSelectedAge': function(){
+    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId, email: ENUM.getEmailCurrentUser()}).fetch();
+    if (eventQuiz.length){
+      if (eventQuiz[0].age === parseInt(this)) return 'selected';
+    }
+  },
+  'eventContent': function(){
+    return ENUM.eventContent;
+  },
+  "rate": function(){
+    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId, email: ENUM.getEmailCurrentUser()}).fetch();
+    if (eventQuiz.length){
+      return parseInt(eventQuiz[0].rating)
+    }
+  },
+  "comment": function(){
+    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId, email: ENUM.getEmailCurrentUser()}).fetch();
+    if (eventQuiz.length){
+      return eventQuiz[0].comment
+    }
   }
 })
 Template.inputTemplate.events({
-  'submit #quickForm': function(e,tpl) {
+  'change input, change select, change textarea': function(e,tpl){
+    var el = $(e.currentTarget);
+    if (el.is('[readonly]')){
+      return;
+    }
+    $('#quizForm').submit();
+  },
+  'submit #quizForm': function(e,tpl) {
     e.preventDefault();
     var data = {};
-    tpl.$('input,textarea,select').not('[readonly]').forEach(function () {
-      var el = $(this);
+    tpl.$('input,textarea,select').not('[readonly]').map(function (index, el) {
+      el = $(el);
       var name = el.data('name');
-      var value = el.val();
+      if (name.trim() ==="") return;
+      var value = el.val().trim();
       data[name] = value;
-    })
-    Meteor.users.update({_id: Meteor.userId()},{$set: {quickInfo: data}});
+    });
+    data.eventId = ENUM.eventId;
+    data.email =  ENUM.getEmailCurrentUser();
+    if (data.email === "") return;
+    var eventQuiz = EventQuizData.findOne({eventId: data.eventId, email: data.email});
+    if (eventQuiz)
+      EventQuizData.update({_id: eventQuiz._id},{$set: data});
+    else
+      EventQuizData.insert(data)
   }
+});
+Template.inputTemplate.onRendered(function(){
+  $(this.$('#percent-input')).slider({
+    formatter: function(value) {
+      return 'Current value: ' + value;
+    }
+  });
+  $(this.$('#rate-stars-input')).rating();
 })

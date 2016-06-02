@@ -1,35 +1,43 @@
 <template name="outputTemplate">
-  <div class="panel panel-default">
+  <div id="outputData" class="panel panel-default">
     <!-- Default panel contents -->
     <div class="panel-heading">Output User</div>
     <div class="panel-body">
       <p></p>
     </div>
 
-    <!-- Table -->
-    <table class="table">
-      <thead>
-        <tr>
-          <th> # </th>
-          <th> Name </th>
-          <th> Email </th>
-          <th> Phone </th>
-          <th> Comment </th>
-          <th> Rating </th>
-        </tr>
-      </thead>
-      <tbody>
-      {{#each data}}
-          <tr>
-            <td>{{@index}}</td>
-            <td>{{profile.name}}</td>
-            <td>{{services.google.email}}</td>
-            <td>{{quickInfo.phone}}</td>
-            <td>{{quickInfo.comment}}</td>
-            <td>{{quickInfo.rating}}</td>
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
+    <div class="row">
+      <div class="col-lg-6">
+        <h5>Ages
+        </h5>
+        <div class="ibox-content">
+          <div class="flot-chart">
+            <div class="flot-chart-content" id="flot-pie-ages"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h5>Titles
+        </h5>
+        <div class="ibox-content">
+          <div class="flot-chart">
+            <div class="flot-chart-content" id="flot-pie-titles"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3">
+        <h5>Rates
+        </h5>
+        <div class="ibox-content">
+          <div class="flot-chart">
+            <div class="flot-chart-content" id="flot-bar-rates"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </template>

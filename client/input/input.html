@@ -1,40 +1,71 @@
 <template name="inputTemplate">
-  <div class="container">
-    <form id="quickForm">
-      <div class="input-group">
-        <span class="input-group-addon" id="name-input">Name</span>
-        <input type="text" class="form-control"
-               aria-describedby="name-input" data-name="name" value="{{user.profile.name}}" readonly>
-      </div>
-      <div class="input-group">
-        <span class="input-group-addon" id="name-input">Email</span>
-        <input type="text" class="form-control"
-               aria-describedby="name-input" data-name="name" value="{{user.services.google.email}}" readonly>
-      </div>
-      <div class="input-group">
-        <span class="input-group-addon" id="phone-input">Phone</span>
-        <input type="number" class="form-control" placeholder="0905079999"
-               aria-describedby="phone-input" data-name="phone" value="{{user.quickInfo.phone}}">
-      </div>
-      <div class="input-group">
-        <span class="input-group-addon" id="comment-input">Comment</span>
-        <textarea type="text" class="form-control" placeholder="Comment"
-                  aria-describedby="comment-input" data-name="comment">{{user.quickInfo.comment}}</textarea>
-      </div>
-      <div class="input-group">
-        <span class="input-group-addon" id="rating-input">Rating</span>
-        <select type="text" class="form-control"
-                aria-describedby="rating-input" data-name="rating">
-          {{#each rating}}
-          <option value="{{this}}" {{isSelected}}>{{this}}</option>
-          {{/each}}
-        </select>
-      </div>
-      <div class="btn-group">
-        <button type="submit" class="btn btn-default"
-                aria-expanded="false"> Submit
-        </button>
-      </div>
-    </form>
+  <div id="QuizInput" class="container">
+    <div class="row">
+      <h1>{{eventContent}}</h1>
+    </div>
+    <div class="row">
+      <h3>We never use your contact information outside this event's
+        purpose </h3>
+      <form id="quizForm">
+        <div class="row">
+          <div class="col-md-6">
+            <fieldset class="form-group">
+              <label for="name-input">Name</label>
+              <input type="text" id="name-input" class="form-control"
+                     data-name="name"
+                     value="{{user.profile.name}}" readonly>
+            </fieldset>
+            <fieldset class="form-group">
+              <label for="name-input">Email</label>
+              <input type="email" id="name-input" class="form-control"
+                     data-name="name" value="{{email}}" readonly>
+            </fieldset>
+            <fieldset class="form-group">
+              <label for="name-input">Phone</label>
+              <input type="number" id="name-input" class="form-control"
+                     data-name="name" value="{{phone}}">
+            </fieldset>
+            <fieldset class="form-group">
+              <label for="age-input">Ages</label>
+              <select class="form-control" id="age-input" data-name="age">
+                {{#each Ages}}
+                  <option value="{{this}}" {{isSelectedAge}}>{{this}}</option>
+                {{/each}}
+              </select>
+            </fieldset>
+            <fieldset class="form-group">
+              <label for="title-input">Title</label>
+              <select class="form-control" id="title-input" data-name="title">
+                {{#each Titles}}
+                  <option value="{{this}}" {{isSelectedTitle}}>{{this}}</option>
+                {{/each}}
+              </select>
+            </fieldset>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-4 col-md-offset-4">
+                <img src="{{avatar}}">
+              </div>
+            </div>
+            <div class="row">
+              <h4>Event Quiz</h4>
+              <fieldset class="form-group">
+                <span class="col-md-6"> Rate this event</span>
+                <input type="number" name="My Rating System"
+                       id="rate-stars-input"
+                       class="rating" data-max="5" data-min="1" data-value="{{rate}}" data-name="rating"/>
+              </fieldset>
+              <fieldset class="form-group">
+                <label for="comment-input">Comment</label>
+                  <textarea type="number" id="comment-input-input"
+                            class="form-control"
+                            data-name="comment">{{comment}}</textarea>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </template>

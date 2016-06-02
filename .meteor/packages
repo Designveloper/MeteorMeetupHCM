@@ -22,6 +22,9 @@ twbs:bootstrap@3.3.5    # bootstrap library
 insecure                # Allow all DB writes from clients (for prototyping)
 accounts-base
 accounts-google
+service-configuration
 ian:accounts-ui-bootstrap-3
 useraccounts:bootstrap
 useraccounts:iron-routing
+hocnv:publish-counts
+random
