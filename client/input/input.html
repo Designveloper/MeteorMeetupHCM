@@ -1,0 +1,40 @@
+<template name="inputTemplate">
+  <div class="container">
+    <form id="quickForm">
+      <div class="input-group">
+        <span class="input-group-addon" id="name-input">Name</span>
+        <input type="text" class="form-control"
+               aria-describedby="name-input" data-name="name" value="{{user.profile.name}}" readonly>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="name-input">Email</span>
+        <input type="text" class="form-control"
+               aria-describedby="name-input" data-name="name" value="{{user.services.google.email}}" readonly>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="phone-input">Phone</span>
+        <input type="number" class="form-control" placeholder="0905079999"
+               aria-describedby="phone-input" data-name="phone" value="{{user.quickInfo.phone}}">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="comment-input">Comment</span>
+        <textarea type="text" class="form-control" placeholder="Comment"
+                  aria-describedby="comment-input" data-name="comment">{{user.quickInfo.comment}}</textarea>
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="rating-input">Rating</span>
+        <select type="text" class="form-control"
+                aria-describedby="rating-input" data-name="rating">
+          {{#each rating}}
+          <option value="{{this}}" {{isSelected}}>{{this}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="btn-group">
+        <button type="submit" class="btn btn-default"
+                aria-expanded="false"> Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</template>

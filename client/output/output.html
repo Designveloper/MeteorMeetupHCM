@@ -1,0 +1,35 @@
+<template name="outputTemplate">
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Output User</div>
+    <div class="panel-body">
+      <p></p>
+    </div>
+
+    <!-- Table -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th> # </th>
+          <th> Name </th>
+          <th> Email </th>
+          <th> Phone </th>
+          <th> Comment </th>
+          <th> Rating </th>
+        </tr>
+      </thead>
+      <tbody>
+      {{#each data}}
+          <tr>
+            <td>{{@index}}</td>
+            <td>{{profile.name}}</td>
+            <td>{{services.google.email}}</td>
+            <td>{{quickInfo.phone}}</td>
+            <td>{{quickInfo.comment}}</td>
+            <td>{{quickInfo.rating}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</template>
