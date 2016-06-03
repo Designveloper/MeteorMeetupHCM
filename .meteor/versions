@@ -29,6 +29,8 @@ ecmascript-runtime@0.2.10
 ejson@1.0.11
 es5-shim@4.5.10
 fastclick@1.0.11
+fezvrasta:bootstrap-material-design@0.5.9
+fourseven:scss@3.4.3
 geojson-utils@1.0.8
 google@1.1.11
 hocnv:publish-counts@0.7.3

@@ -27,6 +27,10 @@ Template.header.events({
     e.preventDefault();
     Meteor.logout();
     Router.go('/signin');
+  },
+  
+  'click .navbar-nav li': function(e) {
+    $('.navbar-nav li').removeClass('active');
+    $(e.currentTarget).addClass('active');
   }
-
 })
