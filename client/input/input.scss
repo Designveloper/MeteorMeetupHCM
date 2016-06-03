@@ -1,17 +1,33 @@
 .home-page {
   margin-bottom: 20px;
+  .note {
+    margin: 0;
+    font-style: italic;
+    font-size: 13px;
+    color: #BDBDBD;
+    margin-top: 20px;
+    font-weight: 400;
+  }
+  .map {
+    border: 1px solid #D2D2D2;
+    margin-top: 20px;
+    padding: 2px;
+  }
+  .title {
+    h4 {
+      text-transform: uppercase;
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+  }
   .header-page {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     border-bottom: 2px solid #009688;
     padding-bottom: 10px;
     h1 {
       margin: 0;
       margin-bottom: 5px;
       font-size: 30px;
-    }
-    h3 {
-      margin: 0;
-      font-size: 18px;
     }
   }
   .form-group {
@@ -29,7 +45,7 @@
     }
     &.rating-group {
       text-align: center;
-      margin-top: 38px;
+      margin-top: 32px;
       position: relative;
       span {
         line-height: 1.42857143;
@@ -45,8 +61,9 @@
     }
   }
   .avatar {
-    width: 160px;
-    margin: 30px auto 0;
+    width: 100%;
+    max-width: 160px;
+    margin: 12px auto 0;
     img {
       border-radius: 50%;
     }
@@ -65,6 +82,19 @@
       color: #BDBDBD;
       &:before {
         content: "\e006";
+      }
+    }
+  }
+  @media(max-width: 767px) {
+    .note {
+      padding-bottom: 5px;
+      margin-bottom: 50px;
+      margin-top: 10px;
+    }
+    .form-group.rating-group {
+      text-align: left;
+      span {
+        position: static;
       }
     }
   }

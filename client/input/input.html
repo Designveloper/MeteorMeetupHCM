@@ -5,13 +5,15 @@
         <div class="col-md-12">
           <div class="header-page text-center">
             <h1 class="text-uppercase">{{eventContent}}</h1>
-            <h3>We never use your contact information outside this event's purpose </h3>
           </div>
         </div>
       </div>
       <div class="row">
         <form id="quizForm">
-          <div class="col-md-5 col-sm-6">
+          <div class="col-sm-6">
+            <div class="avatar">
+              <img src="{{avatar}}">
+            </div>
             <fieldset class="form-group">
               <label for="name-input">Name</label>
               <input type="text" id="name-input" class="form-control"
@@ -37,35 +39,37 @@
               </select>
             </fieldset>
             <fieldset class="form-group">
-              <label for="title-input">Title</label>
+              <label for="title-input">Job title</label>
               <select class="form-control text-capitalize" id="title-input" data-name="title">
                 {{#each Titles}}
                   <option value="{{this}}" {{isSelectedTitle}}>{{this}}</option>
                 {{/each}}
               </select>
             </fieldset>
+            <h3 class="note">* We never use your contact information outside this event's purpose </h3>
           </div>
-          <div class="col-md-5 col-md-offset-2 col-sm-6">
-            <div class="row">
-              <div class="avatar">
-                <img src="{{avatar}}">
-              </div>
-              <div class="col-sm-12">
-                <div class="event-quiz">
-                  <fieldset class="form-group rating-group">
-                    <span> Rate this event</span>
-                    <input type="number" name="My Rating System"
-                           id="rate-stars-input"
-                           class="rating" data-max="5" data-min="1" data-value="{{rate}}" data-name="rating"/>
-                  </fieldset>
-                  <fieldset class="form-group">
-                    <label for="comment-input">Comment</label>
-                      <textarea type="number" id="comment-input-input"
-                                class="form-control"
-                                data-name="comment" rows="5">{{comment}}</textarea>
-                  </fieldset>
-                </div>
-              </div>
+          <div class="col-md-5 col-md-offset-1 col-sm-6">
+            <div class="title">
+              <h4>We need your feedback</h4>
+            </div>
+            <div class="event-quiz">
+              <fieldset class="form-group rating-group">
+                <span> Rate this event</span>
+                <input type="number" name="My Rating System"
+                       id="rate-stars-input"
+                       class="rating" data-max="5" data-min="1" data-value="{{rate}}" data-name="rating"/>
+              </fieldset>
+              <fieldset class="form-group">
+                <label for="comment-input">Comment</label>
+                  <textarea type="number" id="comment-input-input"
+                            class="form-control"
+                            data-name="comment" rows="5">{{comment}}</textarea>
+              </fieldset>
+            </div>
+            <div class="map">
+              <a href="https://www.google.com/maps/place/Designveloper/@10.7688979,106.6976381,18z/data=!4m5!3m4!1s0x0:0xa173707dd38f924f!8m2!3d10.768753!4d106.697681?hl=en" target="_blank">
+                <img src="/img/map.png" alt="Map" />
+              </a>
             </div>
           </div>
         </form>
