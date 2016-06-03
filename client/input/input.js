@@ -64,6 +64,7 @@ Template.inputTemplate.helpers({
     if (eventQuiz.length){
       if (eventQuiz[0].age === ""+this) return 'selected';
     }
+    return (ENUM.AGE_DEFAULT === parseInt(this))?'selected':'';
   },
   'eventContent': function(){
     return ENUM.eventContent;
