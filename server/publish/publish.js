@@ -10,7 +10,6 @@ Meteor.publish(null, function () {
 });
 Meteor.publish('quizData', function (eventId, email) {
   if (!this.userId) return this.ready();
-  console.log('sss');
   return EventQuizData.find({eventId: eventId, email: email})
 });
 Meteor.publish('subCountEvent', function (type, data) {

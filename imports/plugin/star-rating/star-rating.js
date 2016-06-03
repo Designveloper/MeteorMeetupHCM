@@ -1,6 +1,6 @@
 (function ($) {
 
-  $.fn.rating = function () {
+  $.fn.rating = function (initStar) {
 
     var element;
 
@@ -143,9 +143,14 @@
           _clearValue(this);
         }
       });
-
+    this.updateValue = function(value){
+      var el = $('.rating-input').find('[data-value='+value+']');
+      el.trigger('mouseenter');
+        var input = el.siblings('input');
+      _updateValue(input,value);
+    }
+    return this;
   };
-
   // Auto apply conversion of number fields with class 'rating' into rating-fields
   $(function () {
     if ($('input.rating[type=number]').length > 0) {

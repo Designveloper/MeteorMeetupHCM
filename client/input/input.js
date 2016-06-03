@@ -34,11 +34,9 @@ Template.inputTemplate.helpers({
    return ENUM.getEmailCurrentUser();
   },
   'phone': function(){
-    var user = Meteor.user();
-    try {
-      return user.profile.phone;
-    }catch (e){
-      return "";
+    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId, email: ENUM.getEmailCurrentUser()}).fetch();
+    if (eventQuiz.length) {
+      return eventQuiz[0].phone
     }
   },
   'Ages': function(){
@@ -64,7 +62,7 @@ Template.inputTemplate.helpers({
   'isSelectedAge': function(){
     var eventQuiz = EventQuizData.find({eventId: ENUM.eventId, email: ENUM.getEmailCurrentUser()}).fetch();
     if (eventQuiz.length){
-      if (eventQuiz[0].age === parseInt(this)) return 'selected';
+      if (eventQuiz[0].age === ""+this) return 'selected';
     }
   },
   'eventContent': function(){
@@ -73,7 +71,11 @@ Template.inputTemplate.helpers({
   "rate": function(){
     var eventQuiz = EventQuizData.find({eventId: ENUM.eventId, email: ENUM.getEmailCurrentUser()}).fetch();
     if (eventQuiz.length){
-      return parseInt(eventQuiz[0].rating)
+      var rating = parseInt(eventQuiz[0].rating);
+      if (rating){
+        var tpl = Template.instance();
+        tpl.rating.updateValue(rating);
+      }
     }
   },
   "comment": function(){
@@ -117,5 +119,7 @@ Template.inputTemplate.onRendered(function(){
       return 'Current value: ' + value;
     }
   });
-  $(this.$('#rate-stars-input')).rating();
+  this.rating = $(this.$('#rate-stars-input')).rating();
+
+
 })

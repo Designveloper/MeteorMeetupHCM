@@ -22,6 +22,17 @@
 // Changelog:
 //          6/2/16 - hocnguyen - Init first revision.
 // =============================================================================
+Template.header.helpers({
+  'haveUser': function(){
+    return !!Meteor.user();
+  },
+  'navLink': function(){
+    return ENUM.NAV_LINK;
+  },
+  'isNavActive': function(){
+    if (Router.current().route.getName() == ""+this) return "active";
+  }
+})
 Template.header.events({
   'click #signout-input': function(e){
     e.preventDefault();
