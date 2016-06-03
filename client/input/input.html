@@ -1,28 +1,31 @@
 <template name="inputTemplate">
-  <div id="QuizInput" class="container">
-    <div class="row">
-      <h1>{{eventContent}}</h1>
-    </div>
-    <div class="row">
-      <h3>We never use your contact information outside this event's
-        purpose </h3>
-      <form id="quizForm">
-        <div class="row">
-          <div class="col-md-6">
+  <div class="container">
+    <div id="QuizInput" class="home-page">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="header-page text-center">
+            <h1 class="text-uppercase">{{eventContent}}</h1>
+            <h3>We never use your contact information outside this event's purpose </h3>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <form id="quizForm">
+          <div class="col-md-5 col-sm-6">
             <fieldset class="form-group">
               <label for="name-input">Name</label>
               <input type="text" id="name-input" class="form-control"
                      data-name="name"
-                     value="{{user.profile.name}}" readonly>
+                     value="{{user.profile.name}}" readonly disabled>
             </fieldset>
             <fieldset class="form-group">
               <label for="name-input">Email</label>
               <input type="email" id="name-input" class="form-control"
-                     data-name="name" value="{{email}}" readonly>
+                     data-name="name" value="{{email}}" readonly disabled>
             </fieldset>
             <fieldset class="form-group">
               <label for="name-input">Phone</label>
-              <input type="number" id="name-input" class="form-control"
+              <input type="phone" id="name-input" class="form-control"
                      data-name="name" value="{{phone}}">
             </fieldset>
             <fieldset class="form-group">
@@ -35,37 +38,38 @@
             </fieldset>
             <fieldset class="form-group">
               <label for="title-input">Title</label>
-              <select class="form-control" id="title-input" data-name="title">
+              <select class="form-control text-capitalize" id="title-input" data-name="title">
                 {{#each Titles}}
                   <option value="{{this}}" {{isSelectedTitle}}>{{this}}</option>
                 {{/each}}
               </select>
             </fieldset>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-5 col-md-offset-2 col-sm-6">
             <div class="row">
-              <div class="col-md-4 col-md-offset-4">
+              <div class="avatar">
                 <img src="{{avatar}}">
               </div>
-            </div>
-            <div class="row">
-              <h4>Event Quiz</h4>
-              <fieldset class="form-group">
-                <span class="col-md-6"> Rate this event</span>
-                <input type="number" name="My Rating System"
-                       id="rate-stars-input"
-                       class="rating" data-max="5" data-min="1" data-value="{{rate}}" data-name="rating"/>
-              </fieldset>
-              <fieldset class="form-group">
-                <label for="comment-input">Comment</label>
-                  <textarea type="number" id="comment-input-input"
-                            class="form-control"
-                            data-name="comment">{{comment}}</textarea>
-              </fieldset>
+              <div class="col-sm-12">
+                <div class="event-quiz">
+                  <fieldset class="form-group rating-group">
+                    <span> Rate this event</span>
+                    <input type="number" name="My Rating System"
+                           id="rate-stars-input"
+                           class="rating" data-max="5" data-min="1" data-value="{{rate}}" data-name="rating"/>
+                  </fieldset>
+                  <fieldset class="form-group">
+                    <label for="comment-input">Comment</label>
+                      <textarea type="number" id="comment-input-input"
+                                class="form-control"
+                                data-name="comment" rows="5">{{comment}}</textarea>
+                  </fieldset>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 </template>
