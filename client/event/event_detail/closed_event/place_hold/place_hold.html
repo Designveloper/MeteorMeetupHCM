@@ -1,0 +1,21 @@
+<template name="map2HoldTemplate">
+  <div class="map">
+
+  </div>
+  <div class="event-detail-information">
+    <div class="row">
+      <div class="col-lg-2">Location: </div>
+      <div class="col-lg-5">{{location}}</div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2">Time: </div>
+      <div class="col-lg-5">{{time}}</div>
+    </div>
+    <div class="row">
+      <span class="max-member-event">{{getMaxNumber}}</span> members will join - <span class="remain-slot">{{getRemainSlot}}</span> slots remain
+    </div>
+    <div class="row">
+      <h5> will you go to this event   <a href="#" class="yes-go-to-event">YES</a>   <a href="#" class="no-go-to-event">NO</a> </h5>
+    </div>
+  </div>
+</template>

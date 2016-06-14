@@ -1,0 +1,23 @@
+<template name="eventDetailTemplate">
+  <div id="dashboardPage" class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <ol class="breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Library</a></li>
+          <li class="active">Data</li>
+        </ol>
+      </div>
+      <div class="col-lg-4">
+        <h5 class="label label-default">Opening</h5>
+      </div>
+    </div>
+    <div class="row">
+      {{#if isOpening}}
+        {{> openningEventDetailTemplate}}
+      {{else}}
+        {{> closedEventDetailTemplate}}
+      {{/if}}
+    </div>
+  </div>
+</template>

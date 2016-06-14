@@ -1,0 +1,50 @@
+<template name="topic2HoldTemplate">
+  <div class="topic-hold-list">
+    {{#each topics}}
+      <div class="row">
+        <div class="row">
+          <div class="col-lg-3">
+            <img src="{{image}}" class="thumbnail">
+          </div>
+          <div class="col-lg-5">
+            <div class="row"> {{title}} </div>
+            <div class="row">
+              <div class="col-lg-3"> Estimate time:</div>
+              <div class="col-lg-5"><span
+              class="time-est-topic">{{formatTime timeEst}}</span></div>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <span class="number-votes">{{getNumberVotes}}</span>
+          </div>
+          <div class="col-lg-2">
+            <a href="#" class="like-button">
+              <span class="fa fa-like">
+              </span>
+            </a>
+          </div>
+        </div>
+        {{#if haveMainContent}}
+          <div class="row">
+            <div class="col-lg-7 col-lg-offset-3">
+              <div class="row">
+                <h4>Main Content</h4>
+              </div>
+              <div class="row">
+              <span class="main-content-topic">
+                Lorem
+              </span>
+              </div>
+            </div>
+            <div class="col-lg-2">
+              <a href="#" class="like-button">
+                <span class="fa fa-download">
+                </span>
+              </a>
+            </div>
+          </div>
+        {{/if}}
+      </div>
+    {{/each}}
+  </div>
+</template>
