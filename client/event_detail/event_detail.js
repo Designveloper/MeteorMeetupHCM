@@ -26,7 +26,7 @@ import '../../imports/plugin/slider/slider.js'
 import '../../imports/plugin/slider/slider.css'
 import '../../imports/plugin/star-rating/star-rating.js'
 
-Template.inputTemplate.helpers({
+Template.eventDetailTemplate.helpers({
   'user': function(){
     return Meteor.user();
   },
@@ -86,7 +86,7 @@ Template.inputTemplate.helpers({
     }
   }
 })
-Template.inputTemplate.events({
+Template.eventDetailTemplate.events({
   'change input, change select, change textarea': function(e,tpl){
     var el = $(e.currentTarget);
     if (el.is('[readonly]')){
@@ -114,7 +114,7 @@ Template.inputTemplate.events({
       EventQuizData.insert(data)
   }
 });
-Template.inputTemplate.onRendered(function(){
+Template.eventDetailTemplate.onRendered(function(){
   $(this.$('#percent-input')).slider({
     formatter: function(value) {
       return 'Current value: ' + value;

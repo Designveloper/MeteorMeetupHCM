@@ -1,5 +1,5 @@
 import '../../imports/plugin/flot/index.js'
-Template.outputTemplate.onRendered(function () {
+Template.eventSummaryTemplate.onRendered(function () {
   Tracker.autorun(function () {
     ENUM.plotPieByData(ENUM.Ages(), 'flot-pie-ages', 'EventCountAge', 'Age')
   });

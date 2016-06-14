@@ -20,12 +20,17 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 iron:router             # Route
 twbs:bootstrap@3.3.5    # bootstrap library
 insecure                # Allow all DB writes from clients (for prototyping)
+
+# account
 accounts-base
 accounts-google
+accounts-password
 service-configuration
 ian:accounts-ui-bootstrap-3
 useraccounts:bootstrap
 useraccounts:iron-routing
+
+# other
 hocnv:publish-counts
 random
 fezvrasta:bootstrap-material-design
