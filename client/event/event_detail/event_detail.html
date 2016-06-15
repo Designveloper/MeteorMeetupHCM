@@ -8,16 +8,18 @@
           <li class="active">Data</li>
         </ol>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 status-label text-right">
         <h5 class="label label-default">Opening</h5>
       </div>
     </div>
-    <div class="row">
-      {{#if isOpening}}
-        {{> openningEventDetailTemplate}}
-      {{else}}
-        {{> closedEventDetailTemplate}}
-      {{/if}}
+    <div class="container">
+      <div class="row">
+        {{#if isOpening}}
+          {{> openingEventDetailTemplate}}
+        {{else}}
+          {{> closedEventDetailTemplate}}
+        {{/if}}
+      </div>
     </div>
   </div>
 </template>

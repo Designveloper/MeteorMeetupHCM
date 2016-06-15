@@ -1,0 +1,14 @@
+.place-hold {
+  position: relative;
+  .map-container {
+    height: 200px;
+  }
+  .event-detail-information {
+    position: absolute;
+    z-index: 1;
+    padding-top:50px;
+    .event-detail-down {
+      padding-top:10px;
+    }
+  }
+}
