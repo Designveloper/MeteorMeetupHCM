@@ -1,50 +1,66 @@
 <template name="topicHoldTemplate">
   <div class="topic-hold-list">
-    {{#each topics}}
-      <div class="row">
-        <div class="row">
-          <div class="col-lg-3">
-            <img src="{{image}}" class="thumbnail">
-          </div>
-          <div class="col-lg-5">
-            <div class="row"> {{title}} </div>
-            <div class="row">
-              <div class="col-lg-3"> Estimate time:</div>
-              <div class="col-lg-5"><span
-              class="time-est-topic">{{formatTime timeEst}}</span></div>
+    <div>
+      <!-- {{#each topics}} -->
+        <div class="topic">
+          <div class="header">
+            <div class="col-xs-2 col-sm-2 col-lg-2 center">
+              <img src="http://lorempixel.com/100/100/people/" class="thumbnail small">
             </div>
-          </div>
-          <div class="col-lg-2">
-            <span class="number-votes">{{getNumberVotes}}</span>
-          </div>
-          <div class="col-lg-2">
-            <a href="#" class="like-button">
-              <span class="fa fa-like">
-              </span>
-            </a>
-          </div>
-        </div>
-        {{#if haveMainContent}}
-          <div class="row">
-            <div class="col-lg-7 col-lg-offset-3">
+            <div class="col-xs-5 col-sm-5 col-lg-5">
+              <!-- <div class="row"> {{title}} </div> -->
               <div class="row">
-                <h4>Main Content</h4>
+                <h4>Meteor for Android Application</h4>
               </div>
               <div class="row">
-              <span class="main-content-topic">
-                Lorem
-              </span>
+                Estimate time:
+                  <!-- <span class="time-est-topic">{{formatTime timeEst}}</span> -->
+                <span class="time-est-topic">30 mins</span>
               </div>
             </div>
-            <div class="col-lg-2">
+            <div class="col-xs-1 col-sm-1 col-lg-1 center">
               <a href="#" class="like-button">
-                <span class="fa fa-download">
+                <span class="fa fa-paperclip icon">
                 </span>
               </a>
             </div>
+            <div class="col-xs-2 col-sm-2 col-lg-2 center">
+              <!-- <span class="number-votes">{{getNumberVotes}}</span> -->
+              <span class="number-votes">13 voted</span>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-lg-2 center">
+              <a href="#" class="like-button">
+                <span class="fa fa-thumbs-up icon"></span>
+              </a>
+            </div>
           </div>
-        {{/if}}
-      </div>
-    {{/each}}
+          <!-- {{#if haveMainContent}} -->
+            <div class="row content">
+              <div class="col-xs-2 col-sm-2 col-lg-2">
+              </div>
+              <div class="col-xs-8 col-sm-8 col-lg-8">
+                <div class="row">
+                  <strong>Main Content:</strong>
+                </div>
+                <div class="row">
+                <span class="main-content-topic">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.
+                  Duis vulputate commodo lectus, ac blandit elit tincidunt id.
+                  Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit,
+                </span>
+                </div>
+              </div>
+              <div class="col-xs-2 col-sm-2 col-lg-2 center">
+                <a href="#" class="like-button">
+                  <span class="fa fa-download icon">
+                  </span>
+                </a>
+              </div>
+            </div>
+          <!-- {{/if}} -->
+        </div>
+      <!-- {{/each}} -->
+    </div>
   </div>
 </template>
