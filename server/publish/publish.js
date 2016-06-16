@@ -30,3 +30,11 @@ Meteor.publish('subCountEvent', function (type, data) {
       rating: ""+data.value
     }));
 });
+Meteor.publish('topicsHold', function (eventId) {
+  if (!this.userId) return this.ready();
+  return Topic.find({event_id: eventId})
+});
+Meteor.publish('voteTopics', function (_type) {
+  if (!this.userId) return this.ready();
+  return Vote.find({type:_type})
+});

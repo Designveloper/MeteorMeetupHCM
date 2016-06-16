@@ -1,21 +1,17 @@
 <template name="topicHoldTemplate">
   <div class="topic-hold-list">
     <div>
-      <!-- {{#each topics}} -->
+      {{#each topics}}
         <div class="topic">
           <div class="header">
             <div class="col-xs-2 col-sm-2 col-lg-2 center">
-              <img src="http://lorempixel.com/100/100/people/" class="thumbnail small">
+              <img src="{{image}}" class="thumbnail small">
             </div>
             <div class="col-xs-5 col-sm-5 col-lg-5">
-              <!-- <div class="row"> {{title}} </div> -->
-              <div class="row">
-                <h4>Meteor for Android Application</h4>
-              </div>
+              <div class="row"> {{title}} </div>
               <div class="row">
                 Estimate time:
-                  <!-- <span class="time-est-topic">{{formatTime timeEst}}</span> -->
-                <span class="time-est-topic">30 mins</span>
+                <span class="time-est-topic">{{timeEst}}</span>
               </div>
             </div>
             <div class="col-xs-1 col-sm-1 col-lg-1 center">
@@ -25,8 +21,7 @@
               </a>
             </div>
             <div class="col-xs-2 col-sm-2 col-lg-2 center">
-              <!-- <span class="number-votes">{{getNumberVotes}}</span> -->
-              <span class="number-votes">13 voted</span>
+              <span class="number-votes">{{getNumberVotes}} voted</span>
             </div>
             <div class="col-xs-2 col-sm-2 col-lg-2 center">
               <a href="#" class="like-button">
@@ -34,7 +29,7 @@
               </a>
             </div>
           </div>
-          <!-- {{#if haveMainContent}} -->
+          {{#if haveMainContent}}
             <div class="row content">
               <div class="col-xs-2 col-sm-2 col-lg-2">
               </div>
@@ -44,10 +39,7 @@
                 </div>
                 <div class="row">
                 <span class="main-content-topic">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.
-                  Duis vulputate commodo lectus, ac blandit elit tincidunt id.
-                  Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit,
+                  {{content}}
                 </span>
                 </div>
               </div>
@@ -58,9 +50,9 @@
                 </a>
               </div>
             </div>
-          <!-- {{/if}} -->
+          {{/if}}
         </div>
-      <!-- {{/each}} -->
+      {{/each}}
     </div>
   </div>
 </template>
