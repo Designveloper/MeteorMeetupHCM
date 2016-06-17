@@ -1,0 +1,15 @@
+<template name="breadcrumb">
+  <ol class="breadcrumb">
+    {{#each getPaths}}
+      {{#if isEnd}}
+        <li class="active">{{name}}</li>
+      {{else}}
+        {{#if isRoute}}
+          <li><a href="{{pathFor route=route}}">{{name}}</a></li>
+        {{else}}
+        <li><a href="{{getRoute}}">{{name}}</a></li>
+        {{/if}}
+      {{/if}}
+    {{/each}}
+  </ol>
+</template>

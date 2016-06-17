@@ -21,11 +21,15 @@ Meteor.publish('allGroups', function () {
 });
 Meteor.publish('eventNMemberByGroup', function (groupId) {
   if (!this.userId) return this.ready();
-  return [EventData.find({group_id: groupId}), Meteor.users.find({groups: groupId})]
+  return [EventData.find({group_id: groupId}),Meteor.users.find({groups: groupId})]
 });
 Meteor.publish('eventById', function (eventId) {
   if (!this.userId) return this.ready();
   return EventData.find({_id: eventId})
+});
+Meteor.publish('groupById', function (groupId) {
+  if (!this.userId) return this.ready();
+  return Group.find({_id: groupId})
 });
 Meteor.publish('topicsHold', function (eventId) {
   if (!this.userId) return this.ready();
