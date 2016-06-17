@@ -9,7 +9,11 @@
         </ol>
       </div>
       <div class="col-xs-4 status-label text-right">
-        <h5 class="label label-default">Opening</h5>
+        {{#if isOpening}}
+          <h5 class="label label-default"> Opening </h5>
+        {{else}}
+          <h5 class="label label-default"> Ended </h5>
+        {{/if}}
       </div>
     </div>
     <div class="container">

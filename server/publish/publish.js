@@ -4,7 +4,8 @@ Meteor.publish(null, function () {
     fields: {
       'services.google.email': 1,
       'services.google.picture': 1,
-      quickInfo: 1
+      quickInfo: 1,
+      groups: 1
     }
   });
 });
@@ -27,8 +28,14 @@ Meteor.publish('subCountEvent', function (type, data) {
   if (type === 'EventCountRate')
     return Counts.publish(this, type + '-' + data.value, EventQuizData.find({
       eventId: data.eventId,
-      rating: ""+data.value
+      rating: "" + data.value
     }));
+});
+Meteor.publish('eventNGroupByUser', function () {
+  if (!this.userId) return this.ready();
+  var user = Meteor.users.findOne(this.userId);
+  var groupList = user.groups;
+  return [EventData.find({group_id: {$in: groupList}}), Group.find({_id: {$in: groupList}})]
 });
 Meteor.publish('eventById', function (eventId) {
   if (!this.userId) return this.ready();
@@ -40,5 +47,5 @@ Meteor.publish('topicsHold', function (eventId) {
 });
 Meteor.publish('voteTopics', function (_type) {
   if (!this.userId) return this.ready();
-  return Vote.find({type:_type})
+  return Vote.find({type: _type})
 });
