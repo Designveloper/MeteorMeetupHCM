@@ -1,8 +1,7 @@
 <template name="eventListTemplate">
   <div class="event-list">
     {{#each events}}
-      <div class="col-xs-3">
-        <a href="{{routeToEvent}}">
+      <a href="{{routeToEvent}}">
         <div class="panel panel-default">
           <div class="panel-heading">
             <div class="row">
@@ -27,8 +26,7 @@
             </div>
           </div>
         </div>
-          </a>
-      </div>
+      </a>
     {{/each}}
   </div>
 </template>

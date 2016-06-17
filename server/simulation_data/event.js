@@ -1,5 +1,9 @@
 Meteor.methods({
   'event_create_sm': function () {
+    var date = new Date();
+    date.setDate(date.getDate()+2);
+    var date2 = new Date();
+    date2.setDate(date2.getDate()-2);
     var data =
       [{
         _id: '1',
@@ -7,6 +11,7 @@ Meteor.methods({
         image: '/img/home.png',
         name: 'Meteor get start',
         position_geo: {},
+        date: date,
         description: 'Lorem ipsum dolor sit amet, vim ad fierent incorrupte disputationi,' +
         ' te eam debitis appellantur, ea malorum ceteros ius. Natum probatus definiti' +
         'onem id quo, utinam sententiae duo in. Et timeam detraxit vix, eu aeterno defi' +
@@ -23,6 +28,7 @@ Meteor.methods({
           image: '/img/home.png',
           name: 'Meteor react',
           position_geo: {},
+          date: date2,
           description: 'Lorem ipsum dolor sit amet, vim ad fierent incorrupte disputationi,' +
           ' te eam debitis appellantur, ea malorum ceteros ius. Natum probatus definiti' +
           'onem id quo, utinam sententiae duo in. Et timeam detraxit vix, eu aeterno defi' +

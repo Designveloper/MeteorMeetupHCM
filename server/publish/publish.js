@@ -19,6 +19,10 @@ Meteor.publish('allGroups', function () {
   if (!this.userId) return this.ready();
   return Group.find({});
 });
+Meteor.publish('eventNMemberByGroup', function (groupId) {
+  if (!this.userId) return this.ready();
+  return [EventData.find({group_id: groupId}), Meteor.users.find({groups: groupId})]
+});
 Meteor.publish('eventById', function (eventId) {
   if (!this.userId) return this.ready();
   return EventData.find({_id: eventId})
