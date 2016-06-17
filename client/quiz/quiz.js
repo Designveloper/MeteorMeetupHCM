@@ -34,7 +34,7 @@ Template.quizTemplate.helpers({
    return ENUM.getEmailCurrentUser();
   },
   'phone': function(){
-    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId, email: ENUM.getEmailCurrentUser()}).fetch();
+    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId(), email: ENUM.getEmailCurrentUser()}).fetch();
     if (eventQuiz.length) {
       return eventQuiz[0].phone
     }
@@ -54,13 +54,13 @@ Template.quizTemplate.helpers({
     }
   },
   'isSelectedTitle': function(){
-    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId, email: ENUM.getEmailCurrentUser()}).fetch();
+    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId(), email: ENUM.getEmailCurrentUser()}).fetch();
     if (eventQuiz.length){
       if (eventQuiz[0].title === ""+this) return 'selected';
     }
   },
   'isSelectedAge': function(){
-    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId, email: ENUM.getEmailCurrentUser()}).fetch();
+    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId(), email: ENUM.getEmailCurrentUser()}).fetch();
     if (eventQuiz.length){
       if (eventQuiz[0].age === ""+this) return 'selected';
     }
@@ -70,7 +70,7 @@ Template.quizTemplate.helpers({
     return ENUM.eventContent;
   },
   "rate": function(){
-    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId, email: ENUM.getEmailCurrentUser()}).fetch();
+    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId(), email: ENUM.getEmailCurrentUser()}).fetch();
     if (eventQuiz.length){
       var rating = parseInt(eventQuiz[0].rating);
       if (rating){
@@ -80,7 +80,7 @@ Template.quizTemplate.helpers({
     }
   },
   "comment": function(){
-    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId, email: ENUM.getEmailCurrentUser()}).fetch();
+    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId(), email: ENUM.getEmailCurrentUser()}).fetch();
     if (eventQuiz.length){
       return eventQuiz[0].comment
     }
@@ -104,7 +104,7 @@ Template.quizTemplate.events({
       var value = el.val().trim();
       data[name] = value;
     });
-    data.eventId = ENUM.eventId;
+    data.eventId = ENUM.eventId();
     data.email =  ENUM.getEmailCurrentUser();
     if (data.email === "") return;
     var eventQuiz = EventQuizData.findOne({eventId: data.eventId, email: data.email});

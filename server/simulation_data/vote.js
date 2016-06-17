@@ -10,6 +10,7 @@ Meteor.methods({
         type: 'topic',
         value: 3
       }];
+    Vote.remove({})
     for (let aData of data){
       if (!Vote.findOne(aData._id)){
         Vote.insert(aData);

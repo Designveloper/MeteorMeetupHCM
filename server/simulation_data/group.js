@@ -11,6 +11,7 @@ Meteor.methods({
           image: '/img/home.png',
           name: 'Javascript HCM',
         }]
+    Group.remove({});
     for (let aData of data){
       if (!Group.findOne(aData._id)){
         Group.insert(aData);

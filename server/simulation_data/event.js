@@ -15,6 +15,7 @@ Meteor.methods({
         ' id pri, ex nostrud copiosae platonem mei. Sit mollis rationibus et, vix at ' +
         'quando signiferumque, at illum constituto mei. Ei eum aliquid facilisis, sit' +
         ' legere doming virtute ad. Prodesset sadipscing id eam.',
+        status: ENUM.EVENT_STATUS.OPENING
       },
         {
           _id: '2',
@@ -30,7 +31,9 @@ Meteor.methods({
           ' id pri, ex nostrud copiosae platonem mei. Sit mollis rationibus et, vix at ' +
           'quando signiferumque, at illum constituto mei. Ei eum aliquid facilisis, sit' +
           ' legere doming virtute ad. Prodesset sadipscing id eam.',
+          status: ENUM.EVENT_STATUS.ENDED
         }]
+    EventData.remove({});
     for (let aData of data){
       if (!EventData.findOne(aData._id)){
         EventData.insert(aData);
