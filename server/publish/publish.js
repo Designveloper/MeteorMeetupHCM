@@ -9,33 +9,15 @@ Meteor.publish(null, function () {
     }
   });
 });
-Meteor.publish('quizData', function (eventId, email) {
-  if (!this.userId) return this.ready();
-  return EventQuizData.find({eventId: eventId, email: email})
-});
-Meteor.publish('subCountEvent', function (type, data) {
-  console.log('dataSubCount' + type, data);
-  if (type === 'EventCountAge')
-    return Counts.publish(this, type + '-' + data.value, EventQuizData.find({
-      eventId: data.eventId,
-      age: "" + data.value
-    }));
-  if (type === 'EventCountTitle')
-    return Counts.publish(this, type + '-' + data.value, EventQuizData.find({
-      eventId: data.eventId,
-      title: data.value
-    }));
-  if (type === 'EventCountRate')
-    return Counts.publish(this, type + '-' + data.value, EventQuizData.find({
-      eventId: data.eventId,
-      rating: "" + data.value
-    }));
-});
 Meteor.publish('eventNGroupByUser', function () {
   if (!this.userId) return this.ready();
   var user = Meteor.users.findOne(this.userId);
   var groupList = user.groups;
   return [EventData.find({group_id: {$in: groupList}}), Group.find({_id: {$in: groupList}})]
+});
+Meteor.publish('allGroups', function () {
+  if (!this.userId) return this.ready();
+  return Group.find({});
 });
 Meteor.publish('eventById', function (eventId) {
   if (!this.userId) return this.ready();
