@@ -1,21 +1,39 @@
 <template name="map2HoldTemplate">
-  <div class="map">
-
-  </div>
-  <div class="event-detail-information">
+  <div class="place-hold">
     <div class="row">
-      <div class="col-lg-2">Location: </div>
-      <div class="col-lg-5">{{location}}</div>
-    </div>
-    <div class="row">
-      <div class="col-lg-2">Time: </div>
-      <div class="col-lg-5">{{time}}</div>
-    </div>
-    <div class="row">
-      <span class="max-member-event">{{getMaxNumber}}</span> members will join - <span class="remain-slot">{{getRemainSlot}}</span> slots remain
-    </div>
-    <div class="row">
-      <h5> will you go to this event   <a href="#" class="yes-go-to-event">YES</a>   <a href="#" class="no-go-to-event">NO</a> </h5>
+      <div class="col-sm-4 col-lg-4">
+        <div class="event-detail-information">
+          <div class="container">
+            <div class="event-detail-upper">
+              <div class="row">
+                <div class="col-sm-2 col-lg-2">Location:</div>
+                <div class="col-sm-4 col-lg-4">{{location}}</div>
+              </div>
+              <div class="row">
+                <div class="col-sm-2 col-lg-2">Time:</div>
+                <div class="col-sm-4 col-lg-4">{{time}}</div>
+              </div>
+            </div>
+            <div class="event-detail-down">
+              <div class="row">
+                <div class="col-sm-6 col-lg-6">
+                  <span class="topic-event">{{getTotalTopics}}</span> topics
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 col-lg-6">
+                  <span class="max-member-event">{{getMembersJoined}}</span> members joined
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-8 col-lg-8">
+        <div class="map-container">
+          {{> googleMap name="exampleMap" options=mapOptions}}
+        </div>
+      </div>
     </div>
   </div>
 </template>
