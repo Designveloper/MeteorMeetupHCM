@@ -4,11 +4,36 @@
     height: 200px;
   }
   .event-detail-information {
-    position: absolute;
-    z-index: 1;
-    padding-top:50px;
-    .event-detail-down {
-      padding-top:10px;
+    .container{
+      background-color: rgba(0, 150, 136, 0.7);
+      color: white;
+      height:200px;
+      font-weight:600;
+      .event-detail-upper{
+        margin-top:40px;
+      }
+      .event-detail-down {
+        padding-top:10px;
+        .event-question{
+          a{
+            color:#fff;
+            font-weight:bold;
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+@media(max-width:768px){
+  .place-hold {
+    .event-detail-information {
+      .container{
+        height:140px;
+        .event-detail-upper{
+          margin-top:20px;
+        }
+      }
     }
   }
 }
