@@ -1,0 +1,63 @@
+<template name="userProfileTemplate">
+  <div id="user-profile" class="container">
+    <div class="row">
+      <div class="col-xs-8">
+        {{#if pathForUserPf}}
+          {{> breadcrumb path=pathForUserPf}}
+        {{/if}}
+      </div>
+    </div>
+    <div id="QuizInput" class="home-page">
+      <div class="row">
+        <form id="profileForm">
+          {{#with user}}
+            <div class="col-md-5 col-md-offset-1 col-sm-6">
+              <div class="avatar">
+                <img src="{{avatar}}">
+              </div>
+            </div>
+            <div class="col-sm-6">
+
+              <fieldset class="form-group">
+                <label for="name-input">Name</label>
+                <input type="text" id="name-input" class="form-control"
+                       value="{{profile.name}}" readonly disabled>
+              </fieldset>
+              <fieldset class="form-group">
+                <label for="name-input">Email</label>
+                <input type="email" id="name-input" class="form-control"
+                       value="{{email}}" readonly disabled>
+              </fieldset>
+              <fieldset class="form-group">
+                <label for="name-input">Phone</label>
+                <input type="phone" id="name-input" class="form-control"
+                       data-update="user" data-name="profile.phone" value="{{profile.phone}}">
+              </fieldset>
+              <fieldset class="form-group">
+                <label for="age-input">Ages</label>
+                <select class="form-control" id="age-input" data-update="user"
+                        data-name="profile.age">
+                  {{#each Ages}}
+                    <option value="{{this}}" {{isSelectedAge}}>{{this}}</option>
+                  {{/each}}
+                </select>
+              </fieldset>
+              <fieldset class="form-group">
+                <label for="title-input">Job title</label>
+                <select class="form-control text-capitalize" id="title-input"
+                        data-update="user" data-name="profile.title">
+                  {{#each Titles}}
+                    <option
+                    value="{{this}}" {{isSelectedTitle}}>{{this}}</option>
+                  {{/each}}
+                </select>
+              </fieldset>
+              <h3 class="note">* We never use your contact information outside
+                this event's purpose </h3>
+            </div>
+          {{/with}}
+        </form>
+      </div>
+    </div>
+  </div>
+</template>
