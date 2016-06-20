@@ -6,7 +6,6 @@ Meteor.methods({
         image: '/img/home.png',
         title: 'Meteor for Android Application',
         timeEst: 30,
-        vote_id: '1',
         event_id: '1'
       },
         {
@@ -14,7 +13,6 @@ Meteor.methods({
           image: '/img/home.png',
           title: 'Hello world to meteor',
           timeEst: 30,
-          vote_id: '2',
           content: 'Lorem ipsum dolor sit amet, vim ad fierent incorrupte disputationi,' +
           ' te eam debitis appellantur, ea malorum ceteros ius. Natum probatus definiti' +
           'onem id quo, utinam sententiae duo in. Et timeam detraxit vix, eu aeterno defi' +
@@ -31,7 +29,6 @@ Meteor.methods({
           image: '/img/home.png',
           title: 'Meteor for Android Application',
           timeEst: 30,
-          vote_id: '1',
           event_id: '2'
         },
         {
@@ -39,7 +36,6 @@ Meteor.methods({
           image: '/img/home.png',
           title: 'Hello world to meteor',
           timeEst: 30,
-          vote_id: '2',
           content: 'Lorem ipsum dolor sit amet, vim ad fierent incorrupte disputationi,' +
           ' te eam debitis appellantur, ea malorum ceteros ius. Natum probatus definiti' +
           'onem id quo, utinam sententiae duo in. Et timeam detraxit vix, eu aeterno defi' +

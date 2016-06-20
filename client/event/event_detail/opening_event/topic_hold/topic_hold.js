@@ -1,13 +1,11 @@
 Template.topicHoldTemplate.helpers({
-  'topics': function(){
+  'topics': function () {
     return Topic.find();
   },
-  'haveMainContent': function(){
+  'haveMainContent': function () {
     return !!this.content
   },
-  'getNumberVotes': function(){
-    var votes = Vote.find({_id:this.vote_id}).fetch();
-    if (votes.length)
-      return votes[0].value;
+  'getNumberVotes': function () {
+    return Counts.get('vote-topic' + '-' + this._id)
   }
 })
