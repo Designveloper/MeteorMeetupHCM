@@ -10,7 +10,13 @@ Meteor.methods({
         group_id: '1',
         image: '/img/home.png',
         name: 'Meteor get start',
-        position_geo: {},
+        location: {
+          address: "57 le thi hong gam",
+          geo: {
+            "type": "Point",
+            "coordinates": [106.6955088,10.7687873]
+          }
+        },
         date: date,
         description: 'Lorem ipsum dolor sit amet, vim ad fierent incorrupte disputationi,' +
         ' te eam debitis appellantur, ea malorum ceteros ius. Natum probatus definiti' +
@@ -27,7 +33,13 @@ Meteor.methods({
           group_id: '1',
           image: '/img/home.png',
           name: 'Meteor react',
-          position_geo: {},
+          location: {
+            address: "43 Dien Bien Phu",
+            geo: {
+              "type": "Point",
+              "coordinates": [106.696371,10.7912113]
+            }
+          },
           date: date2,
           description: 'Lorem ipsum dolor sit amet, vim ad fierent incorrupte disputationi,' +
           ' te eam debitis appellantur, ea malorum ceteros ius. Natum probatus definiti' +
