@@ -21,7 +21,7 @@ Meteor.publish('allGroups', function () {
 });
 Meteor.publish('eventNMemberByGroup', function (groupId) {
   if (!this.userId) return this.ready();
-  return [EventData.find({group_id: groupId}),Meteor.users.find({groups: groupId})]
+  return [EventData.find({group_id: groupId}), Meteor.users.find({groups: groupId})]
 });
 Meteor.publish('eventById', function (eventId) {
   if (!this.userId) return this.ready();
@@ -38,4 +38,8 @@ Meteor.publish('topicsHold', function (eventId) {
 Meteor.publish('voteTopics', function (_type) {
   if (!this.userId) return this.ready();
   return Vote.find({type: _type})
+});
+Meteor.publish('voteByTypeNId', function (type, id) {
+  if (!this.userId) return this.ready();
+  return Vote.find({type: type, reference_id: id, byUser: this.userId})
 });

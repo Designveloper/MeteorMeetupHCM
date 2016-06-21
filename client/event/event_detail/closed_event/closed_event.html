@@ -1,32 +1,13 @@
 <template name="closedEventDetailTemplate">
   <div class="closedEventDetail">
     <div class="container">
-      <div class="row">
-        <div class="col-sm-2 col-sm-push-10 col-lg-2 col-lg-push-10 text-right"> I was here </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4 col-lg-4">
-          <div class="row">
-            <div class="col-sm-12 col-lg-12">
-              <h3>We need your feedback</h3>
-            </div>
-          </div>
-          <div class="row">
-            <span class="col-lg-6">Rate this event</span>
-            <span class="col-lg-6">Rate</span>
-          </div>
-          <div class="row">
-            <div class="col-sm-12 col-lg-12">
-              <div class="comment">
-                <textarea class="form-control" placeholder="Your comment/ideas" rows=3></textarea>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-8 col-lg-8">
-          {{> map2HoldTemplate}}
-        </div>
-      </div>
+      {{#if user_feedback}}
+      {{#with user_feedback}}
+        {{> eventRateTemplate }}
+      {{/with}}
+      {{else}}
+        {{> eventRateTemplate}}
+      {{/if}}
       <div class="row">
         <div class="col-sm-6 col-lg-6">
           <h3>Topics</h3>

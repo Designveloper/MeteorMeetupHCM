@@ -4,13 +4,15 @@ Meteor.methods({
       type: 'topic',
       value: 5,
       reference_id: '1',
-      byUser: '1'
+      byUser: '1',
+      liked: true
     },
       {
         type: 'topic',
         value: 3,
         reference_id: '1',
-        byUser: '2'
+        byUser: '2',
+        liked: true
       },
       {
         type: 'topic',
@@ -22,7 +24,8 @@ Meteor.methods({
         type: 'topic',
         value: 2,
         reference_id: '1',
-        byUser: '4'
+        byUser: '4',
+        liked: true
       },
       {
         type: 'topic',
@@ -34,19 +37,22 @@ Meteor.methods({
         type: 'topic',
         value: 4,
         reference_id: '2',
-        byUser: '2'
+        byUser: '2',
+        liked: true
       },
       {
         type: 'topic',
         value: 1,
         reference_id: '2',
-        byUser: '3'
+        byUser: '3',
+        liked: true
       },
       {
         type: 'topic',
         value: 5,
         reference_id: '3',
-        byUser: '1'
+        byUser: '1',
+        liked: true
       },
       {
         type: 'topic',
@@ -64,13 +70,15 @@ Meteor.methods({
         type: 'topic',
         value: 2,
         reference_id: '3',
-        byUser: '4'
+        byUser: '4',
+        liked: true
       },
       {
         type: 'topic',
         value: 5,
         reference_id: '3',
-        byUser: '5'
+        byUser: '5',
+        liked: true
       },
       {
         type: 'topic',
@@ -88,6 +96,25 @@ Meteor.methods({
         type: 'topic',
         value: 2,
         reference_id: '4',
+        byUser: '3',
+        liked: true
+      },
+      {
+        type: 'event',
+        value: 3,
+        reference_id: '2',
+        byUser: '1'
+      },
+      {
+        type: 'event',
+        value: 2,
+        reference_id: '2',
+        byUser: '2'
+      },
+      {
+        type: 'event',
+        value: 4,
+        reference_id: '2',
         byUser: '3'
       }];
     Vote.remove({});

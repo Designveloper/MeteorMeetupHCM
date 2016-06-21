@@ -122,5 +122,4 @@ Template.quizTemplate.onRendered(function(){
   });
   this.rating = $(this.$('#rate-stars-input')).rating();
 
-
 })

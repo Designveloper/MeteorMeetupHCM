@@ -1,28 +1,29 @@
 <template name="topic2HoldTemplate">
   <div class="topic-hold-list">
-    <div>
-      {{#each topics}}
-        <div class="topic">
-          <div class="header">
-            <div class="col-xs-2 col-sm-2 col-lg-2 center">
-              <img src="{{image}}" class="thumbnail small">
-            </div>
-            <div class="col-xs-5 col-sm-5 col-lg-5">
-              <div class="row"> {{title}} </div>
-              <div class="row">
-                Estimate time:
-                <span class="time-est-topic">{{timeEst}}</span>
-              </div>
-            </div>
-            <div class="col-xs-3 col-sm-3 col-lg-3 center">
-              <a href="#" class="like-button">
-                <span class="">Rate
-                </span>
-              </a>
+    {{#each topics}}
+      <div class="topic">
+        <div class="header">
+          <div class="col-xs-2 col-sm-2 col-lg-2 center">
+            <img src="{{image}}" class="thumbnail small">
+          </div>
+          <div class="col-xs-5 col-sm-5 col-lg-5">
+            <div class="row"> {{title}} </div>
+            <div class="row">
+              Estimate time:
+              <span class="time-est-topic">{{timeEst}}</span>
             </div>
           </div>
+          {{#if vote_value}}
+            <div class="col-xs-3 col-sm-3 col-lg-3 center">
+              {{> voteWiget name="value" value=vote_value isUpdate=true _id=_id}}
+            </div>
+          {{else}}
+            <div class="col-xs-3 col-sm-3 col-lg-3 center">
+              {{> voteWiget name="value" _id=_id}}
+            </div>
+          {{/if}}
         </div>
-      {{/each}}
-    </div>
+      </div>
+    {{/each}}
   </div>
 </template>
