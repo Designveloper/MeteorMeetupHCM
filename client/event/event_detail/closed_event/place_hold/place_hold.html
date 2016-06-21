@@ -7,7 +7,7 @@
             <div class="event-detail-upper">
               <div class="row">
                 <div class="col-sm-2 col-lg-2">Location:</div>
-                <div class="col-sm-4 col-lg-4">{{location}}</div>
+                <div class="col-sm-4 col-lg-4">{{location.address}}</div>
               </div>
               <div class="row">
                 <div class="col-sm-2 col-lg-2">Time:</div>
@@ -31,7 +31,7 @@
       </div>
       <div class="col-sm-8 col-lg-8">
         <div class="map-container">
-          {{> googleMap name="exampleMap" options=mapOptions}}
+          {{> mapWidget name=mapName location=location}}
         </div>
       </div>
     </div>
