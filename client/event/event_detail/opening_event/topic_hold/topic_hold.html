@@ -3,42 +3,36 @@
     <div>
       {{#each topics}}
         <div class="topic">
-          <div class="header">
-            <div class="col-xs-2 col-sm-2 col-lg-2 center">
-              <img src="{{image}}" class="thumbnail small">
-            </div>
-            <div class="col-xs-5 col-sm-5 col-lg-5">
-              <div class="row"> {{title}} </div>
-              <div class="row">
-                Estimate time:
+          <div class="image">
+            <img src="{{image}}" class="thumbnail small">
+          </div>
+          <div class="content">
+            <div class="col-xs-8">
+              <h4> {{title}} </h4>
+              <p class="estimate">
+                <label>Estimate time:</label>
                 <span class="time-est-topic">{{timeEst}}</span>
-              </div>
+              </p>
             </div>
-            <div class="col-xs-1 col-sm-1 col-lg-1 center">
+            <div class="col-xs-1 text-center">
               {{> iconCheckbox icon="fa-paperclip" href="/download"}}
             </div>
-            <div class="col-xs-2 col-sm-2 col-lg-2 center">
+            <div class="col-xs-2 text-center">
               <span class="number-votes">{{getNumberVotes}} voted</span>
             </div>
-            <div class="col-xs-2 col-sm-2 col-lg-2 center">
+            <div class="col-xs-1 text-center">
               {{> iconCheckbox icon="fa-thumbs-up" _id=_id name="liked" isChecked=isLikedTopic}}
             </div>
           </div>
           {{#if haveMainContent}}
-            <div class="row content">
-              <div class="col-xs-2 col-sm-2 col-lg-2">
-              </div>
-              <div class="col-xs-8 col-sm-8 col-lg-8">
-                <div class="row">
-                  <strong>Main Content:</strong>
-                </div>
-                <div class="row">
-                <span class="main-content-topic">
+            <div class="main-content">
+              <div class="text-content">
+                <strong>Main Content:</strong>
+                <p class="main-content-topic">
                   {{content}}
-                </span>
-                </div>
+                </p>
               </div>
-              <div class="col-xs-2 col-sm-2 col-lg-2 center">
+              <div class="download">
                 {{> iconCheckbox icon="fa-download" href="/download"}}
               </div>
             </div>
