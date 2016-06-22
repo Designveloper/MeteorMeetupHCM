@@ -1,10 +1,10 @@
 <template name="closedEventDetailTemplate">
-  <div class="closedEventDetail">
+  <div class="close-event-detail event-detail">
     <div class="container">
       {{#if user_feedback}}
-      {{#with user_feedback}}
-        {{> eventRateTemplate }}
-      {{/with}}
+        {{#with user_feedback}}
+          {{> eventRateTemplate }}
+        {{/with}}
       {{else}}
         {{> eventRateTemplate}}
       {{/if}}

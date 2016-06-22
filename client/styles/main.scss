@@ -1,0 +1,48 @@
+body {
+  * {
+    font-family: 'proxima_nova_regular';
+    font-size: 14px;
+  }
+}
+
+.at-form {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 400px;
+  .at-social-btn {
+    border-radius: 2px;
+    font-family: 'proxima_nova_light';
+  }
+  .at-sep {
+    margin: 20px 0;
+  }
+  form {
+    .at-input {
+      margin: 0 0 10px;
+      .control-label {
+        margin-top: 0;
+        font-size: 13px;
+      }
+    }
+    #at-btn {
+      background: #009688;
+      color: #fff;
+      margin: 20px 0 0;
+      padding: 8px 12px;
+      color: #fff;
+      &:hover {
+        background: #0a6c63;
+      }
+    }
+  }
+}
+
+.footer {
+  background: #009688;
+  color: #fff;
+  padding: 15px 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
