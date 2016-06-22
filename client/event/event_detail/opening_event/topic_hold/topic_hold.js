@@ -9,3 +9,14 @@ Template.topicHoldTemplate.helpers({
     return Counts.get('vote-topic' + '-' + this._id)
   }
 })
+Template.topicHoldTemplate.events({
+  'change input': function(e,tpl){
+    var _id = e.currentTarget.getAttribute('data-id');
+    var data = ENUM.getDataByEvent(e);
+    var base = {type:'topic', reference_id: _id, byUser: Meteor.userId()};
+    var vote = Vote.findOne(base);
+    if (vote)
+      return  Vote.update({_id: vote._id},{$set: data});
+    Vote.insert(_.extend(base,data));
+  }
+})

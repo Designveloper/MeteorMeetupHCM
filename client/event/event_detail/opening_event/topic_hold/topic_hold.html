@@ -15,18 +15,13 @@
               </div>
             </div>
             <div class="col-xs-1 col-sm-1 col-lg-1 center">
-              <a href="#" class="like-button">
-                <span class="fa fa-paperclip icon">
-                </span>
-              </a>
+              {{> iconCheckbox icon="fa-paperclip" href="/download"}}
             </div>
             <div class="col-xs-2 col-sm-2 col-lg-2 center">
               <span class="number-votes">{{getNumberVotes}} voted</span>
             </div>
             <div class="col-xs-2 col-sm-2 col-lg-2 center">
-              <a href="#" class="like-button">
-                <span class="fa fa-thumbs-up icon"></span>
-              </a>
+              {{> iconCheckbox icon="fa-thumbs-up" _id=_id name="liked"}}
             </div>
           </div>
           {{#if haveMainContent}}
@@ -44,10 +39,7 @@
                 </div>
               </div>
               <div class="col-xs-2 col-sm-2 col-lg-2 center">
-                <a href="#" class="like-button">
-                  <span class="fa fa-download icon">
-                  </span>
-                </a>
+                {{> iconCheckbox icon="fa-download" href="/download"}}
               </div>
             </div>
           {{/if}}

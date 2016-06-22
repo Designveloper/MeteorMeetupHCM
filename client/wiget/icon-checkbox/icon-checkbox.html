@@ -1,0 +1,20 @@
+<template name="iconCheckbox">
+  <span class="icon-checkbox-bound">
+    {{#if noActive}}
+      <a href="{{href}}" class="icon-checkbox-no-active">
+          <span class="fa {{icon}} {{iconSize}}"></span>
+      </a>
+    {{else}}
+      <a href="#" class="icon-checkbox">
+        {{#if isActive}}
+          <span class="fa {{iconActive}} {{iconSize}}">
+          </span>
+        {{else}}
+          <span class="fa {{icon}} {{iconSize}}">
+          </span>
+        {{/if}}
+      </a>
+      <input data-name="{{name}}" class="icon-checkbox-input" type="checkbox" data-id="{{_id}}"/>
+    {{/if}}
+  </span>
+</template>
