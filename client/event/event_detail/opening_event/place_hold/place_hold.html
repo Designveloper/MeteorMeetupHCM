@@ -17,15 +17,14 @@
             <div class="event-detail-down">
               <div class="row">
                 <div class="col-sm-6 col-lg-6">
-                  <span class="max-member-event">{{getMaxNumber}}</span> members will join -
-                  <span class="remain-slot">{{getRemainSlot}}</span> slots remain
+                  <span class="max-member-event">{{getJoinedNumber}}</span> members will join -
+                  <span class="remain-slot">{{getRemainSlot}}</span> slot(s) remain
                 </div>
               </div>
               <div class="row">
                 <div class="col-sm-6 col-lg-6 event-question">
                   <h4>Will you go to this event?
-                    <a href="#" class="yes-go-to-event">YES</a>
-                    <a href="#" class="no-go-to-event">NO</a>
+                    {{> iconCheckbox text="YES/NO" name="is_joined" _id=_id}}
                   </h4>
                 </div>
               </div>

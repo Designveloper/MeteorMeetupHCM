@@ -1,9 +1,9 @@
 Meteor.methods({
   'event_create_sm': function () {
     var date = new Date();
-    date.setDate(date.getDate()+2);
+    date.setDate(date.getDate() + 2);
     var date2 = new Date();
-    date2.setDate(date2.getDate()-2);
+    date2.setDate(date2.getDate() - 2);
     var data =
       [{
         _id: '1',
@@ -14,7 +14,7 @@ Meteor.methods({
           address: "57 le thi hong gam",
           geo: {
             "type": "Point",
-            "coordinates": [106.6955088,10.7687873]
+            "coordinates": [106.6955088, 10.7687873]
           }
         },
         date: date,
@@ -26,7 +26,8 @@ Meteor.methods({
         ' id pri, ex nostrud copiosae platonem mei. Sit mollis rationibus et, vix at ' +
         'quando signiferumque, at illum constituto mei. Ei eum aliquid facilisis, sit' +
         ' legere doming virtute ad. Prodesset sadipscing id eam.',
-        status: ENUM.EVENT_STATUS.OPENING
+        status: ENUM.EVENT_STATUS.OPENING,
+        max_mem: 50
       },
         {
           _id: '2',
@@ -37,7 +38,7 @@ Meteor.methods({
             address: "43 Dien Bien Phu",
             geo: {
               "type": "Point",
-              "coordinates": [106.696371,10.7912113]
+              "coordinates": [106.696371, 10.7912113]
             }
           },
           date: date2,
@@ -49,11 +50,12 @@ Meteor.methods({
           ' id pri, ex nostrud copiosae platonem mei. Sit mollis rationibus et, vix at ' +
           'quando signiferumque, at illum constituto mei. Ei eum aliquid facilisis, sit' +
           ' legere doming virtute ad. Prodesset sadipscing id eam.',
-          status: ENUM.EVENT_STATUS.ENDED
+          status: ENUM.EVENT_STATUS.ENDED,
+          max_mem: 20
         }]
     EventData.remove({});
-    for (let aData of data){
-      if (!EventData.findOne(aData._id)){
+    for (let aData of data) {
+      if (!EventData.findOne(aData._id)) {
         EventData.insert(aData);
       }
     }

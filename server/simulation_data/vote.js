@@ -5,7 +5,7 @@ Meteor.methods({
       value: 5,
       reference_id: '1',
       byUser: '1',
-      liked: true
+      liked: true,
     },
       {
         type: 'topic',
@@ -113,8 +113,20 @@ Meteor.methods({
       },
       {
         type: 'event',
-        value: 4,
+        is_joined: true,
         reference_id: '2',
+        byUser: '3'
+      },
+      {
+        type: 'event',
+        is_joined: true,
+        reference_id: '1',
+        byUser: '2'
+      },
+      {
+        type: 'event',
+        is_joined: true,
+        reference_id: '1',
         byUser: '3'
       }];
     Vote.remove({});

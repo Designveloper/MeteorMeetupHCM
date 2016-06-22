@@ -45,3 +45,11 @@ Meteor.publish('subCountEvent', function (type, data) {
       value: "" + data.value
     }));
 });
+
+Meteor.publish('countJoinedMember',function(eventId){
+  return Counts.publish(this, 'members-join-event-'+eventId, Vote.find({
+    type: 'event',
+    reference_id: eventId,
+    is_joined: true
+  }));
+})

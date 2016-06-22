@@ -2,6 +2,15 @@ Template.iconCheckbox.helpers({
   'noActive': function(){
     return !!this.href;
   },
+  'isText': function(){
+    return !!this.text;
+  },
+  'getText': function(){
+    return this.text.split('/')[0];
+  },
+  'getActiveText':function(){
+    return this.text.split('/')[1];
+  },
   'iconSize': function(){
     return this.iconSize || 'icon';
   },
