@@ -39,3 +39,7 @@ dburles:google-maps
 aldeed:simple-schema
 fortawesome:fontawesome
 aldeed:collection2
+
+
+#time
+momentjs:moment

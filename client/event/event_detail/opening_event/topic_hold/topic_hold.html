@@ -21,7 +21,7 @@
               <span class="number-votes">{{getNumberVotes}} voted</span>
             </div>
             <div class="col-xs-2 col-sm-2 col-lg-2 center">
-              {{> iconCheckbox icon="fa-thumbs-up" _id=_id name="liked"}}
+              {{> iconCheckbox icon="fa-thumbs-up" _id=_id name="liked" isChecked=isLikedTopic}}
             </div>
           </div>
           {{#if haveMainContent}}

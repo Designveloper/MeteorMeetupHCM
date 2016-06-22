@@ -11,7 +11,7 @@
               </div>
               <div class="row">
                 <div class="col-sm-2 col-lg-2">Time:</div>
-                <div class="col-sm-4 col-lg-4">{{time}}</div>
+                <div class="col-sm-4 col-lg-4">{{formatTime date}}</div>
               </div>
             </div>
             <div class="event-detail-down">
@@ -24,7 +24,7 @@
               <div class="row">
                 <div class="col-sm-6 col-lg-6 event-question">
                   <h4>Will you go to this event?
-                    {{> iconCheckbox text="YES/NO" name="is_joined" _id=_id}}
+                    {{> iconCheckbox text="YES/NO" name="is_joined" _id=_id isChecked=isJoinedEvent}}
                   </h4>
                 </div>
               </div>

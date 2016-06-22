@@ -7,6 +7,13 @@ Template.topicHoldTemplate.helpers({
   },
   'getNumberVotes': function () {
     return Counts.get('vote-topic' + '-' + this._id)
+  },
+  'isLikedTopic': function(){
+    var votes = Vote.find({type:'topic', reference_id: this._id, byUser: Meteor.userId()}).fetch();
+    if (votes.length){
+      var vote = votes[0];
+      return vote.liked;
+    }
   }
 })
 Template.topicHoldTemplate.events({
