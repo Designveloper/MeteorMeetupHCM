@@ -11,5 +11,7 @@ Template.voteWiget.helpers({
 })
 Template.voteWiget.onRendered(function () {
   var el = $(this.$(".rating"));
-  el.rating(this.data.value);
+  var rate = el.rating();
+  if (this.data.readonly)
+    rate.setReadonly()
 })

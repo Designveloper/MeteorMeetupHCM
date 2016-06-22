@@ -1,7 +1,7 @@
 (function ($) {
 
   $.fn.rating = function (initStar) {
-
+    var instance = this;
     var element;
 
     // A private function to highlight a star corresponding to a given value
@@ -89,12 +89,16 @@
     $('.rating-input')
     // Highlight stars on hovering
       .on('mouseenter', '[data-value]', function () {
+        if (instance.readonly)
+          return;
         var self = $(this);
         input = self.siblings('input');
         _paintValue(self.closest('.rating-input'), self.data('value'), input.data('active-icon'), input.data('inactive-icon'));
       })
       // View current value while mouse is out
       .on('mouseleave', '[data-value]', function () {
+        if (instance.readonly)
+          return;
         var self = $(this),
           input = self.siblings('input'),
           val = input.val(),
@@ -110,6 +114,8 @@
       })
       // Set the selected value to the hidden field
       .on('click', '[data-value]', function (e) {
+        if (instance.readonly)
+          return;
         var self = $(this),
           val = self.data('value'),
           input = self.siblings('input');
@@ -119,6 +125,8 @@
       })
       // Remove value on clear
       .on('click', '.rating-clear', function (e) {
+        if (instance.readonly)
+          return;
         var self = $(this),
           input = self.siblings('input'),
           active = input.data('active-icon'),
@@ -148,6 +156,9 @@
       el.trigger('mouseenter');
         var input = el.siblings('input');
       _updateValue(input,value);
+    };
+    this.setReadonly = function(){
+      instance.readonly = true;
     }
     return this;
   };

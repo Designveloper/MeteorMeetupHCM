@@ -1,5 +1,9 @@
 <template name="voteWiget">
-  <input type="number" name="My Rating System"
-         class="rating" data-max="{{max}}" data-min="{{min}}" value="{{value}}"
-         data-value="{{value}}" data-name="{{name}}" data-id="{{_id}}" data-update="{{isUpdate}}" />
+  <span class="vote-widget {{#if readonly}} readonly {{/if}}">
+    <input type="number" name="My Rating System"
+           class="rating " data-max="{{max}}" data-min="{{min}}"
+           value="{{value}}"
+           data-value="{{value}}" data-name="{{name}}" data-id="{{_id}}"
+           data-update="{{isUpdate}}"/>
+  </span>
 </template>

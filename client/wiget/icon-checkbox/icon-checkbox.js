@@ -18,15 +18,10 @@ Template.iconCheckbox.helpers({
     return this.iconActive || this.icon + ' icon-checkbox-active';
   },
   'isActive': function () {
-    var self = this;
-    setTimeout(function () {
-      try {
-        var tpl = Template.instance();
-        $(tpl.$('.icon-checkbox-input')).prop('checked', !!self.isChecked);
-      } catch (e) {
-      }
-    }, 0);
-    return !!self.isChecked;
+    var tpl = Template.instance();
+    if (tpl.isActive)
+      tpl.isActive.set(this.isChecked);
+    return !!this.isChecked;
   }
 });
 Template.iconCheckbox.events({
@@ -42,3 +37,10 @@ Template.iconCheckbox.events({
     window.open(href);
   }
 });
+Template.iconCheckbox.onRendered(function(){
+  var self = this;
+  self.isActive = new ReactiveVar();
+  self.autorun(function(){
+    $(self.$('.icon-checkbox-input')).prop('checked', !!self.isActive.get());
+  })
+})
