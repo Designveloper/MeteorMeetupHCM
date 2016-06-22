@@ -12,15 +12,17 @@
       </div>
     </div>
     <div class="row text-right">
-      <a href="{{pathFor route="start-group"}}"> <h4>Want to start your group today?</h4></a>
+      <a href="{{pathFor route="start_group"}}"> <h4>Want to start your group today?</h4></a>
     </div>
     <div class="row">
       {{> allGroupListTemplate}}
     </div>
+    {{#if notAllGroup}}
     <div class="row text-right">
       <div class="col-md-12">
-        <a href="{{pathFor route="all-groups"}}">View more</a>
+        <a href="#">View more</a>
       </div>
     </div>
+    {{/if}}
   </div>
 </template>

@@ -16,28 +16,32 @@ Meteor.publish('subCountEvent', function (type, data) {
   console.log('dataSubCount' + type, data);
   if (type === 'EventCountAge')
     return Counts.publish(this, type + '-' + data.value, Vote.find({
-      type: 'event',
-      reference_id: data.eventId
-    },{ fields: { _id: 1, 'byUser': 1 }}
-    ),{countFromField: function(doc){
-      var user = Meteor.users.findOne(doc.byUser);
-      if (!user)
-        return 0;
-      if (user.profile.age === ""+data.value)
-        return 1;
-    }});
+        type: 'event',
+        reference_id: data.eventId
+      }, {fields: {_id: 1, 'byUser': 1}}
+    ), {
+      countFromField: function (doc) {
+        var user = Meteor.users.findOne(doc.byUser);
+        if (!user)
+          return 0;
+        if (user.profile.age === "" + data.value)
+          return 1;
+      }
+    });
   if (type === 'EventCountTitle')
     return Counts.publish(this, type + '-' + data.value, Vote.find({
-      type: 'event',
-      reference_id: data.eventId
-    },{ fields: { _id: 1, 'byUser': 1 }}
-    ), {countFromField: function(doc){
-      var user = Meteor.users.findOne(doc.byUser);
-      if (!user)
-        return 0;
-      if (user.profile.title === data.value)
-        return 1;
-    }});
+        type: 'event',
+        reference_id: data.eventId
+      }, {fields: {_id: 1, 'byUser': 1}}
+    ), {
+      countFromField: function (doc) {
+        var user = Meteor.users.findOne(doc.byUser);
+        if (!user)
+          return 0;
+        if (user.profile.title === data.value)
+          return 1;
+      }
+    });
   if (type === 'EventCountRate')
     return Counts.publish(this, type + '-' + data.value, Vote.find({
       type: 'event',
@@ -46,10 +50,19 @@ Meteor.publish('subCountEvent', function (type, data) {
     }));
 });
 
-Meteor.publish('countJoinedMember',function(eventId){
-  return Counts.publish(this, 'members-join-event-'+eventId, Vote.find({
+Meteor.publish('countJoinedMember', function (eventId) {
+  return Counts.publish(this, 'members-join-event-' + eventId, Vote.find({
     type: 'event',
     reference_id: eventId,
     is_joined: true
   }));
+})
+Meteor.publish('countMemberGroup', function (groupId) {
+  return Counts.publish(this, 'number-member-of-group-by-id-' + groupId, Meteor.users.find({groups: groupId}));
+})
+Meteor.publish('countUpEventOfGroup', function (groupId) {
+  return Counts.publish(this, 'up-event-member-of-group-by-id-' + groupId, EventData.find({date: {$gte: new Date()}}));
+})
+Meteor.publish('countTotal', function (type) {
+  return Counts.publish(this, 'total-' + type, DB[type].find({}));
 })
