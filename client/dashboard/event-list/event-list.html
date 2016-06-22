@@ -1,32 +1,45 @@
 <template name="eventListTemplate">
+  <div class="container">
   <div class="event-list">
+    <div class="row">
     {{#each events}}
+    <div class="col-sm-4 col-lg-4">
+    <div class="panel panel-default">
       <a href="{{routeToEvent}}">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <div class="row">
-              <div class="col-xs-2">
-                <h4><span class="fa fa-calendar-check-o"></span></h4>
-              </div>
-              <div class="col-xs-10">
-                <h4>{{name}}</h4>
-              </div>
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-2">
+              <h4><span class="fa fa-calendar-check-o"></span></h4>
             </div>
-          </div>
-          <div class="panel-body">
-            <div class="row">
-              <img src="{{map}}" class="thumbnail">
-            </div>
-            <div class="row">
-              <h5>Will you go to this event</h5>
-              <div class="right">
-                <button class="yes-go-to-event" data-id="{{_id}}">YES</button>
-                <button class="no-go-to-event" data-id="{{_id}}">NO</button>
-              </div>
+            <div class="col-xs-10">
+              <h4>{{name}}</h4>
             </div>
           </div>
         </div>
       </a>
+          <div class="panel-body">
+            <div class="row">
+              <div class="date text-center">{{date}}</div>
+              <div class="map-container">
+                {{> mapWidget name=mapName location=location}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-lg-12">
+                <h4>Will you go to this event?</h4>
+              </div>
+            </div>
+            <div class="col-sm-12 col-lg-12">
+              <div class="text-right">
+                <button class="yes-go-to-event btn btn-primary btn-sm" data-id="{{_id}}">YES</button>
+                <button class="no-go-to-event btn btn-primary btn-sm" data-id="{{_id}}">NO</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     {{/each}}
+  </div>
+  </div>
   </div>
 </template>

@@ -13,5 +13,8 @@ Template.eventListTemplate.helpers({
   },
   'routeToEvent': function () {
     return Meteor.absoluteUrl("event/" + this._id);
+  },
+  'mapName': function () {
+    return "map-event-" + this._id;
   }
 })
