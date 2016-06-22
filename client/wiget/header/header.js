@@ -31,6 +31,11 @@ Template.header.helpers({
   },
   'isNavActive': function(){
     if (Router.current().route.getName() == ""+this) return "active";
+  },
+  'getName': function(){
+    var user = Meteor.user();
+    if (!user) return "loading..";
+    return user.profile.name || "no name";
   }
 })
 Template.header.events({
