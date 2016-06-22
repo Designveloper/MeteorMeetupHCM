@@ -1,7 +1,12 @@
 Template.eventRateTemplate.helpers({
+  'getId': function(){
+    if (this.isFeedback)
+      return Template.parentData(1)._id;
+    return this._id;
+  },
   comment: function(){
     return this.comment || "";
-  }
+  },
 });
 
 Template.eventRateTemplate.events({

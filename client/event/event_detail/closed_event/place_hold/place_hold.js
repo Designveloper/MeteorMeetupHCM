@@ -1,4 +1,9 @@
 Template.map2HoldTemplate.helpers({
+  'eventData': function(){
+    if (this.isFeedback)
+      return Template.parentData(1);
+    return this;
+  },
   'mapName': function () {
     return "map-event-ended-" + this._id;
   },
