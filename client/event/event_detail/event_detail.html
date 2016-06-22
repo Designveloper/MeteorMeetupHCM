@@ -1,0 +1,30 @@
+<template name="eventDetailTemplate">
+  {{#with event}}
+  <div class="event-detail container">
+    <div class="row">
+      <div class="col-xs-8">
+        {{#if pathForEvent}}
+          {{> breadcrumb path=pathForEvent}}
+        {{/if}}
+      </div>
+      <div class="col-xs-4 status-label text-right">
+        {{#if isOpening}}
+          <h5 class="label label-default"> Opening </h5>
+        {{else}}
+          <h5 class="label label-default"> Ended </h5>
+        {{/if}}
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+
+          {{#if isOpening}}
+            {{> openingEventDetailTemplate}}
+          {{else}}
+            {{> closedEventDetailTemplate}}
+          {{/if}}
+      </div>
+    </div>
+  </div>
+  {{/with}}
+</template>

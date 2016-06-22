@@ -1,0 +1,22 @@
+<template name="memberListTemplate">
+  <div class="member-list container">
+    {{#each members}}
+      <div class="row a-meet-group">
+        <div class="col-xs-2">
+          <img src="{{image}}" class="thumbnail">
+        </div>
+        <div class="col-xs-8">
+          <div class="row">
+            <h5>{{name}} <span class="number-member-group">{{number_member}}</span></h5>
+          </div>
+          <div class="row">
+            <h5>{{formatTime fromTime}}  <span class="number-upcomming-event">{{number_upcomming_event}}</span> </h5>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          Rate
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</template>

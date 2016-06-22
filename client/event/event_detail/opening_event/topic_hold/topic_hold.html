@@ -1,0 +1,50 @@
+<template name="topicHoldTemplate">
+  <div class="topic-hold-list">
+    <div>
+      {{#each topics}}
+        <div class="topic">
+          <div class="header">
+            <div class="col-xs-2 col-sm-2 col-lg-2 center">
+              <img src="{{image}}" class="thumbnail small">
+            </div>
+            <div class="col-xs-5 col-sm-5 col-lg-5">
+              <div class="row"> {{title}} </div>
+              <div class="row">
+                Estimate time:
+                <span class="time-est-topic">{{timeEst}}</span>
+              </div>
+            </div>
+            <div class="col-xs-1 col-sm-1 col-lg-1 center">
+              {{> iconCheckbox icon="fa-paperclip" href="/download"}}
+            </div>
+            <div class="col-xs-2 col-sm-2 col-lg-2 center">
+              <span class="number-votes">{{getNumberVotes}} voted</span>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-lg-2 center">
+              {{> iconCheckbox icon="fa-thumbs-up" _id=_id name="liked" isChecked=isLikedTopic}}
+            </div>
+          </div>
+          {{#if haveMainContent}}
+            <div class="row content">
+              <div class="col-xs-2 col-sm-2 col-lg-2">
+              </div>
+              <div class="col-xs-8 col-sm-8 col-lg-8">
+                <div class="row">
+                  <strong>Main Content:</strong>
+                </div>
+                <div class="row">
+                <span class="main-content-topic">
+                  {{content}}
+                </span>
+                </div>
+              </div>
+              <div class="col-xs-2 col-sm-2 col-lg-2 center">
+                {{> iconCheckbox icon="fa-download" href="/download"}}
+              </div>
+            </div>
+          {{/if}}
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</template>

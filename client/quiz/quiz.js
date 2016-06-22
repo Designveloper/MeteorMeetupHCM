@@ -26,7 +26,7 @@ import '../../imports/plugin/slider/slider.js'
 import '../../imports/plugin/slider/slider.css'
 import '../../imports/plugin/star-rating/star-rating.js'
 
-Template.eventDetailTemplate.helpers({
+Template.quizTemplate.helpers({
   'user': function(){
     return Meteor.user();
   },
@@ -34,7 +34,7 @@ Template.eventDetailTemplate.helpers({
    return ENUM.getEmailCurrentUser();
   },
   'phone': function(){
-    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId, email: ENUM.getEmailCurrentUser()}).fetch();
+    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId(), email: ENUM.getEmailCurrentUser()}).fetch();
     if (eventQuiz.length) {
       return eventQuiz[0].phone
     }
@@ -54,13 +54,13 @@ Template.eventDetailTemplate.helpers({
     }
   },
   'isSelectedTitle': function(){
-    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId, email: ENUM.getEmailCurrentUser()}).fetch();
+    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId(), email: ENUM.getEmailCurrentUser()}).fetch();
     if (eventQuiz.length){
       if (eventQuiz[0].title === ""+this) return 'selected';
     }
   },
   'isSelectedAge': function(){
-    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId, email: ENUM.getEmailCurrentUser()}).fetch();
+    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId(), email: ENUM.getEmailCurrentUser()}).fetch();
     if (eventQuiz.length){
       if (eventQuiz[0].age === ""+this) return 'selected';
     }
@@ -70,7 +70,7 @@ Template.eventDetailTemplate.helpers({
     return ENUM.eventContent;
   },
   "rate": function(){
-    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId, email: ENUM.getEmailCurrentUser()}).fetch();
+    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId(), email: ENUM.getEmailCurrentUser()}).fetch();
     if (eventQuiz.length){
       var rating = parseInt(eventQuiz[0].rating);
       if (rating){
@@ -80,13 +80,13 @@ Template.eventDetailTemplate.helpers({
     }
   },
   "comment": function(){
-    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId, email: ENUM.getEmailCurrentUser()}).fetch();
+    var eventQuiz = EventQuizData.find({eventId: ENUM.eventId(), email: ENUM.getEmailCurrentUser()}).fetch();
     if (eventQuiz.length){
       return eventQuiz[0].comment
     }
   }
 })
-Template.eventDetailTemplate.events({
+Template.quizTemplate.events({
   'change input, change select, change textarea': function(e,tpl){
     var el = $(e.currentTarget);
     if (el.is('[readonly]')){
@@ -104,7 +104,7 @@ Template.eventDetailTemplate.events({
       var value = el.val().trim();
       data[name] = value;
     });
-    data.eventId = ENUM.eventId;
+    data.eventId = ENUM.eventId();
     data.email =  ENUM.getEmailCurrentUser();
     if (data.email === "") return;
     var eventQuiz = EventQuizData.findOne({eventId: data.eventId, email: data.email});
@@ -114,13 +114,12 @@ Template.eventDetailTemplate.events({
       EventQuizData.insert(data)
   }
 });
-Template.eventDetailTemplate.onRendered(function(){
+Template.quizTemplate.onRendered(function(){
   $(this.$('#percent-input')).slider({
     formatter: function(value) {
       return 'Current value: ' + value;
     }
   });
   this.rating = $(this.$('#rate-stars-input')).rating();
-
 
 })

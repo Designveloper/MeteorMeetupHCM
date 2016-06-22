@@ -1,0 +1,41 @@
+<template name="map2HoldTemplate">
+  {{#with eventData}}
+  <div class="place-hold">
+    <div class="row">
+      <div class="col-sm-4 col-lg-4">
+        <div class="event-detail-information">
+          <div class="container">
+            <div class="event-detail-upper">
+              <div class="row">
+                <div class="col-sm-1 col-lg-1">Location:</div>
+                <div class="col-sm-5 col-lg-5">{{location.address}}</div>
+              </div>
+              <div class="row">
+                <div class="col-sm-2 col-lg-2">Time:</div>
+                <div class="col-sm-4 col-lg-4">{{formatTime date}}</div>
+              </div>
+            </div>
+            <div class="event-detail-down">
+              <div class="row">
+                <div class="col-sm-6 col-lg-6">
+                  <span class="topic-event">{{getTotalTopics}}</span> topics
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 col-lg-6">
+                  <span class="max-member-event">{{getMembersJoined}}</span> members joined
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-8 col-lg-8">
+        <div class="map-container">
+          {{> mapWidget name=mapName location=location}}
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/with}}
+</template>

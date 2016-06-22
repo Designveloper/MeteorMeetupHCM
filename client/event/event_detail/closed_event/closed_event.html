@@ -1,0 +1,29 @@
+<template name="closedEventDetailTemplate">
+  <div class="closedEventDetail">
+    <div class="container">
+      {{#if user_feedback}}
+      {{#with user_feedback}}
+        {{> eventRateTemplate }}
+      {{/with}}
+      {{else}}
+        {{> eventRateTemplate}}
+      {{/if}}
+      <div class="row">
+        <div class="col-sm-6 col-lg-6">
+          <h3>Topics</h3>
+        </div>
+      </div>
+      <div class="row">
+        {{> topic2HoldTemplate}}
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-lg-6">
+          <h3>Summary</h3>
+        </div>
+      </div>
+      <div class="row">
+        {{> summaryDetailTemplate}}
+      </div>
+    </div>
+  </div>
+</template>

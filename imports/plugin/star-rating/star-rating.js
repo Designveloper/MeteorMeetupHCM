@@ -131,10 +131,10 @@
       // Initialize view with default value
       .each(function () {
         var input = $(this).find('input'),
-          val = input.val(),
+          val = parseInt(input.val()),
           min = input.data('min'),
           max = input.data('max');
-        if (val !== "" && +val >= min && +val <= max) {
+        if (val && val !== "" && +val >= min && +val <= max) {
           _paintValue(this, val);
           $(this).find('.rating-clear').show();
         }
