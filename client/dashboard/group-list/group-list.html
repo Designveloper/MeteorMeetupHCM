@@ -1,27 +1,25 @@
 <template name="groupListTemplate">
-  <div class="group-list container">
+  <div class="group-list">
     {{#each groups}}
-      <a href="{{routeForGroup}}">
-        <div class="row a-meet-group">
-          <div class="col-xs-2">
-            <img src="{{image}}" class="thumbnail">
+    <a href="{{routeForGroup}}">
+      <div class="row a-meet-group">
+        <div class="col-xs-2 col-sm-2 col-lg-2 center">
+          <img src="{{image}}" class="thumbnail small">
+        </div>
+        <div class="col-xs-7 col-sm-7 col-lg-7">
+          <div class="row"> {{name}}
+            <span class="number-member-group">({{number_member}} members)</span>
           </div>
-          <div class="col-xs-8">
-            <div class="row">
-              <h5>{{name}} <span
-              class="number-member-group">{{number_member}}</span></h5>
-            </div>
-            <div class="row">
-              <h5>{{formatTime fromTime}}  <span
-              class="number-upcomming-event">{{number_upcomming_event}}</span>
-              </h5>
-            </div>
-          </div>
-          <div class="col-lg-2">
-            Rate
+          <div class="row">
+            <span class="from-time">From {{createdAt}}</span> | 
+            <span class="number-upcomming-event">{{number_upcomming_event}} upcomming event</span>
           </div>
         </div>
-      </a>
+          <div class="col-xs-3 col-sm-3 col-lg-3 center">
+            {{> voteWiget name="value" _id=_id}}
+          </div>
+      </div>
+    </a>
     {{/each}}
   </div>
 </template>

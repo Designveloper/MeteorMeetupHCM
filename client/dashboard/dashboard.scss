@@ -1,4 +1,4 @@
-#dashboardPage {
+#dashboardPage, #allGroupPage {
   #search {
     float: right;
     margin-top: 9px;
@@ -19,7 +19,7 @@
     position: absolute;
     width: 0px;
     float: Left;
-    margin-left: 210px;
+    margin-left: 200px;
     -webkit-transition: all 0.7s ease-in-out;
     -moz-transition: all 0.7s ease-in-out;
     -o-transition: all 0.7s ease-in-out;
@@ -35,11 +35,11 @@
     margin-left: 0px;
   }
 
-  .btn {
+  .search .btn {
     height: 30px;
     position: absolute;
-    right: 0;
-    top: 5px;
+    right: 35px;
+    top: -5px;
     border-radius: 1px;
   }
 }
