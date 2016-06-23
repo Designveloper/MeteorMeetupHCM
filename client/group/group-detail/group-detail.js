@@ -15,17 +15,17 @@ Template.groupDetailTemplate.helpers({
   }
 })
 Template.groupDetailTemplate.events({
-  'change input[data-name=is_joined]': function (e, tpl) {
+  'change input[data-name=is_joined_group]': function (e, tpl) {
     var _id = e.currentTarget.getAttribute('data-id');
     var data = ENUM.getDataByEvent(e);
     var user = Meteor.user();
     var groups = user.groups;
     var groupId = ENUM.groupId();
     var is_joined = groups.indexOf(groupId);
-    if ((is_joined !== -1) === data.is_joined) {
+    if ((is_joined !== -1) === data.is_joined_group) {
       return;
     }
-    if (!data.is_joined)
+    if (!data.is_joined_group)
       groups.splice(is_joined, 1);
     else
       groups.push(groupId);

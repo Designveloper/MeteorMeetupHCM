@@ -8,14 +8,14 @@
           {{/if}}
         </div>
           <div class="col-xs-4 status-label text-right">
-           {{> iconCheckbox text="JOIN/LEAVE" name="is_joined" isChecked=isJoined}}
+           {{> iconCheckbox text="JOIN/LEAVE" name="is_joined_group" isChecked=isJoined}}
           </div>
       </div>
       <div class="row">
         <div class="col-xs-6">
           <h4>Upcoming events</h4>
           <div class="row">
-            {{> eventListTemplate type="details"}}
+            {{> eventListTemplate type="details" sizeSlide="1/2"}}
           </div>
         </div>
         <div class="col-xs-6">
