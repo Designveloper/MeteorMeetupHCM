@@ -20,11 +20,15 @@
           {{/if}}
         </div>
         <fieldset class="form-group comment">
-          <label for="comment-input">Comment</label>
+            <div class="row">
+              <span class="col-xs-6 col-lg-6"><label for="comment-input">Comment</label></span>
+              <span class="col-xs-6 col-lg-6"><a href="#" class="icon-checkbox-bound"><span>Save</span></a></span>
+            </div>
             <textarea class="form-control" placeholder="Your comment/ideas"
                       data-name="comment"
                       data-id="{{getId}}"
-                      rows=5>{{comment}}</textarea>
+                      rows=4>{{comment}}</textarea>
+
         </fieldset>
       </div>
       <div class="col-sm-12 col-xs-12 col-md-8">
