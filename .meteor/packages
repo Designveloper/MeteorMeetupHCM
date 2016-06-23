@@ -41,6 +41,7 @@ aldeed:collection2
 fortawesome:fontawesome
 
 # Format time
+rajit:bootstrap3-datepicker
 momentjs:moment
 
 # Slider

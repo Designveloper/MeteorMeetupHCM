@@ -1,24 +1,21 @@
 <template name="pastEventListTemplate">
-  <div class="past-event-list container">
+  <div class="past-event-list">
     {{#each events}}
       <a href="{{routeToEvent}}">
-        <div class="row a-meet-group">
-          <div class="col-xs-2">
+        <div class="group">
+          <div class="image">
             <img src="{{image}}" class="thumbnail">
           </div>
-          <div class="col-xs-8">
-            <div class="row">
-              <h5>{{name}} <span
-              class="number-member-group">{{number_member}}</span></h5>
-            </div>
-            <div class="row">
+          <div class="content">
+            <div class="col-xs-12">
+              <h4>{{name}} <span class="number-member-group">{{number_member}}</span></h4>
               <h5>{{formatTime date}}  <span
               class="number-upcomming-event">{{number_upcomming_event}}</span>
               </h5>
             </div>
-          </div>
-          <div class="col-lg-2">
-            Rate
+            <div class="rate">
+              Rate
+            </div>
           </div>
         </div>
       </a>
