@@ -29,6 +29,6 @@ Template.groupDetailTemplate.events({
       groups.splice(is_joined, 1);
     else
       groups.push(groupId);
-    Meteor.users.update({_id: user._id}, {$set: {groups: groups}})
+    Meteor.call('user_update_groups',groups);
   }
 })

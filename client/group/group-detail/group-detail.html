@@ -7,18 +7,15 @@
             {{> breadcrumb path=pathForRoute}}
           {{/if}}
         </div>
-        {{#if isJoined}}
           <div class="col-xs-4 status-label text-right">
            {{> iconCheckbox text="JOIN/LEAVE" name="is_joined" isChecked=isJoined}}
           </div>
-        {{else}}
-        {{/if}}
       </div>
       <div class="row">
         <div class="col-xs-6">
           <h4>Upcoming events</h4>
           <div class="row">
-            {{> upcomingEventTemplate}}
+            {{> eventListTemplate type="details"}}
           </div>
         </div>
         <div class="col-xs-6">

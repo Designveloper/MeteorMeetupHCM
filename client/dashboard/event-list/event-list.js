@@ -3,13 +3,12 @@ Template.eventListTemplate.helpers({
     var user = Meteor.user();
     if (!user) return;
     var groupList = user.groups;
-    if (this.type = "upcoming")
+    if (this.type == "details")
       return EventData.find({
-        group_id: {$in: groupList},
+        group_id: ENUM.groupId(),
         date: {$gte: new Date()},
-        status: ENUM.EVENT_STATUS.OPENING
-      }, {limit: 1}).fetch();
-    return EventData.find({group_id: {$in: groupList}}).fetch();
+      }).fetch();
+    return EventData.find({group_id: {$in: groupList}, date: {$gte: new Date()}}).fetch();
   },
   'subData': function(){
     Meteor.subscribe('voteByTypeNId', 'event', this._id);
