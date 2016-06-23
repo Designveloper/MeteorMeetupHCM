@@ -162,11 +162,13 @@ h3.title {
 
 @media(max-width: 767px) {
   .slick-slider {
-      .slick-arrow {
-        &.prev-arrow {
-          left: -10px;
-        }
-        &.next-arrow {
-          right: -10px;
-        }
+    .slick-arrow {
+      &.prev-arrow {
+        left: -10px;
       }
+      &.next-arrow {
+        right: -10px;
+      }
+    }
+  }
+}
