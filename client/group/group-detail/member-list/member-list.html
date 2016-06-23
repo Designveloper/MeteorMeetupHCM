@@ -1,24 +1,16 @@
 <template name="memberListTemplate">
-  <div class="member-list container">
+  <ul class="member-list">
     {{#each members}}
-      <div class="row a-meet-group">
-        <div class="col-xs-2">
-          <img src="{{avatar}}" class="thumbnail">
-        </div>
-        <div class="col-xs-8">
-          <div class="row">
-            <h5>{{name}}</h5>
+      <li class="member">
+        <a href="{{pathFor route="user_profile"}}">
+          <div class="avatar">
+            <img src="{{avatar}}" class="thumbnail">
           </div>
-          <div class="row">
-            <h5>{{email}}</h5>
+          <div class="information">
+            <h5 class="full-name" title="{{name}}">{{name}}</h5>
           </div>
-        </div>
-        <div class="col-lg-2">
-          <a href="{{pathFor route="user_profile"}}">
-            <span class="fa fa-info-circle"></span>
-          </a>
-        </div>
-      </div>
+        </a>
+      </li>
     {{/each}}
-  </div>
+  </ul>
 </template>

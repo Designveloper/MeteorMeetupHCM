@@ -1,1 +1,49 @@
+.member-list {
+  text-align: center;
+  li {
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px 5px;
+    width: calc(11%);
+    &:hover .information h5 {
+      color: #009688;
+    }
+    .thumbnail {
+      margin: 0;
+      border-radius: 0;
+    }
+    .information {
+      h5 {
+        margin: 0;
+        background: #E8E7E7;
+        color: #000;
+        font-size: 11px;
+        text-transform: uppercase;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+        overflow: hidden;
+        width: 100%;
+        padding: 6px 2px;
+      }
+    }
+  }
 
+  @media(max-width: 991px) {
+    li {
+      width: calc(15% - 2px);
+    }
+  }
+
+  @media(max-width: 767px) {
+    li {
+      width: calc(25% - 13px);
+    }
+  }
+
+  @media(max-width: 499px) {
+    li {
+      width: calc(50% - 13px);
+    }
+  }
+}

@@ -1,5 +1,5 @@
 var slideSizeList = {
-  "1/2": [2, 1, 1],
+  "1/2": [2, 2, 1],
   "1": [4, 2, 1]
 };
 var paddingSizeList = {
