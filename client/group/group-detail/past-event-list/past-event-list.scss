@@ -21,4 +21,14 @@
       }
     }
   }
+  @media(max-width: 599px) {
+    .group {
+      .content {
+        .rate {
+          position: static;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
 }

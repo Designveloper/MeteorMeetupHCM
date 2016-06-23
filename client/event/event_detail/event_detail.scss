@@ -222,25 +222,6 @@
     }
   }
   @media(max-width: 599px) {
-    .topics {
-      .topic {
-        .image {
-          width: 100%;
-          border-right: 0;
-          img {
-            width: 100px;
-            margin: 5px auto;
-          }
-        }
-        .content {
-          width: 100%;
-          text-align: center;
-          .rating-input {
-            padding: 0;
-          }
-        }
-      }
-    }
     .opening-event-page {
       .topics {
         .topic {
