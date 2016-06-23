@@ -131,6 +131,30 @@ h3.title {
   padding: 1rem;
 }
 .navbar {
+  .profile-btn {
+    padding: 18px 15px 17px !important;
+    color: #85cdc6 !important;
+    text-transform: uppercase !important;
+    &:hover {
+      color: #fff;
+    }
+    .avatar {
+      width: 25px;
+      height: 25px;
+      display: inline-block;
+      vertical-align: middle;
+      img {
+        border-radius: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+  .navbar-header {
+    .profile-btn {
+      display: none;
+    }
+  }
   .navbar-nav {
     li {
       a {
@@ -139,23 +163,8 @@ h3.title {
     }
   }
   .navbar-right {
-    li {
-      &:first-child {
-        a {
-          padding: 18px 15px 17px;
-        }
-      }
-      .avatar {
-        width: 25px;
-        height: 25px;
-        display: inline-block;
-        vertical-align: middle;
-        img {
-          border-radius: 100%;
-          margin: 0;
-          padding: 0;
-        }
-      }
+    .profile-btn {
+      display: block;
     }
   }
 }
@@ -209,6 +218,30 @@ h3.title {
       &.next-arrow {
         right: -10px;
       }
+    }
+  }
+  .navbar {
+    .navbar-nav {
+      margin-top: 0;
+      li {
+        position: static;
+      }
+    }
+    .navbar-header {
+      .profile-btn {
+        display: block;
+        position: absolute;
+        right: 13%;
+        top: -6px;
+      }
+    }
+    .navbar-right {
+      .profile-btn {
+        display: none;
+      }
+    }
+    .profile-btn {
+      display: block;
     }
   }
 }

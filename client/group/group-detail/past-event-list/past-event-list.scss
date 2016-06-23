@@ -12,6 +12,12 @@
         position: absolute;
         right: 20px;
         top: 38%;
+        width: 100%;
+        .rating-input {
+          * {
+            color: #009688;
+          }
+        }
       }
     }
   }

@@ -2,15 +2,21 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed"
-                data-toggle="collapse"
-                data-target="#bs-example-navbar-collapse-1"
-                aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+        {{#if haveUser}}
+          <a class="profile-btn" href="{{pathFor route="user_profile"}}">
+            <i class="avatar"><img src="{{getAvatar}}" class="thumbnail"></i>
+            {{getName}}
+          </a>
+          <button type="button" class="navbar-toggle collapsed"
+                  data-toggle="collapse"
+                  data-target="#bs-example-navbar-collapse-1"
+                  aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        {{/if}}
       </div>
       {{#if haveUser}}
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -24,7 +30,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="{{pathFor route="user_profile"}}">
+              <a class="profile-btn" href="{{pathFor route="user_profile"}}">
                 <i class="avatar"><img src="{{getAvatar}}" class="thumbnail"></i>
                 {{getName}}
               </a>
