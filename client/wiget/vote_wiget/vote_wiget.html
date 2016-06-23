@@ -1,4 +1,6 @@
 <template name="voteWiget">
+  {{#if hasValue}}
+    {{#if getValue}} {{/if}}
   <span class="vote-widget {{#if readonly}} readonly {{/if}}">
     <input type="number" name="My Rating System"
            class="rating " data-max="{{max}}" data-min="{{min}}"
@@ -6,4 +8,12 @@
            data-value="{{value}}" data-name="{{name}}" data-id="{{_id}}"
            data-update="{{isUpdate}}"/>
   </span>
+  {{else}}
+  <span class="vote-widget {{#if readonly}} readonly {{/if}}">
+    <input type="number" name="My Rating System"
+           class="rating " data-max="{{max}}" data-min="{{min}}"
+           data-name="{{name}}" data-id="{{_id}}"
+           data-update="{{isUpdate}}"/>
+  </span>
+  {{/if}}
 </template>

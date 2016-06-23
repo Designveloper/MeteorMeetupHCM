@@ -13,7 +13,7 @@ Meteor.publish('countVote', function (type, reference_id) {
 })
 
 Meteor.publish('subCountEvent', function (type, data) {
-  console.log('dataSubCount' + type, data);
+  //console.log('dataSubCount' + type, data);
   if (type === 'EventCountAge')
     return Counts.publish(this, type + '-' + data.value, Vote.find({
         type: 'event',
@@ -57,6 +57,26 @@ Meteor.publish('countJoinedMember', function (eventId) {
     is_joined: true
   }));
 })
+Meteor.publish('countEventEndedByGroup', function (groupId) {
+  var eventCursor = EventData.find({
+    group_id: groupId,
+    date: {$lt: new Date()}
+  });
+  return Counts.publish(this, 'event-of-group-by-id-' + groupId, eventCursor)
+});
+Meteor.publish('countStarByGroup', function (groupId) {
+  var eventCursor = EventData.find({
+    group_id: groupId,
+    date: {$lt: new Date()}
+  });
+  var eventIds = eventCursor.map(function (event) {
+    return event._id;
+  });
+  return Counts.publish(this, 'total-star-of-group-by-id-' + groupId, Vote.find({
+    type: 'event',
+    reference_id: {$in: eventIds}
+  }, {fields: {_id: 1, value: 1}}), {countFromField: 'value'})
+});
 Meteor.publish('countMemberGroup', function (groupId) {
   return Counts.publish(this, 'number-member-of-group-by-id-' + groupId, Meteor.users.find({groups: groupId}));
 })
