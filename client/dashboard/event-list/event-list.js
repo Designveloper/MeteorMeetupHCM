@@ -21,5 +21,6 @@ Template.eventListTemplate.helpers({
         size: size
       }, dom1);
     }, 0);
+    return !!data.length;
   }
 })

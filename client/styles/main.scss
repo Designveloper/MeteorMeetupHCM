@@ -45,6 +45,17 @@ body {
   }
 }
 
+.breadcrumb {
+  a, li {
+    font-size: 16px;
+  }
+}
+
+.no-data {
+  color: #fe5722;
+  font-size: 16px;
+}
+
 #search {
   margin-top: -18px !important;
   width: 250px;
@@ -118,6 +129,35 @@ h3.title {
   text-align: center;
 
   padding: 1rem;
+}
+.navbar {
+  .navbar-nav {
+    li {
+      a {
+        text-transform: uppercase;
+      }
+    }
+  }
+  .navbar-right {
+    li {
+      &:first-child {
+        a {
+          padding: 18px 15px 17px;
+        }
+      }
+      .avatar {
+        width: 25px;
+        height: 25px;
+        display: inline-block;
+        vertical-align: middle;
+        img {
+          border-radius: 100%;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
 }
 .slick-slider {
   margin-top: 20px;
