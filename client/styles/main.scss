@@ -1,0 +1,71 @@
+body {
+  position: relative;
+  * {
+    font-family: 'proxima_nova_regular';
+    font-size: 14px;
+  }
+  .page {
+    padding-bottom: 40px;
+  }
+  a {
+    &:hover, &:focus, &:active {
+      text-decoration: none;
+      color: #4cb5ab;
+    }
+  }
+}
+
+.rating-input {
+  i {
+    font-size: 16px;
+    cursor: pointer;
+    color: #009688;
+  }
+}
+
+.at-form {
+  width: 100%;
+  margin: 0 auto 40px;
+  max-width: 400px;
+  .at-social-btn {
+    border-radius: 2px;
+    font-family: 'proxima_nova_light';
+  }
+  .at-sep {
+    margin: 20px 0;
+  }
+  form {
+    .at-input {
+      margin: 0 0 10px;
+      .control-label {
+        margin-top: 0;
+        font-size: 14px;
+      }
+    }
+    #at-btn {
+      background: #009688;
+      color: #fff;
+      margin: 20px 0 0;
+      padding: 8px 12px;
+      color: #fff;
+      &:hover {
+        background: #0a6c63;
+      }
+    }
+  }
+}
+
+.footer {
+  background: #009688;
+  color: #fff;
+  padding: 15px 0;
+  position: absolute;;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+@media(max-width: 991px) {
+  .footer {
+    text-align: center;
+  }
+}

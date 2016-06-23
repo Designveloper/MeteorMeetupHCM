@@ -1,17 +1,11 @@
 <template name="openingEventDetailTemplate">
-  <div class="placeHoldTemplate">
+  <div class="opening-event-page">
     {{> placeHoldTemplate}}
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-4 col-sm-4 col-lg-4">
-        <h4>Topics in vote</h4>
-      </div>
-      <div class="col-xs-8 col-sm-8 col-lg-8 text-right">
-        <a href="#"> <h4>Want to talk about your topic?</h4> </a>
-      </div>
-    </div>
-    <div class="row">
+    <div class="topics">
+      <h3 class="title">
+        <span>Topics in vote</span>
+        <a href="#">Want to talk about your topic?</a>
+      </h3>
       {{> topicHoldTemplate}}
     </div>
   </div>

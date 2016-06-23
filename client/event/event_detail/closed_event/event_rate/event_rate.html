@@ -1,43 +1,33 @@
 <template name="eventRateTemplate">
   <div class="event-rate-template">
-    <div class="row">
-      <div
-      class="col-sm-3 col-sm-push-9 col-lg-2 col-lg-push-10 text-right was-here-bound">
-        <span class="was-here">I was here</span>
-        {{> switchButton name="is_here" checked=is_here _id=getId}}
-      </div>
+    <div class="was-here-bound">
+      <span class="was-here">I was here</span>
+      {{> switchButton name="is_here" checked=is_here _id=getId}}
     </div>
     <div class="row">
-      <div class="col-sm-4 col-lg-4">
+      <div class="col-sm-12 col-xs-12 col-md-4">
+        <h3>We need your feedback</h3>
         <div class="row">
-          <div class="col-sm-12 col-lg-12">
-            <h3>We need your feedback</h3>
-          </div>
-        </div>
-        <div class="row">
-          <span class="col-lg-6">Rate this event</span>
+          <span class="col-xs-6 col-lg-6">Rate this event</span>
           {{#if isFeedback}}
-            <span class="col-lg-6">
+            <span class="col-xs-6 col-lg-6">
               {{> voteWiget name="value" value=value _id=getId}}
             </span>
           {{else}}
-            <span class="col-lg-6">
+            <span class="col-xs-6 col-lg-6">
               {{> voteWiget name="value" _id=getId}}
             </span>
           {{/if}}
         </div>
-        <div class="row">
-          <div class="col-sm-12 col-lg-12">
-            <div class="comment">
-                <textarea class="form-control" placeholder="Your comment/ideas"
-                          data-name="comment"
-                          data-id="{{getId}}"
-                          rows=3>{{comment}}</textarea>
-            </div>
-          </div>
-        </div>
+        <fieldset class="form-group comment">
+          <label for="comment-input">Comment</label>
+            <textarea class="form-control" placeholder="Your comment/ideas"
+                      data-name="comment"
+                      data-id="{{getId}}"
+                      rows=5>{{comment}}</textarea>
+        </fieldset>
       </div>
-      <div class="col-sm-8 col-lg-8">
+      <div class="col-sm-12 col-xs-12 col-md-8">
         {{> map2HoldTemplate}}
       </div>
     </div>

@@ -1,41 +1,37 @@
 <template name="map2HoldTemplate">
   {{#with eventData}}
   <div class="place-hold">
-    <div class="row">
-      <div class="col-sm-4 col-lg-4">
-        <div class="event-detail-information">
-          <div class="container">
-            <div class="event-detail-upper">
-              <div class="row">
-                <div class="col-sm-1 col-lg-1">Location:</div>
-                <div class="col-sm-5 col-lg-5">{{location.address}}</div>
-              </div>
-              <div class="row">
-                <div class="col-sm-2 col-lg-2">Time:</div>
-                <div class="col-sm-4 col-lg-4">{{formatTime date}}</div>
-              </div>
-            </div>
-            <div class="event-detail-down">
-              <div class="row">
-                <div class="col-sm-6 col-lg-6">
-                  <span class="topic-event">{{getTotalTopics}}</span> topics
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-6 col-lg-6">
-                  <span class="max-member-event">{{getMembersJoined}}</span> members joined
-                </div>
-              </div>
-            </div>
-          </div>
+    <div class="event-detail-information">
+      <div class="row">
+        <div class="col-sm-4 col-xs-4">
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <span>Location:</span>
         </div>
+        <div class="col-sm-8 col-xs-8">{{location.address}}</div>
       </div>
-      <div class="col-sm-8 col-lg-8">
-        <div class="map-container">
-          {{> mapWidget name=mapName location=location}}
+      <div class="row">
+        <div class="col-sm-4 col-xs-4">
+          <i class="fa fa-clock-o" aria-hidden="true"></i>
+          <span>Time:</span>
         </div>
+        <div class="col-sm-8 col-xs-8">{{formatTime date}}</div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-xs-4">
+          <i class="fa fa-book" aria-hidden="true"></i>
+          <span>Topics:</span>
+        </div>
+        <div class="col-sm-8 col-xs-8">{{getTotalTopics}}</div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-xs-4">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <span>Members:</span>
+        </div>
+        <div class="col-sm-8 col-xs-8">{{getMembersJoined}}</div>
       </div>
     </div>
+    {{> mapWidget name=mapName location=location}}
   </div>
   {{/with}}
 </template>

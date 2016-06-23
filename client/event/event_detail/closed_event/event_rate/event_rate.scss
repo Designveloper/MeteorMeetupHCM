@@ -1,9 +1,37 @@
 .event-rate-template {
   .was-here-bound {
     display: table;
+    float: right;
+    margin-bottom: 5px;
+    .switch {
+      width: 53px;
+      height: 26px;
+      .slider {
+        &:before {
+          height: 22px;
+          width: 22px;
+          left: 3px;
+          bottom: 2px;
+        }
+      }
+    }
   }
   .was-here {
     display: table-cell;
     vertical-align: middle;
+    padding: 4px 5px 10px 0;
+    font-weight: bold;
+  }
+  .comment {
+    margin-top: 10px;
+    &.is-focused {
+      label {
+        color: #009688;
+      }
+    }
+    label {
+      font-size: 14px;
+      color: #000;
+    }
   }
 }

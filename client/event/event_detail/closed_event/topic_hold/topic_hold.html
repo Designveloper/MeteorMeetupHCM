@@ -2,25 +2,21 @@
   <div class="topic-hold-list">
     {{#each topics}}
       <div class="topic">
-        <div class="header">
-          <div class="col-xs-2 col-sm-2 col-lg-2 center">
-            <img src="{{image}}" class="thumbnail small">
-          </div>
-          <div class="col-xs-5 col-sm-5 col-lg-5">
-            <div class="row"> {{title}} </div>
-            <div class="row">
-              Estimate time:
+        <div class="image">
+          <img src="{{image}}" class="thumbnail small">
+        </div>
+        <div class="content">
+          <div class="col-xs-12">
+            <h4> {{title}} </h4>
+            <p class="estimate">
+              <label>Estimate time:</label>
               <span class="time-est-topic">{{timeEst}}</span>
-            </div>
+            </p>
           </div>
           {{#if vote_value}}
-            <div class="col-xs-3 col-sm-3 col-lg-3 center">
-              {{> voteWiget name="value" value=vote_value isUpdate=true _id=_id}}
-            </div>
+            {{> voteWiget name="value" value=vote_value isUpdate=true _id=_id}}
           {{else}}
-            <div class="col-xs-3 col-sm-3 col-lg-3 center">
-              {{> voteWiget name="value" _id=_id}}
-            </div>
+            {{> voteWiget name="value" _id=_id}}
           {{/if}}
         </div>
       </div>

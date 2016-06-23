@@ -37,9 +37,8 @@ fezvrasta:bootstrap-material-design
 fourseven:scss
 dburles:google-maps
 aldeed:simple-schema
-fortawesome:fontawesome
 aldeed:collection2
-
+fortawesome:fontawesome
 
 #time
 momentjs:moment
