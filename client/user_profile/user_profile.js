@@ -6,6 +6,9 @@ Template.userProfileTemplate.helpers({
   'user': function () {
     return Meteor.user();
   },
+  'name': function () {
+    return ENUM.getNameCurrentUser(this);
+  },
   'email': function () {
     return ENUM.getEmailCurrentUser(this);
   },
@@ -31,16 +34,16 @@ Template.userProfileTemplate.helpers({
   }
 })
 Template.userProfileTemplate.events({
-  'change input, change select, change textarea': function(e,tpl){
+  'change input, change select, change textarea': function (e, tpl) {
     var el = $(e.currentTarget);
-    if (el.is('[readonly]')){
+    if (el.is('[readonly]')) {
       return;
     }
     $('#profileForm').submit();
   },
-  'submit #profileForm': function(e,tpl) {
+  'submit #profileForm': function (e, tpl) {
     e.preventDefault();
     var data = ENUM.getDataInForm(tpl);
-    Meteor.users.update({_id: Meteor.userId()},{$set: data});
+    Meteor.users.update({_id: Meteor.userId()}, {$set: data});
   }
 });

@@ -3,18 +3,20 @@
     {{#each members}}
       <div class="row a-meet-group">
         <div class="col-xs-2">
-          <img src="{{image}}" class="thumbnail">
+          <img src="{{avatar}}" class="thumbnail">
         </div>
         <div class="col-xs-8">
           <div class="row">
-            <h5>{{name}} <span class="number-member-group">{{number_member}}</span></h5>
+            <h5>{{name}}</h5>
           </div>
           <div class="row">
-            <h5>{{formatTime fromTime}}  <span class="number-upcomming-event">{{number_upcomming_event}}</span> </h5>
+            <h5>{{email}}</h5>
           </div>
         </div>
         <div class="col-lg-2">
-          Rate
+          <a href="{{pathFor route="user_profile"}}">
+            <span class="fa fa-info-circle"></span>
+          </a>
         </div>
       </div>
     {{/each}}

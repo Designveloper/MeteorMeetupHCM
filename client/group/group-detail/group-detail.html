@@ -9,8 +9,7 @@
         </div>
         {{#if isJoined}}
           <div class="col-xs-4 status-label text-right">
-            <h5 class="label label-default"> Leave </h5>
-            <h5 class="label label-default"> Join </h5>
+           {{> iconCheckbox text="JOIN/LEAVE" name="is_joined" isChecked=isJoined}}
           </div>
         {{else}}
         {{/if}}

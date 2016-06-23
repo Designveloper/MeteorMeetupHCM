@@ -35,7 +35,7 @@ Template.header.helpers({
   'getName': function(){
     var user = Meteor.user();
     if (!user) return "loading..";
-    return user.profile.name || "no name";
+    return ENUM.getNameCurrentUser(user);
   }
 })
 Template.header.events({
