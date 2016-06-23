@@ -1,32 +1,24 @@
 <template name="dashboardTemplate">
-  <div id="dashboardPage" class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <h2>Upcomming event</h2>
-      </div>
-      <div class="col-md-6">
+  <div id="dashboardPage" class="dashboard-page page">
+    <div class="container">
+      <h3 class="title">Upcomming event</h3>
+      <!-- <div class="form-group">
         <div id="search" class="search">
-          <input type="text" class="form-control input-sm" maxlength="64" placeholder="Search event ..." />
-          <button type="submit" class="btn btn-primary btn-sm">Search</button>
+          <input type="text" class="form-control col-md-8" placeholder="Search">
+          <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-search" aria-hidden="true"></i></button>
         </div>
-      </div>
-    </div>
-    <div class="row">
+      </div> -->
       {{> eventListTemplate}}
     </div>
-    <div class="row">
-      <div class="col-md-6">
-        <h3> My groups</h3>
+    <div class="container">
+      <div class="group-section">
+        <h3 class="title">
+          My groups
+          <a href="{{pathFor route="all_groups"}}">All Groups</a>
+        </h3>
+        {{> groupListTemplate}}
+        <a class="question" href="{{pathFor route="start_group"}}"><h4>Want to start your group today?</h4></a>
       </div>
-    </div>
-      {{> groupListTemplate}}
-    <div class="row text-right">
-      <div class="col-md-12">
-        <a href="{{pathFor route="all_groups"}}">All Groups</a>
-      </div>
-    </div>
-    <div class="row text-center">
-      <a href="{{pathFor route="start_group"}}"> <h4>Want to start your group today?</h4></a>
     </div>
   </div>
 </template>

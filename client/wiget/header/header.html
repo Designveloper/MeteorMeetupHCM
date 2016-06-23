@@ -17,8 +17,9 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             {{#each navLink}}
-              <li class="{{isNavActive}}"><a
-              href="{{pathFor route=this}}">{{this}}</a></li>
+              <li class="{{isNavActive}}">
+                <a href="{{pathFor route=this}}">{{this}}</a>
+              </li>
             {{/each}}
           </ul>
           <ul class="nav navbar-nav navbar-right">

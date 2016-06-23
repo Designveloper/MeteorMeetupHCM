@@ -40,3 +40,35 @@ Template.eventListTemplate.events({
     Vote.insert(_.extend(base,data));
   }
 })
+
+Template.eventListTemplate.onRendered(function(){
+  setTimeout(function(){
+    $('.event-list').slick({
+      // centerMode: true,
+      centerPadding: '60px',
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      arrows: true,
+      infinite: false,
+      nextArrow: '<span class="next-arrow"></span>',
+      prevArrow: '<span class="prev-arrow"></span>',
+      responsive: [{
+        breakpoint: 1024,
+        settings: {
+          arrows: true,
+          // centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 2
+        }
+      }, {
+        breakpoint: 768,
+        settings: {
+          arrows: true,
+          // centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 1
+        }
+      }]
+    })
+  },0)
+})
