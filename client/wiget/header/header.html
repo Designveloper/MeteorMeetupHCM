@@ -18,7 +18,7 @@
           <ul class="nav navbar-nav">
             {{#each navLink}}
               <li class="{{isNavActive}}">
-                <a href="{{pathFor route=this}}">{{this}}</a>
+                <a href="{{pathFor route=route}}">{{name}}</a>
               </li>
             {{/each}}
           </ul>

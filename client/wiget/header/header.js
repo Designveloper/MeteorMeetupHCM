@@ -30,7 +30,7 @@ Template.header.helpers({
     return ENUM.NAV_LINK;
   },
   'isNavActive': function(){
-    if (Router.current().route.getName() == ""+this) return "active";
+    if (Router.current().route.getName() == ""+this.route) return "active";
   },
   'getName': function(){
     var user = Meteor.user();
