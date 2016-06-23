@@ -23,7 +23,12 @@
             {{/each}}
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="{{pathFor route="user_profile"}}">{{getName}}</a></li>
+            <li>
+              <a href="{{pathFor route="user_profile"}}">
+                <i class="avatar"><img src="{{getAvatar}}" class="thumbnail"></i>
+                {{getName}}
+              </a>
+            </li>
             <li><a href="{{pathFor route="signout"}}">Sign Out</a></li>
           </ul>
           <!---->

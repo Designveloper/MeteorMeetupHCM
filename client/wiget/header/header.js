@@ -36,6 +36,11 @@ Template.header.helpers({
     var user = Meteor.user();
     if (!user) return "loading..";
     return ENUM.getNameCurrentUser(user);
+  },
+  'getAvatar': function(){
+    var user = Meteor.user();
+    if (!user) return "loading..";
+    return ENUM.getAvatarCurrentUser(user) || ENUM.NO_AVATAR;
   }
 })
 Template.header.events({
@@ -44,7 +49,7 @@ Template.header.events({
     Meteor.logout();
     Router.go('/signin');
   },
-  
+
   'click .navbar-nav li': function(e) {
     $('.navbar-nav li').removeClass('active');
     $(e.currentTarget).addClass('active');

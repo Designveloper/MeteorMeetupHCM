@@ -35,4 +35,3 @@ Template.calendarWidget.onRendered(function () {
     },
   });
 })
-
