@@ -45,6 +45,17 @@ body {
   }
 }
 
+.breadcrumb {
+  a, li {
+    font-size: 16px;
+  }
+}
+
+.no-data {
+  color: #fe5722;
+  font-size: 16px;
+}
+
 #search {
   margin-top: -18px !important;
   width: 250px;
