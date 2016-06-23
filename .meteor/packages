@@ -21,7 +21,7 @@ iron:router             # Route
 twbs:bootstrap@3.3.5    # bootstrap library
 insecure                # Allow all DB writes from clients (for prototyping)
 
-# account
+# Account
 accounts-base
 accounts-google
 accounts-password
@@ -30,7 +30,7 @@ ian:accounts-ui-bootstrap-3
 useraccounts:bootstrap
 useraccounts:iron-routing
 
-# other
+# Other
 hocnv:publish-counts
 random
 fezvrasta:bootstrap-material-design
@@ -40,5 +40,8 @@ aldeed:simple-schema
 aldeed:collection2
 fortawesome:fontawesome
 
-#time
+# Format time
 momentjs:moment
+
+# Slider
+shcherbin:slickjs

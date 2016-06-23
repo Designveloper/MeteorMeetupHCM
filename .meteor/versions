@@ -94,6 +94,7 @@ routepolicy@1.0.11
 service-configuration@1.0.10
 session@1.1.6
 sha@1.0.8
+shcherbin:slickjs@1.5.8
 softwarerero:accounts-t9n@1.3.4
 spacebars@1.0.12
 spacebars-compiler@1.0.12

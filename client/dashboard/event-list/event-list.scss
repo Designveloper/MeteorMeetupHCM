@@ -1,9 +1,40 @@
-.event-list{
-  // width: 250px;
-}
-.map-container{
-  height: 150px;
-}
-.panel{
-  margin-top:20px;
+.event-list {
+  .panel {
+    .panel-heading {
+      padding: 5px 10px;
+      text-align: center;
+      height: 82px;
+      position: relative;
+      a {
+        color: #000;
+        &:hover {
+          color: #009688;
+        }
+        h4 {
+          text-transform: uppercase;
+          font-weight: bold;
+          font-size: 15px;
+        }
+      }
+      .time {
+        color: #009688;
+        position: absolute;
+        width: 100%;
+        bottom: 6px;
+        left: 0;
+      }
+    }
+    .panel-body {
+      padding: 0;
+      .map-container {
+        height: 150px;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+      }
+      .question {
+        text-align: center;
+        margin: 20px;
+      }
+    }
+  }
 }
