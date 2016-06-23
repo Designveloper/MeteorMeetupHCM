@@ -46,7 +46,7 @@ Meteor.publish('subCountEvent', function (type, data) {
     return Counts.publish(this, type + '-' + data.value, Vote.find({
       type: 'event',
       reference_id: data.eventId,
-      value: "" + data.value
+      value: parseInt(data.value)
     }));
 });
 
