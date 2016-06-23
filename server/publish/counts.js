@@ -57,6 +57,13 @@ Meteor.publish('countJoinedMember', function (eventId) {
     is_joined: true
   }));
 })
+Meteor.publish('countWentMember', function (eventId) {
+  return Counts.publish(this, 'members-went-event-' + eventId, Vote.find({
+    type: 'event',
+    reference_id: eventId,
+    is_here: true
+  }));
+})
 Meteor.publish('countEventEndedByGroup', function (groupId) {
   var eventCursor = EventData.find({
     group_id: groupId,
