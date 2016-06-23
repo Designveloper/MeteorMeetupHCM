@@ -1,5 +1,19 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
   position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
   * {
     font-family: 'proxima_nova_regular';
     font-size: 14px;
@@ -88,11 +102,15 @@ h3.title {
 .footer {
   background: #009688;
   color: #fff;
-  padding: 15px 0;
+  // padding: 15px 0;
   position: absolute;;
   left: 0;
+  right: 0;
   bottom: 0;
   width: 100%;
+  text-align: center;
+
+  padding: 1rem;
 }
 .slick-slider {
   margin-top: 20px;
@@ -132,11 +150,5 @@ h3.title {
         content: "\f105";
       }
     }
-  }
-}
-
-@media(max-width: 991px) {
-  .footer {
-    text-align: center;
   }
 }
