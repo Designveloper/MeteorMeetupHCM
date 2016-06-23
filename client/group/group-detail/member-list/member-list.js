@@ -10,5 +10,8 @@ Template.memberListTemplate.helpers({
   },
   'name': function(){
     return ENUM.getNameCurrentUser(this);
+  },
+  getRouteProfile: function(){
+    return "/user-profile/"+this._id;
   }
 })

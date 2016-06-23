@@ -4,8 +4,19 @@ Meteor.publish(null, function () {
     fields: {
       'services.google.email': 1,
       'services.google.picture': 1,
-      quickInfo: 1,
       groups: 1
+    }
+  });
+});
+
+Meteor.publish('getUserById', function (userId) {
+  if (!this.userId) return this.ready();
+  return Meteor.users.find({_id: userId}, {
+    fields: {
+      'services.google.email': 1,
+      'services.google.picture': 1,
+      groups: 1,
+      'profile': 1
     }
   });
 });

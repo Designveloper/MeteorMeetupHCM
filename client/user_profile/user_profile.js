@@ -4,7 +4,13 @@ Template.userProfileTemplate.helpers({
       {name: "User Profile", _id: "", type: "active"}]
   },
   'user': function () {
-    return Meteor.user();
+    var userId = ENUM.userId();
+    if (userId) {
+      var users = Meteor.users.find({_id: userId}).fetch();
+      if (users.length)
+        return users[0];
+    }
+    return  Meteor.user();
   },
   'name': function () {
     return ENUM.getNameCurrentUser(this);
