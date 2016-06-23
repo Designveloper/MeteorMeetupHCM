@@ -18,24 +18,25 @@ Template.voteWiget.helpers({
         tpl.voteValue.set(value);
     }
     return hasValue;
+  },
+  'reRender': function(){
+    var tpl = Template.instance();
+    setTimeout(function(){
+      tpl.rate = $(tpl.$(".rating")).rating();
+      if (this.data.readonly) {
+        this.rate.setReadonly();
+      }
+    },0 );
   }
 })
 Template.voteWiget.onRendered(function () {
   this.voteValue = new ReactiveVar();
-  var el = $(this.$(".rating"));
-  this.rate = el.rating();
-  if (this.data.readonly) {
-    this.rate.setReadonly();
-  }
   var self = this;
   this.autorun(function () {
     var value = self.voteValue.get();
     if (value) {
       if (self.rate && self.data.readonly)
         return self.rate.updateValue(self.$(".vote-widget"), value);
-      setTimeout(function(){
-        self.rate = $(self.$(".rating")).rating();
-      },0 );
     }
   })
 

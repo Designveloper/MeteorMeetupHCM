@@ -81,7 +81,8 @@ Meteor.publish('countStarByGroup', function (groupId) {
   });
   return Counts.publish(this, 'total-star-of-group-by-id-' + groupId, Vote.find({
     type: 'event',
-    reference_id: {$in: eventIds}
+    reference_id: {$in: eventIds},
+    is_here: true
   }, {fields: {_id: 1, value: 1}}), {countFromField: 'value'})
 });
 Meteor.publish('countStarByEvent', function (eventId) {
