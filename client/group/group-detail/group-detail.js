@@ -12,6 +12,16 @@ Template.groupDetailTemplate.helpers({
     return [
       {name: "All groups", _id: "", type: "route", route: "all_groups"},
       {name: this.name, _id: this._id, type: "group"}]
+  },
+  'getUpDate': function () {
+    var data = {};
+    data.upDate = EventData.find({
+      group_id: ENUM.groupId(),
+      date: {$gte: new Date()},
+    }).map(function(event){
+      return event.date;
+    });
+    return data;
   }
 })
 Template.groupDetailTemplate.events({
@@ -29,6 +39,6 @@ Template.groupDetailTemplate.events({
       groups.splice(is_joined, 1);
     else
       groups.push(groupId);
-    Meteor.call('user_update_groups',groups);
+    Meteor.call('user_update_groups', groups);
   }
 })
