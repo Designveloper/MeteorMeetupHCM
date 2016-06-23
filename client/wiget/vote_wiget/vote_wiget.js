@@ -5,19 +5,17 @@ Template.voteWiget.helpers({
   'min': function () {
     return this.min || 1;
   },
-  'value': function () {
-    var tpl = Template.instance();
-    var value = this.value;
-    if (tpl.voteValue)
-      tpl.voteValue.set(value);
-    return value;
-  },
   'hasValue': function () {
     var hasValue = !!this.value;
-    var value = parseInt(this.value);
+    var value = this.value;
     if (hasValue) {
       var tpl = Template.instance();
-      tpl.rate = null;
+      if (!tpl.isFirstChange) {
+        tpl.isFirstChange = true;
+        tpl.rate = null;
+      }
+      if (tpl.voteValue)
+        tpl.voteValue.set(value);
     }
     return hasValue;
   }
@@ -33,9 +31,11 @@ Template.voteWiget.onRendered(function () {
   this.autorun(function () {
     var value = self.voteValue.get();
     if (value) {
-      if (self.rate)
-        return self.rate.updateValue(value);
-      self.rate = $(self.$(".rating")).rating();
+      if (self.rate && self.data.readonly)
+        return self.rate.updateValue(self.$(".vote-widget"), value);
+      setTimeout(function(){
+        self.rate = $(self.$(".rating")).rating();
+      },0 );
     }
   })
 

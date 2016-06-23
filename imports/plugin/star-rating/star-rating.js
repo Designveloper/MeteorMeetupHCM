@@ -151,8 +151,8 @@
           _clearValue(this);
         }
       });
-    this.updateValue = function(value){
-      var el = $('.rating-input').find('[data-value='+value+']');
+    this.updateValue = function(el,value){
+      var el = $(el).find('[data-value='+value+']');
       el.trigger('mouseenter');
         var input = el.siblings('input');
       _updateValue(input,value);
