@@ -1,28 +1,24 @@
 <template name="allGroupTemplate">
-  <div id="allGroupPage" class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <h2>All Groups</h2>
-      </div>
-      <div class="col-md-6">
-        <div id="search" class="search">
+  <div id="allGroupPage" class="all-groups-page">
+    <div class="container">
+      <div class="row">
+        <h3 class="title">
+          All Groups
+          <a href="{{pathFor route="start_group"}}">Want to start your group today?</a>
+        </h3>
+        <!-- <div id="search" class="search">
           <input type="text" class="form-control input-sm" maxlength="64" placeholder="Search groups ..." />
           <button type="submit" class="btn btn-primary btn-sm">Go!</button>
+        </div> -->
+      </div>
+      <div class="row">
+        {{> allGroupListTemplate}}
+        {{#if notAllGroup}}
+        <div class="text-center">
+          <a href="#">View more</a>
         </div>
+        {{/if}}
       </div>
     </div>
-    <div class="row text-right">
-      <a href="{{pathFor route="start_group"}}"> <h4>Want to start your group today?</h4></a>
-    </div>
-    <div class="row">
-      {{> allGroupListTemplate}}
-    </div>
-    {{#if notAllGroup}}
-    <div class="row text-right">
-      <div class="col-md-12">
-        <a href="#">View more</a>
-      </div>
-    </div>
-    {{/if}}
   </div>
 </template>
