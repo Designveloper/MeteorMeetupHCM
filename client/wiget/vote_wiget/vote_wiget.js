@@ -21,10 +21,11 @@ Template.voteWiget.helpers({
   },
   'reRender': function(){
     var tpl = Template.instance();
+    var self = this;
     setTimeout(function(){
       tpl.rate = $(tpl.$(".rating")).rating();
-      if (this.data.readonly) {
-        this.rate.setReadonly();
+      if (self.readonly) {
+        tpl.rate.setReadonly();
       }
     },0 );
   }
