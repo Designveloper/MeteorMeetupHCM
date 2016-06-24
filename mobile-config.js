@@ -2,12 +2,13 @@
 /* eslint-disable quote-props */
 
 App.info({
-  name: 'Todos',
-  description: 'A simple todo list app built in Meteor.',
-  author: 'Percolate Studio Team',
-  email: 'us@percolatestudio.com',
-  website: 'http://percolatestudio.com',
-  version: '0.0.1',
+  id: 'dsv.meteor.meetup',
+  name: 'MeteorMeetup',
+  description: 'Meetup open source',
+  author: 'Designveloper Team',
+  email: 'dev@dgroup.co',
+  website: 'http://www.designveloper.com',
+  version: '0.1',
 });
 
 App.icons({

@@ -42,6 +42,7 @@ fortawesome:fontawesome@4.5.0
 fourseven:scss@3.4.3
 geojson-utils@1.0.9
 google@1.1.12
+hedcet:cordova-google-plus-native-sign-in@1.1.0
 hocnv:publish-counts@0.7.3
 hot-code-push@1.0.4
 html-tools@1.0.10
