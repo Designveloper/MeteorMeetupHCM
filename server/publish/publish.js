@@ -16,7 +16,9 @@ Meteor.publish('getUserById', function (userId) {
       'services.google.email': 1,
       'services.google.picture': 1,
       groups: 1,
-      'profile': 1
+      'profile.name': 1,
+      'profile.age': 1,
+      'profile.title': 1
     }
   });
 });

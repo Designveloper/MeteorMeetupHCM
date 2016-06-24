@@ -29,18 +29,23 @@ Template.userProfileTemplate.helpers({
   },
   'isSelectedTitle': function () {
     var parent = Template.parentData(1);
-    if (parent.profile.title === "" + this) return 'selected';
+    if (parent.profile && parent.profile.title === "" + this) return 'selected';
   },
   'isSelectedAge': function () {
     var parent = Template.parentData(1);
-    if (parent.profile.age === "" + this) return 'selected';
+    if (parent.profile && parent.profile.age === "" + this) return 'selected';
     return (ENUM.AGE_DEFAULT === parseInt(this))
       ? 'selected'
       : '';
+  },
+  'isAnother': function(){
+    return (ENUM.userId() && ENUM.userId() !== Meteor.userId())
   }
 })
 Template.userProfileTemplate.events({
   'change input, change select, change textarea': function (e, tpl) {
+    if (ENUM.userId() && ENUM.userId() !== Meteor.userId())
+      return;
     var el = $(e.currentTarget);
     if (el.is('[readonly]')) {
       return;

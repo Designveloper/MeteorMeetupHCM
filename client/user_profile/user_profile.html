@@ -20,8 +20,13 @@
               <div class="col-md-5">
                 <fieldset class="form-group">
                   <label for="name-input">Name</label>
+                  {{#if isAnother}}
+                      <input type="text" id="name-input" class="form-control"
+                             value="{{name}}" data-name="profile.name" readonly disabled>
+                  {{else}}
                   <input type="text" id="name-input" class="form-control"
                          value="{{name}}" data-name="profile.name">
+                  {{/if}}
                 </fieldset>
                 <fieldset class="form-group">
                   <label for="name-input">Email</label>
@@ -30,20 +35,34 @@
                 </fieldset>
                 <fieldset class="form-group">
                   <label for="name-input">Phone</label>
+                  {{#if isAnother}}
+                    <input type="phone" id="name-input" class="form-control"
+                           data-update="user" data-name="profile.phone" value="{{profile.phone}}" readonly disabled>
+                  {{else}}
                   <input type="phone" id="name-input" class="form-control"
                          data-update="user" data-name="profile.phone" value="{{profile.phone}}">
+                  {{/if}}
                 </fieldset>
                 <fieldset class="form-group">
                   <label for="age-input">Ages</label>
+                  {{#if isAnother}}
+                    <input type="text" id="name-input" class="form-control"
+                           value="{{profile.age}}" data-name="profile.age" readonly disabled>
+                  {{else}}
                   <select class="form-control" id="age-input" data-update="user"
                           data-name="profile.age">
                     {{#each Ages}}
                       <option value="{{this}}" {{isSelectedAge}}>{{this}}</option>
                     {{/each}}
                   </select>
+                  {{/if}}
                 </fieldset>
                 <fieldset class="form-group">
                   <label for="title-input">Job title</label>
+                  {{#if isAnother}}
+                  <input type="text" id="name-input" class="form-control"
+                         value="{{profile.title}}" data-name="profile.title" readonly disabled>
+                  {{else}}
                   <select class="form-control text-capitalize" id="title-input"
                           data-update="user" data-name="profile.title">
                     {{#each Titles}}
@@ -51,6 +70,7 @@
                       value="{{this}}" {{isSelectedTitle}}>{{this}}</option>
                     {{/each}}
                   </select>
+                  {{/if}}
                 </fieldset>
                 <h3 class="note">* We never use your contact information outside
                   this event's purpose </h3>

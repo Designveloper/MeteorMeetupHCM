@@ -17,7 +17,8 @@ Meteor.publish('subCountEvent', function (type, data) {
   if (type === 'EventCountAge')
     return Counts.publish(this, type + '-' + data.value, Vote.find({
         type: 'event',
-        reference_id: data.eventId
+        reference_id: data.eventId,
+        is_here: true
       }, {fields: {_id: 1, 'byUser': 1}}
     ), {
       countFromField: function (doc) {
@@ -31,7 +32,8 @@ Meteor.publish('subCountEvent', function (type, data) {
   if (type === 'EventCountTitle')
     return Counts.publish(this, type + '-' + data.value, Vote.find({
         type: 'event',
-        reference_id: data.eventId
+        reference_id: data.eventId,
+        is_here: true
       }, {fields: {_id: 1, 'byUser': 1}}
     ), {
       countFromField: function (doc) {
@@ -46,6 +48,7 @@ Meteor.publish('subCountEvent', function (type, data) {
     return Counts.publish(this, type + '-' + data.value, Vote.find({
       type: 'event',
       reference_id: data.eventId,
+      is_here: true,
       value: parseInt(data.value)
     }));
 });
@@ -97,7 +100,7 @@ Meteor.publish('countMemberGroup', function (groupId) {
   return Counts.publish(this, 'number-member-of-group-by-id-' + groupId, Meteor.users.find({groups: groupId}));
 })
 Meteor.publish('countUpEventOfGroup', function (groupId) {
-  return Counts.publish(this, 'up-event-member-of-group-by-id-' + groupId, EventData.find({date: {$gte: new Date()}}));
+  return Counts.publish(this, 'up-event-member-of-group-by-id-' + groupId, EventData.find({group_id: groupId, date: {$gte: new Date()}}));
 })
 Meteor.publish('countTotal', function (type) {
   return Counts.publish(this, 'total-' + type, DB[type].find({}));
