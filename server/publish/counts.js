@@ -72,7 +72,14 @@ Meteor.publish('countEventEndedByGroup', function (groupId) {
     group_id: groupId,
     date: {$lt: new Date()}
   });
-  return Counts.publish(this, 'event-of-group-by-id-' + groupId, eventCursor)
+  var eventIds = eventCursor.map(function (event) {
+    return event._id;
+  });
+  return Counts.publish(this, 'event-of-group-by-id-' + groupId, Vote.find({
+    type: 'event',
+    reference_id: {$in: eventIds},
+    is_here: true
+  }))
 });
 Meteor.publish('countStarByGroup', function (groupId) {
   var eventCursor = EventData.find({
