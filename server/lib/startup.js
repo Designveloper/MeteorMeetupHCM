@@ -38,7 +38,8 @@ Accounts.config({
 });
 
 Accounts.onCreateUser(function(opts, user) {
-  console.log(user)
+  if (!user.services.google)
+    return user;
   var res = Meteor.http.get("https://www.googleapis.com/oauth2/v3/userinfo", {
     headers: {
       "User-Agent": "Meteor/1.0"
