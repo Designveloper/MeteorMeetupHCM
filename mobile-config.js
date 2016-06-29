@@ -41,5 +41,10 @@ App.launchScreens({
   'android_xhdpi_landscape': 'resources/splash/splash-1280x720.png',
 });
 
+App.accessRule('https://meetup.designveloper.com/*', { type: 'navigation' } );
+App.accessRule('http://meetup.designveloper.com/*', { type: 'navigation' } );
 App.setPreference('StatusBarOverlaysWebView', 'false');
 App.setPreference('StatusBarBackgroundColor', '#000000');
+App.configurePlugin('cordova-plugin-googleplus', {
+  REVERSED_CLIENT_ID: 'com.googleusercontent.apps.261317114951-3addedu5ncbloqkfh7as0rvbkdd1fg51'
+});
