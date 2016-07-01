@@ -1,0 +1,21 @@
+<template name="topic2HoldTemplate">
+  <div class="topic-hold-list">
+    {{#each topics}}
+      <div class="topic">
+        <div class="image">
+          <img src="{{image}}" class="thumbnail small">
+        </div>
+        <div class="content">
+          <div class="col-xs-12">
+            <h4> {{title}}</h4>
+            <p class="estimate">
+              <label>Estimate time:</label>
+              <span class="time-est-topic">{{timeEst}}</span>
+            </p>
+          </div>
+          {{> voteWiget name="value" value=vote_value isUpdate=true _id=_id}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</template>

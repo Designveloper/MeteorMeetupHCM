@@ -1,0 +1,22 @@
+<template name="allGroupTemplate">
+  <div id="allGroupPage" class="all-groups-page">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="title">
+            All Groups
+            <a href="{{pathFor route="start_group"}}">Want to start your group today?</a>
+          </h3>
+          <div class="content">
+            {{> allGroupListTemplate}}
+            {{#if notAllGroup}}
+            <div class="text-center">
+              <a href="#">View more</a>
+            </div>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

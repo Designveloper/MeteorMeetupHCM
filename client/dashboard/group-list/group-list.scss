@@ -1,0 +1,14 @@
+.group-list {
+  .group {
+    color: #000;
+    &:hover {
+      color: #009688;
+    }
+    h4 {
+      margin-top: 0;
+      .number-member-group {
+        text-transform: none;
+      }
+    }
+  }
+}

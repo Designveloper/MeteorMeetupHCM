@@ -1,0 +1,26 @@
+<template name="groupListTemplate">
+  <div class="group-list">
+    {{#each groups}}
+    <a href="{{routeForGroup}}">
+      <div class="group">
+        <div class="image">
+          <img src="{{image}}" class="thumbnail small">
+        </div>
+        <div class="content">
+          <div class="col-xs-12">
+            <h4>
+              <span>{{name}}</span>
+              <span class="number-member-group">({{number_member}} members)</span>
+            </h4>
+            <div class="time">
+              <span class="from-time">From {{formatTime createdAt}}</span> |
+              <span class="number-upcomming-event">{{number_upcomming_event}} upcomming event</span>
+            </div>
+          </div>
+          {{> voteWiget value=voteValue name="value" _id=_id readonly=true}}
+        </div>
+      </div>
+    </a>
+    {{/each}}
+  </div>
+</template>

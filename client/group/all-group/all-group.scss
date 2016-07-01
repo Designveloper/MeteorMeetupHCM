@@ -1,0 +1,45 @@
+.all-groups-page {
+  h3.title {
+    a {
+      float: right;
+      text-transform: none;
+    }
+  }
+  @media(max-width: 599px) {
+    h3.title {
+      position: relative;
+      margin-bottom: 30px;
+      a {
+        position: absolute;
+        bottom: -24px;
+        width: 100%;
+        left: 0;
+      }
+    }
+    .group {
+      .image, .content {
+        width: 100%;
+        text-align: center;
+      }
+      .image {
+        border-right: 0;
+        img {
+          width: 100px;
+          margin: 5px auto;
+        }
+      }
+      .content {
+        h4 {
+          margin-top: 10px;
+        }
+        .time {
+          margin-bottom: 5px;
+        }
+        .rating-input {
+          position: static;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+}

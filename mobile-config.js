@@ -2,12 +2,13 @@
 /* eslint-disable quote-props */
 
 App.info({
-  name: 'Todos',
-  description: 'A simple todo list app built in Meteor.',
-  author: 'Percolate Studio Team',
-  email: 'us@percolatestudio.com',
-  website: 'http://percolatestudio.com',
-  version: '0.0.1',
+  id: 'dsv.meteor.meetup',
+  name: 'MeteorMeetup',
+  description: 'Meetup open source',
+  author: 'Designveloper Team',
+  email: 'dev@dgroup.co',
+  website: 'http://www.designveloper.com',
+  version: '0.1',
 });
 
 App.icons({
@@ -40,5 +41,10 @@ App.launchScreens({
   'android_xhdpi_landscape': 'resources/splash/splash-1280x720.png',
 });
 
+App.accessRule('https://meetup.designveloper.com/*', { type: 'navigation' } );
+App.accessRule('http://meetup.designveloper.com/*', { type: 'navigation' } );
 App.setPreference('StatusBarOverlaysWebView', 'false');
 App.setPreference('StatusBarBackgroundColor', '#000000');
+App.configurePlugin('cordova-plugin-googleplus', {
+  REVERSED_CLIENT_ID: 'com.googleusercontent.apps.261317114951-3addedu5ncbloqkfh7as0rvbkdd1fg51'
+});

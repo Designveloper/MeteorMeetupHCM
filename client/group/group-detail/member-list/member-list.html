@@ -1,0 +1,22 @@
+<template name="memberListTemplate">
+  <ul class="member-list">
+    {{#if members}}
+      {{#each members}}
+        <li class="member">
+          <a href="{{getRouteProfile}}">
+            <div class="avatar">
+              <img src="{{avatar}}" class="thumbnail">
+            </div>
+            <div class="information">
+              <h5 class="full-name" title="{{name}}">{{name}}</h5>
+            </div>
+          </a>
+        </li>
+      {{/each}}
+    {{else}}
+      <p class="no-data">
+        No members on this group
+      </p>
+    {{/if}}
+  </ul>
+</template>

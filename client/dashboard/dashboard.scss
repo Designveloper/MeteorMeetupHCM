@@ -1,0 +1,67 @@
+#dashboardPage, #allGroupPage {
+  .search {
+    padding: 5px 0;
+    width: 230px;
+    height: 30px;
+    position: relative;
+    left: 10px;
+    float: left;
+    line-height: 22px;
+  }
+
+  .search input {
+    height: 30px;
+    line-height: 18px;
+    padding: 0 2px 0 2px;
+    border-radius: 1px;
+  }
+
+  .search .btn {
+    height: 30px;
+    position: absolute;
+    right: 35px;
+    top: -5px;
+    border-radius: 1px;
+  }
+}
+.dashboard-page {
+  .group-section {
+    h3.title {
+      a {
+        float: right;
+        text-transform: none;
+      }
+    }
+    .question {
+      margin: 5px 0 20px;
+      display: block;
+    }
+  }
+}
+@media(max-width: 599px) {
+  .group, .topic {
+    .image, .content {
+      width: 100%;
+      text-align: center;
+    }
+    .image {
+      border-right: 0;
+      img {
+        width: 100px;
+        margin: 5px auto;
+      }
+    }
+    .content {
+      h4 {
+        margin-top: 10px;
+      }
+      .time {
+        margin-bottom: 5px;
+      }
+      .rating-input {
+        position: static;
+        margin-top: 5px;
+      }
+    }
+  }
+}

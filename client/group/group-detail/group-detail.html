@@ -1,0 +1,47 @@
+<template name="groupDetailTemplate">
+  {{#with group}}
+    <div class="group-detail-page page">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="header-page">
+              {{#if pathForRoute}}
+                {{> breadcrumb path=pathForRoute}}
+              {{/if}}
+              <div class="status-label">
+               {{> iconCheckbox text="JOIN/LEAVE" name="is_joined_group" isChecked=isJoined}}
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="events-upcomin-section section">
+              <h3 class="title">Upcoming events</h3>
+              {{> eventListTemplate type="details" sizeSlide="1/2"}}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="group-schedule-section section">
+              <h3 class="title">Group Schedule</h3>
+              {{> calendarWidget data=getUpDate}}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="members-section section">
+              <h3 class="title">Members</h3>
+              {{> memberListTemplate}}
+            </div>
+            <div class="past-events-section section">
+              <h3 class="title">Past Events</h3>
+              {{> pastEventListTemplate}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/with}}
+</template>

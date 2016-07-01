@@ -1,0 +1,28 @@
+.group-detail-page {
+  .header-page {
+    position: relative;
+    .status-label {
+      position: absolute;
+      border: 1px solid #009688;
+      padding: 2px 8px;
+      border-radius: 5px;
+      top: 6px;
+      right: 6px;
+      &:hover {
+        background: #009688;
+        a {
+          color: #fff;
+          span {
+            color: #fff;
+          }
+        }
+      }
+      a span {
+        font-size: 12px;
+      }
+    }
+  }
+  .past-events-section {
+    margin-bottom: 30px;
+  }
+}

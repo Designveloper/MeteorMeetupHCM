@@ -1,0 +1,30 @@
+<template name="pastEventListTemplate">
+  <div class="past-event-list">
+    {{#if events}}
+      {{#each events}}
+        <a href="{{routeToEvent}}">
+          <div class="group">
+            <div class="image">
+              <img src="{{image}}" class="thumbnail">
+            </div>
+            <div class="content">
+              <div class="col-xs-12">
+                <h4>{{name}} <span class="number-member-group">{{number_member}}</span></h4>
+                <h5>{{formatTime date}}  <span
+                class="number-upcomming-event">{{number_upcomming_event}}</span>
+                </h5>
+              </div>
+              <div class="rate">
+                {{> voteWiget value=voteValue readonly=true}}
+              </div>
+            </div>
+          </div>
+        </a>
+      {{/each}}
+    {{else}}
+      <p class="no-data">
+        No past events
+      </p>
+    {{/if}}
+  </div>
+</template>

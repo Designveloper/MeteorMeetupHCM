@@ -1,0 +1,247 @@
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  * {
+    font-family: 'proxima_nova_regular';
+    font-size: 14px;
+    text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  }
+  .page {
+    padding-bottom: 40px;
+  }
+  a {
+    &:hover, &:focus, &:active {
+      text-decoration: none;
+      color: #4cb5ab;
+      outline: none;
+    }
+  }
+  ul,li {
+    padding: 0;
+    list-style: none;
+    margin: 0
+  }
+}
+
+.rating-input {
+  i {
+    font-size: 16px;
+    cursor: pointer;
+    color: #009688;
+  }
+}
+
+.breadcrumb {
+  a, li {
+    font-size: 16px;
+  }
+}
+
+.no-data {
+  color: #fe5722;
+  font-size: 16px;
+}
+
+#search {
+  margin-top: -18px !important;
+  width: 250px;
+  margin-left: -10px !important;
+  input {
+    padding: 0 !important;
+    margin-right: 0 !important;
+  }
+  button {
+    padding: 0 14px;
+    font-size: 18px;
+    right: -10px !important;
+    &:hover {
+      background: none;
+    }
+    i {
+
+    }
+  }
+}
+
+h3.title {
+  text-transform: uppercase;
+  font-size: 18px;
+  border-bottom: 1px solid #ccc;
+  padding: 5px 0px;
+  margin: 20px 0;
+}
+
+.at-form {
+  width: 100%;
+  margin: 0 auto 40px;
+  max-width: 400px;
+  .at-social-btn {
+    border-radius: 2px;
+    font-family: 'proxima_nova_light';
+  }
+  .at-sep {
+    margin: 20px 0;
+  }
+  form {
+    .at-input {
+      margin: 0 0 10px;
+      .control-label {
+        margin-top: 0;
+        font-size: 14px;
+      }
+    }
+    #at-btn {
+      background: #009688;
+      color: #fff;
+      margin: 20px 0 0;
+      padding: 8px 12px;
+      color: #fff;
+      &:hover {
+        background: #0a6c63;
+      }
+    }
+  }
+}
+
+.footer {
+  background: #009688;
+  color: #fff;
+  // padding: 15px 0;
+  position: absolute;;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+
+  padding: 1rem;
+}
+.navbar {
+  .profile-btn {
+    padding: 18px 15px 17px !important;
+    color: #85cdc6 !important;
+    text-transform: uppercase !important;
+    &:hover {
+      color: #fff;
+    }
+    .avatar {
+      width: 25px;
+      height: 25px;
+      display: inline-block;
+      vertical-align: middle;
+      img {
+        border-radius: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+  .navbar-header {
+    .profile-btn {
+      display: none;
+    }
+  }
+  .navbar-nav {
+    li {
+      a {
+        text-transform: uppercase;
+      }
+    }
+  }
+  .navbar-right {
+    .profile-btn {
+      display: block;
+    }
+  }
+}
+.slick-slider {
+  margin-top: 20px;
+  .slick-slide {
+    margin: 0 10px;
+    border: 1px solid rgb(193, 193, 193);
+    box-shadow: none;
+  }
+  .slick-arrow {
+    position: absolute;
+    top: 45%;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 43px;
+    z-index: 1;
+    cursor: pointer;
+    color: #a4a4a4;
+    &:hover {
+      color: #009688;
+    }
+    &.slick-disabled {
+      opacity: 0;
+    }
+    &.prev-arrow {
+      left: -20px;
+      &:before {
+        content: "\f104";
+      }
+    }
+    &.next-arrow {
+      right: -20px;
+      &:before {
+        content: "\f105";
+      }
+    }
+  }
+}
+
+@media(max-width: 767px) {
+  .slick-slider {
+    .slick-arrow {
+      &.prev-arrow {
+        left: -10px;
+      }
+      &.next-arrow {
+        right: -10px;
+      }
+    }
+  }
+  .navbar {
+    .navbar-nav {
+      margin-top: 0;
+      li {
+        position: static;
+      }
+    }
+    .navbar-header {
+      .profile-btn {
+        display: block;
+        position: absolute;
+        right: 13%;
+        top: -6px;
+      }
+    }
+    .navbar-right {
+      .profile-btn {
+        display: none;
+      }
+    }
+    .profile-btn {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+.past-event-list {
+  .group {
+    &:hover .content * {
+      color: #009688;
+    }
+    .content {
+      position: relative;
+      * {
+        color: #000;
+      }
+      .rate {
+        position: absolute;
+        right: 20px;
+        top: 38%;
+        width: 100%;
+        .rating-input {
+          * {
+            color: #009688;
+          }
+        }
+      }
+    }
+  }
+  @media(max-width: 599px) {
+    .group {
+      .content {
+        .rate {
+          position: static;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+}

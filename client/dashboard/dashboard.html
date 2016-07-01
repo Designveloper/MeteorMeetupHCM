@@ -1,0 +1,24 @@
+<template name="dashboardTemplate">
+  <div id="dashboardPage" class="dashboard-page page">
+    <div class="container">
+      <h3 class="title">Upcomming event</h3>
+      <!-- <div class="form-group">
+        <div id="search" class="search">
+          <input type="text" class="form-control col-md-8" placeholder="Search">
+          <button type="submit" class="btn btn-primary btn-sm"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+      </div> -->
+      {{> eventListTemplate }}
+    </div>
+    <div class="container">
+      <div class="group-section">
+        <h3 class="title">
+          My groups
+          <a href="{{pathFor route="all_groups"}}">All Groups</a>
+        </h3>
+        {{> groupListTemplate}}
+        <a class="question" href="{{pathFor route="start_group"}}"><h4>Want to start your group today?</h4></a>
+      </div>
+    </div>
+  </div>
+</template>

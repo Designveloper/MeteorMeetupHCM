@@ -1,0 +1,44 @@
+<template name="placeHoldTemplate">
+  <div class="place-hold">
+    <div class="event-detail-information">
+      <div class="row">
+        <div class="col-sm-4 col-xs-4">
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <span>Location:</span>
+        </div>
+        <div class="col-sm-8 col-xs-8">{{location.address}}</div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-xs-4">
+          <i class="fa fa-clock-o" aria-hidden="true"></i>
+          <span>Time:</span>
+        </div>
+        <div class="col-sm-8 col-xs-8">{{formatTime date}}</div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-xs-4">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <span>Members will join:</span>
+        </div>
+        <div class="col-sm-8 col-xs-8">{{getJoinedNumber}}</div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4 col-xs-4">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <span>Slot(s) remain:</span>
+        </div>
+        <div class="col-sm-8 col-xs-8">{{getRemainSlot}}</div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="event-question">
+            <h4>Will you go to this event?
+              {{> iconCheckbox text="YES/NO" name="is_joined" _id=_id isChecked=isJoinedEvent}}
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{> mapWidget name=mapName location=location}}
+  </div>
+</template>
