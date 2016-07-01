@@ -25,7 +25,7 @@ You can freely contribute to our project here on Github by pull/push code, creat
 - Join our [Meetup Meteor Ho Chi Minh][meetup]
 - Email us: dev@dgroup.co
 
-**We are very happy to see your contribution and looking forward to see you at the Meetup event! :) **
+**We are very happy to see your contribution and looking forward to see you at the Meetup event! :)**
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job.)
 
