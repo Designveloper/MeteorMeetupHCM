@@ -11,19 +11,21 @@ We are working on some new features and will release soon.
 ## How to use
 ### Run
 ```sh
-$ meteor —port [port]
+$ meteor --port [port]
 ```
 ### Build mobile app
 ```sh
 $ meteor add-platform ios
 $ meteor add-platform android
-$ meteor build [path-build] —server [server:port]
+$ meteor build [path-build] --server [server:port]
 ```
 ## How to contribute to project
-You can freely contribute to our project here on Github by pull/push code, create issue... We are very happy to see your contribution. :)
+You can freely contribute to our project here on Github by pull/push code, create issue...
 - Like our [page Meteor Ho Chi Minh Community][fb]
 - Join our [Meetup Meteor Ho Chi Minh][meetup]
 - Email us: dev@dgroup.co
+
+**We are very happy to see your contribution and looking forward to see you at the Meetup event! :) **
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job.)
 
