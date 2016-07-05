@@ -1,0 +1,31 @@
+<template name="beaconShow">
+  {{title}}
+  <div class="style-item-list">
+    {{#each beacons}}
+    <div class="{{colorClasses}}">
+      <table>
+        <tr>
+          <td>Major</td>
+          <td>{{major}}</td>
+        </tr>
+        <tr>
+          <td>Minor</td>
+          <td>{{minor}}</td>
+        </tr>
+        <tr>
+          <td>RSSI</td>
+          <td>{{rssi}}</td>
+        </tr>
+        <tr>
+          <td>Measured power</td>
+          <td>{{measuredPower}}</td>
+        </tr>
+        <tr>
+          <td>MAC address</td>
+          <td>{{macAddress}}</td>
+        </tr>
+      </table>
+    </div>
+    {{/each}}
+  </div>
+</template>

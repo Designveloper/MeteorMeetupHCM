@@ -15,7 +15,11 @@
       {{/each}}
     {{else}}
       <p class="no-data">
-        No members on this group
+        {{#if isBeaconList}}
+          No members on comming
+        {{else}}
+          No members on this group
+        {{/if}}
       </p>
     {{/if}}
   </ul>
