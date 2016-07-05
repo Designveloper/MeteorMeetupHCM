@@ -1,39 +1,21 @@
 Meteor.publish(null, function () {
   if (!this.userId) return this.ready();
   return Meteor.users.find({_id: this.userId}, {
-    fields: {
-      'services.google.email': 1,
-      'services.google.picture': 1,
-      groups: 1
-    }
+    fields: ENUM.USER_PUBLIC_FIELDS
   });
 });
 
 Meteor.publish('getUserById', function (userId) {
   if (!this.userId) return this.ready();
   return Meteor.users.find({_id: userId}, {
-    fields: {
-      'services.google.email': 1,
-      'services.google.picture': 1,
-      groups: 1,
-      'profile.name': 1,
-      'profile.age': 1,
-      'profile.title': 1
-    }
+    fields: ENUM.USER_PUBLIC_FIELDS
   });
 });
 
 Meteor.publish('userByIdsList', function(ids){
   if (!this.userId) return this.ready();
   return Meteor.users.find({_id: {$in: ids}},{
-    fields: {
-      'services.google.email': 1,
-      'services.google.picture': 1,
-      groups: 1,
-      'profile.name': 1,
-      'profile.age': 1,
-      'profile.title': 1
-    }});
+    fields: ENUM.USER_PUBLIC_FIELDS});
 });
 Meteor.publish('eventNGroupByUser', function () {
   if (!this.userId) return this.ready();

@@ -4,7 +4,13 @@ Package.describe({
   name: 'useraccounts:bootstrap',
   git: 'https://github.com/meteor-useraccounts/bootstrap.git',
 });
-
+Npm.depends({
+  'request': '2.69.0',
+  'fibers':'1.0.10'
+});
+Cordova.depends({
+  "cordova-plugin-facebook4": "1.7.1"
+});
 Package.on_use(function(api, where) {
   api.versionsFrom('METEOR@1.0');
 
@@ -24,6 +30,7 @@ Package.on_use(function(api, where) {
   api.imply([
     'useraccounts:core@1.14.2',
   ], ['client', 'server']);
+
 
   api.add_files([
     'lib/at_error.html',
@@ -67,6 +74,8 @@ Package.on_use(function(api, where) {
     'lib/full_page_at_form.html',
     'lib/at_bootstrap.css'
   ], ['client']);
+  api.add_files(['lib/facebook_signin.html','lib/facebook_signin.js'],'web.cordova');
+  api.add_files('lib/cordova_login.js','server');
 });
 
 Package.on_test(function(api) {
