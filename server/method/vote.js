@@ -8,5 +8,11 @@ Meteor.methods({
     if (votes.length > 0)
       return;
     Vote.insert(_.extend(base,{is_here: true}));
+  },
+  'vote_remove_all': function(){
+    var userId = Meteor.userId();
+    if (!userId)
+      return;
+    Vote.remove({});
   }
 })
