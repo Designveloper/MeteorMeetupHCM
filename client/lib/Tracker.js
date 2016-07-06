@@ -4,14 +4,14 @@ if (Meteor.isCordova) {
     var beaconTrack = new BeaconManager({name: name});
     Meteor.subscribe('loadAllBeacons');
     setInterval(function(){
-      beaconTrack.startScanningBeacons();
+      beaconTrack.startRangingBeacons();
     },1000);
     Tracker.autorun(function () {
       if (!Meteor.user())
         return;
       var beacons = beaconTrack.getBeacons();
       var macs = _.map(beacons, function (beacon) {
-        return beacon.macAddress;
+        return beacon.proximityUUID.toUpperCase();
       });
       var beaconsDB = EstBeacon.find({mac: {$in: macs}}).fetch();
       if (beaconsDB.length) {

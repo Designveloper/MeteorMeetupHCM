@@ -12,6 +12,7 @@ BeaconManager = function (opt) {
     return _beacons;
   }
   this.setSuccess = function (res) {
+    console.log('beacons succss', res.beacons);
     _beacons = res.beacons;
     _event_title = {
       type: 'title',
@@ -20,6 +21,7 @@ BeaconManager = function (opt) {
     _dependence.changed();
   };
   this.setError = function (err) {
+    console.log('beacons error', err);
     _beacons = [];
     _event_title = {
       type: 'error',
