@@ -14,14 +14,18 @@ Meteor.publish('getUserById', function (userId) {
 
 Meteor.publish('userByIdsList', function(ids){
   if (!this.userId) return this.ready();
-  return Meteor.users.find({_id: {$in: ids}},{
-    fields: ENUM.USER_PUBLIC_FIELDS});
+  if (Array.isArray(ids))
+    return Meteor.users.find({_id: {$in: ids}},{
+      fields: ENUM.USER_PUBLIC_FIELDS});
+  return this.ready()
 });
 Meteor.publish('eventNGroupByUser', function () {
   if (!this.userId) return this.ready();
   var user = Meteor.users.findOne(this.userId);
   var groupList = user.groups;
-  return [EventData.find({group_id: {$in: groupList}}), Group.find({_id: {$in: groupList}})]
+  if (Array.isArray(groupList))
+    return [EventData.find({group_id: {$in: groupList}}), Group.find({_id: {$in: groupList}})]
+  return this.ready()
 });
 Meteor.publish('allGroups', function () {
   if (!this.userId) return this.ready();
@@ -31,7 +35,9 @@ Meteor.publish('allUpComingEventOfUser', function () {
   if (!this.userId) return this.ready();
   var user = Meteor.users.findOne(this.userId);
   var groupList = user.groups;
-  return EventData.find({group_id: {$in: groupList}, date: {$gte: new Date()}});
+  if (Array.isArray(groupList))
+    return EventData.find({group_id: {$in: groupList}, date: {$gte: new Date()}});
+  return this.ready()
 });
 Meteor.publish('eventNMemberByGroup', function (groupId) {
   if (!this.userId) return this.ready();
@@ -70,6 +76,5 @@ Meteor.publish('voteComingForEvent', function(id){
 });
 
 Meteor.publish('loadAllBeacons',function(){
-  if (!this.userId) return this.ready();
   return EstBeacon.find({})
 });

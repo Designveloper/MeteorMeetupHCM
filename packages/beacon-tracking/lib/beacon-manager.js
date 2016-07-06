@@ -6,6 +6,7 @@ BeaconManager = function (opt) {
   //public
   var _dependence = new Deps.Dependency();
 
+  this._isStart = false;
   this.getBeacons = function () {
     _dependence.depend();
     return _beacons;
@@ -98,14 +99,19 @@ BeaconManager.prototype.beaconColorStyle = function (color) {
   return BeaconManager.beaconColorStyles[color];
 };
 BeaconManager.prototype.startScanningBeacons = function () {
+  if (this._isStart) return;
+  this._isStart = true;
   var callback = new beaconCallBack(this);
   estimote.beacons.startEstimoteBeaconDiscovery(callback.onSuccess, callback.onError);
 };
 BeaconManager.prototype.stopScanningBeacons = function (type) {
+  this._isStart = false;
   estimote.beacons.stopEstimoteBeaconDiscovery();
 };
 
 BeaconManager.prototype.startRangingBeacons = function () {
+  if (this._isStart) return;
+  this._isStart = true;
   var callback = new beaconCallBack(this);
   estimote.beacons.requestAlwaysAuthorization();
 
@@ -117,10 +123,13 @@ BeaconManager.prototype.startRangingBeacons = function () {
 }
 
 BeaconManager.prototype.stopRangingBeacons = function (type) {
+  this._isStart = false;
   estimote.beacons.stopRangingBeaconsInRegion({});
 };
 
 BeaconManager.prototype.startRangingNearables = function () {
+  if (this._isStart) return;
+  this._isStart = true;
   var callback = new beaconCallBack(this);
   estimote.nearables.startRangingForType(
     estimote.nearables.NearableTypeAll,
@@ -128,10 +137,13 @@ BeaconManager.prototype.startRangingNearables = function () {
     callback.onError);
 }
 BeaconManager.prototype.stopRangingNearables = function (type) {
+  this._isStart = false;
   estimote.nearables.stopRanging();
 };
 
 BeaconManager.prototype.startMonitoringRegions = function () {
+  if (this._isStart) return;
+  this._isStart = true;
   var callback = new beaconCallBack(this);
   estimote.beacons.requestAlwaysAuthorization();
 
@@ -143,10 +155,13 @@ BeaconManager.prototype.startMonitoringRegions = function () {
 };
 
 BeaconManager.prototype.stopMonitoringRegion = function (type) {
+  this._isStart = false;
   estimote.beacons.stopMonitoringForRegion({});
 };
 
 BeaconManager.prototype.startMonitoringNearableTrigger = function () {
+  if (this._isStart) return;
+  this._isStart = true;
   var callback = new beaconCallBack(this);
   // Create a rule.
   var dogIsMovingRule = estimote.triggers.createRuleForNearable(
@@ -166,6 +181,7 @@ BeaconManager.prototype.startMonitoringNearableTrigger = function () {
     callback.onError);
 };
 BeaconManager.prototype.stopMonitoringNearableTrigger = function (type) {
+  this._isStart = false;
   estimote.triggers.stopMonitoringForTrigger(this.trigger);
 };
 
@@ -175,6 +191,7 @@ var beaconCallBack = function (context, title) {
     context.setSuccess(res);
   }
   this.onError = function (err) {
+    context._isStart = false;
     context.setError(err);
   }
 }
