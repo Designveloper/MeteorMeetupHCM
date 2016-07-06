@@ -9,7 +9,6 @@
           </a>
           <button type="button" class="navbar-toggle collapsed"
                   data-toggle="collapse"
-                  data-target="#bs-example-navbar-collapse-1"
                   aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -20,7 +19,7 @@
       </div>
       {{#if haveUser}}
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse animated {{#if showMenuMobile}} slideInLeft {{else}} slideOutLeft {{/if}}">
           <ul class="nav navbar-nav">
             {{#each navLink}}
               <li class="{{isNavActive}}">

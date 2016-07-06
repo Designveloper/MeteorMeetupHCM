@@ -167,6 +167,13 @@ h3.title {
       display: block;
     }
   }
+  .navbar-collapse {
+    &.animated {
+      &.slideInLeft, &.slideOutLeft {
+        animation-name: none;
+      }
+    }
+  }
 }
 .slick-slider {
   margin-top: 20px;
@@ -210,6 +217,10 @@ h3.title {
 }
 
 @media(max-width: 767px) {
+  .circle {
+    border-radius: 100% !important;
+  }
+
   .slick-slider {
     .slick-arrow {
       &.prev-arrow {
@@ -238,6 +249,28 @@ h3.title {
     .navbar-right {
       .profile-btn {
         display: none;
+      }
+    }
+    .navbar-collapse {
+      display: block;
+      position: absolute;
+      top: 49px;
+      left: 0;
+      width: 60%;
+      z-index: 2;
+      background: #19a094;
+      margin: 0;
+      &.animated {
+        -webkit-animation-duration: 0.5s;
+        animation-duration: 0.5s;
+        &.slideInLeft {
+          -webkit-animation-name: slideInLeft;
+          animation-name: slideInLeft;
+        }
+        &.slideOutLeft {
+          -webkit-animation-name: slideOutLeft;
+          animation-name: slideOutLeft;
+        }
       }
     }
     .profile-btn {
