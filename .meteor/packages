@@ -25,7 +25,7 @@ insecure                # Allow all DB writes from clients (for prototyping)
 # Account
 accounts-base
 accounts-google
-hedcet:cordova-google-plus-native-sign-in
+accounts-facebook
 accounts-password
 service-configuration
 ian:accounts-ui-bootstrap-3
@@ -49,5 +49,8 @@ momentjs:moment
 # Slider
 shcherbin:slickjs
 
+#Beacon
+dsv:ibeacon
 
+#anitmate css
 natestrauser:animate-css

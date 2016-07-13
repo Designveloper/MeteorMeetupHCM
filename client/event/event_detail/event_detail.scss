@@ -40,6 +40,10 @@
 }
 
 .event-detail {
+  .reset-vote-btn {
+    float: right;
+    cursor: pointer;
+  }
   .header-page {
     position: relative;
     .breadcrumb {

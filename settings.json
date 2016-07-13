@@ -1,7 +1,8 @@
 {
   "galaxy.meteor.com": {
     "env": {
-      "MONGO_URL": "mongodb://admin:password@ds023303.mlab.com:23303/meteormeetup"
+      "MONGO_URL": "mongodb://admin:password@ds023303.mlab.com:23303/meteormeetup",
+      "ROOT_URL": "http://meetup.designveloper.com"
     }
   }
 }

@@ -18,4 +18,11 @@ Template.eventDetailTemplate.helpers({
       {name: this.name, _id: this._id, type: "event"}]
 
   }
+});
+
+Template.eventDetailTemplate.events({
+  'click .reset-vote-btn': function(e){
+    e.preventDefault();
+    Meteor.call('vote_remove_all');
+  }
 })

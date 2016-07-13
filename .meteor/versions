@@ -1,4 +1,5 @@
 accounts-base@1.2.7
+accounts-facebook@1.0.10
 accounts-google@1.0.10
 accounts-oauth@1.1.13
 accounts-password@1.1.10
@@ -31,18 +32,19 @@ ddp-rate-limiter@1.0.5
 ddp-server@1.2.7
 deps@1.0.12
 diff-sequence@1.0.6
+dsv:ibeacon@0.0.1
 ecmascript@0.4.4
 ecmascript-runtime@0.2.11
 ejson@1.0.12
 email@1.0.13
 es5-shim@4.5.11
+facebook@1.2.7
 fastclick@1.0.12
 fezvrasta:bootstrap-material-design@0.5.9
 fortawesome:fontawesome@4.5.0
 fourseven:scss@3.4.3
 geojson-utils@1.0.9
 google@1.1.12
-hedcet:cordova-google-plus-native-sign-in@1.1.0
 hocnv:publish-counts@0.7.3
 hot-code-push@1.0.4
 html-tools@1.0.10

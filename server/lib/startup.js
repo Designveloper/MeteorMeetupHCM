@@ -26,43 +26,12 @@ Meteor.startup(function() {
 
 });
 
-Accounts.config({
-  // forbidClientAccountCreation: true,
-  loginExpirationInDays: 0,
-  // restrictCreationByEmailDomain: function(emailId) {
-  //     var domainAllowed = ["hedcet.com"];
-  //     var domain = emailId.slice(emailId.lastIndexOf("@") + 1);
-  //     return _.contains(domainAllowed, domain);
-  // },
-  // sendVerificationEmail: true
-});
-
-Accounts.onCreateUser(function(opts, user) {
-  if (!user.services.google)
-    return user;
-  var res = Meteor.http.get("https://www.googleapis.com/oauth2/v3/userinfo", {
-    headers: {
-      "User-Agent": "Meteor/1.0"
-    },
-
-    params: {
-      access_token: user.services.google.accessToken
-    }
-  });
-
-  if (res.error)
-    throw res.error;
-
-  user.profile = _.pick(res.data, "email", "email_verified", "gender", "locale", "name", "picture", "sub");
-
-  return user;
-});
-
 Meteor.startup(function(){
   Meteor.call('sm_user_update_groups');
   Meteor.call('group_create_sm');
   Meteor.call('event_create_sm');
   Meteor.call('vote_create_sm');
   Meteor.call('topic_create_sm');
+  Meteor.call('beacon_create_sm');
 })
 

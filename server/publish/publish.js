@@ -1,32 +1,31 @@
 Meteor.publish(null, function () {
   if (!this.userId) return this.ready();
   return Meteor.users.find({_id: this.userId}, {
-    fields: {
-      'services.google.email': 1,
-      'services.google.picture': 1,
-      groups: 1
-    }
+    fields: ENUM.USER_PUBLIC_FIELDS
   });
 });
 
 Meteor.publish('getUserById', function (userId) {
   if (!this.userId) return this.ready();
   return Meteor.users.find({_id: userId}, {
-    fields: {
-      'services.google.email': 1,
-      'services.google.picture': 1,
-      groups: 1,
-      'profile.name': 1,
-      'profile.age': 1,
-      'profile.title': 1
-    }
+    fields: ENUM.USER_PUBLIC_FIELDS
   });
+});
+
+Meteor.publish('userByIdsList', function(ids){
+  //if (!this.userId) return this.ready();
+  if (Array.isArray(ids))
+    return Meteor.users.find({_id: {$in: ids}},{
+      fields: ENUM.USER_PUBLIC_FIELDS});
+  return this.ready()
 });
 Meteor.publish('eventNGroupByUser', function () {
   if (!this.userId) return this.ready();
   var user = Meteor.users.findOne(this.userId);
   var groupList = user.groups;
-  return [EventData.find({group_id: {$in: groupList}}), Group.find({_id: {$in: groupList}})]
+  if (Array.isArray(groupList))
+    return [EventData.find({group_id: {$in: groupList}}), Group.find({_id: {$in: groupList}})]
+  return this.ready()
 });
 Meteor.publish('allGroups', function () {
   if (!this.userId) return this.ready();
@@ -36,7 +35,9 @@ Meteor.publish('allUpComingEventOfUser', function () {
   if (!this.userId) return this.ready();
   var user = Meteor.users.findOne(this.userId);
   var groupList = user.groups;
-  return EventData.find({group_id: {$in: groupList}, date: {$gte: new Date()}});
+  if (Array.isArray(groupList))
+    return EventData.find({group_id: {$in: groupList}, date: {$gte: new Date()}});
+  return this.ready()
 });
 Meteor.publish('eventNMemberByGroup', function (groupId) {
   if (!this.userId) return this.ready();
@@ -61,4 +62,18 @@ Meteor.publish('voteTopics', function (_type) {
 Meteor.publish('voteByTypeNId', function (type, id) {
   if (!this.userId) return this.ready();
   return Vote.find({type: type, reference_id: id, byUser: this.userId})
+});
+
+Meteor.publish('voteComingForEvent', function(id){
+  return Vote.find({type: 'event', reference_id: id, is_here: true},{
+    fields: {
+      'type': 1,
+      'reference_id': 1,
+      'byUser': 1,
+      'is_here': 1
+    }})
+});
+
+Meteor.publish('loadAllBeacons',function(){
+  return EstBeacon.find({})
 });
