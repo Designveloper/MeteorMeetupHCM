@@ -13,7 +13,7 @@ Meteor.publish('getUserById', function (userId) {
 });
 
 Meteor.publish('userByIdsList', function(ids){
-  if (!this.userId) return this.ready();
+  //if (!this.userId) return this.ready();
   if (Array.isArray(ids))
     return Meteor.users.find({_id: {$in: ids}},{
       fields: ENUM.USER_PUBLIC_FIELDS});
@@ -65,7 +65,6 @@ Meteor.publish('voteByTypeNId', function (type, id) {
 });
 
 Meteor.publish('voteComingForEvent', function(id){
-  if (!this.userId) return this.ready();
   return Vote.find({type: 'event', reference_id: id, is_here: true},{
     fields: {
       'type': 1,
