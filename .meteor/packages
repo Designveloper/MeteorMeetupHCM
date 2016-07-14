@@ -54,3 +54,7 @@ dsv:ibeacon
 
 #anitmate css
 natestrauser:animate-css
+
+#image
+cfs:standard-packages
+cfs:filesystem

@@ -1,0 +1,37 @@
+<template name="startGroupTemplate">
+  <div id="start-group-page page">
+    <div class="container">
+      {{#if pathForStartGroup}}
+        {{> breadcrumb path=pathForStartGroup}}
+      {{/if}}
+      <div id="QuizInput" class="home-page">
+
+          <form id="profileForm">
+            <div class="row">
+              <div class="col-md-4 col-md-offset-1">
+                {{> avatarUpload}}
+              </div>
+              <div class="col-md-5">
+                <fieldset class="form-group">
+                  <label for="name-input">Name</label>
+                    <input type="text" id="name-input" class="form-control" data-name="name">
+                </fieldset>
+                 <fieldset class="form-group">
+                  <label for="des-input">Description</label>
+                  <textarea id="des-input" class="form-control" data-name="des"></textarea>
+                </fieldset>
+                 <fieldset class="form-group">
+                  <label for="tag-input">Tag</label>
+                  <input type="text" id="tag-input" class="form-control" data-name="tag">
+                </fieldset>
+              </div>
+            </div>
+            <div class="form-button">
+                <button type="button" class="btn btn-primary center-in-div">Submit</button>
+            </div>
+          </form>
+
+      </div>
+    </div>
+  </div>
+</template>
