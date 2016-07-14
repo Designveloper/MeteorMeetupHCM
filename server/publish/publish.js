@@ -77,3 +77,6 @@ Meteor.publish('voteComingForEvent', function(id){
 Meteor.publish('loadAllBeacons',function(){
   return EstBeacon.find({})
 });
+Meteor.publish('allTags',function(){
+  return Tags.find({})
+});

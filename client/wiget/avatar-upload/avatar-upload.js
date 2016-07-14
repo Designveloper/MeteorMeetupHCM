@@ -13,6 +13,9 @@ Template.avatarUpload.helpers({
   },
   'configCls': function(){
     return (this.configCls)?this.configCls:'';
+  },
+  'name': function(){
+    return this.name?this.name:'avatar';
   }
 });
 
