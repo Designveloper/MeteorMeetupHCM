@@ -9,6 +9,7 @@ Meteor.methods({
       userId: this.userId,
       ref: groupId
     }, {$set: {ref: groupId}});
+    Meteor.users.update({_id: this.userId}, {$push: {groups: groupId}});
     for (let tag of tags) {
       Tags.upsert({
         name: tag,
@@ -16,9 +17,15 @@ Meteor.methods({
         type: ENUM.TAGS_TYPE['group']
       }, {$set: {ref: groupId}});
     }
+    return groupId;
   },
   'group_remove': function (groupId) {
+    checkRolesInFunction();
     Group.remove({_id: groupId});
     Roles.remove({ref: groupId});
+    Meteor.users.update({_id: this.userId}, {$set: {
+      groups: ENUM.removeOneInArray(Meteor.users.findOne(this.userId), 'groups', groupId)
+    }});
+    Tags.remove({ref: groupId});
   }
 })

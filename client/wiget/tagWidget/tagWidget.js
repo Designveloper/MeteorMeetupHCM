@@ -13,9 +13,9 @@ Template.tagWidget.onRendered(function(){
   var list = [];
   Meteor.subscribe('allTags');
   this.autorun(function(){
-    list = _.map(Tags.find().fetch(),function(tag){
-      return tag.text;
-    })
+    list = _.uniq(_.map(Tags.find().fetch(),function(tag){
+      return tag.name;
+    }));
   });
   var textarea = $(this.$('textarea'));
   var name = textarea.data('name');
