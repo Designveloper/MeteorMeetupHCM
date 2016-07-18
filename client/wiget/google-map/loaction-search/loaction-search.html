@@ -1,4 +1,4 @@
 <template name="locationSearch">
-  <input class="location-search form-control {{configCls}}" id="{{map}}">
-  <input class="hidden" value="{{value}}" data-name="{{name}}">
+  <input class="location-search form-control {{configCls}}" id="{{map}}" value="{{address}}">
+  <input id="{{map}}-str" class="hidden location-search-value" value="{{value}}" data-name="{{name}}" data-kind="JSON">
 </template>

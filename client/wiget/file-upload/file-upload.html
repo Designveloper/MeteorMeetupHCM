@@ -1,0 +1,8 @@
+<template name="fileUpload">
+  {{nameFile}}
+  <span class="file-upload {{configCls}} {{iconCls}}"></span>
+  <section class="hidden">
+    <input type="file" id="{{idEL}}" class="form-control upload-file-input" data-kind="attachment">
+    <input type="text" id="{{idEL}}-src" value="{{file}}" class="form-control hidden" data-name="{{name}}">
+  </section>
+</template>

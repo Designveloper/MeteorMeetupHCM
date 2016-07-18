@@ -16,24 +16,36 @@ Template.locationSearch.helpers({
   },
   'value': function () {
     var tpl = Template.instance();
-    if (tpl.loaded.get()) {
-      return JSON.stringify(tpl.location.get());
+    var location = tpl.location.get();
+    if (location && location.geometry) {
+      setTimeout(function () {
+        $(tpl.$('.location-search-value')).trigger('change');
+      }, 0);
+      return JSON.stringify({
+        address: location.formatted_address,
+        geo: ENUM.convertGeometryToGeo(location.geometry)
+      });
     }
-  }
+    if (this.data)
+      return JSON.stringify(this.data);
+  },
+  'address': function () {
+    if (this.data) {
+      return this.data.address;
+    }
+  },
 });
 Template.locationSearch.onCreated(function () {
-  this.loaded = new ReactiveVar(false);
-})
-Template.locationSearch.onRendered(function () {
-  var self = this;
-  self.loaded.set(true);
-  if (!GoogleMaps.instances[self.data.map])
-    GoogleMaps.instances[self.data.map] = {
+  if (!GoogleMaps.instances[this.data.map])
+    GoogleMaps.instances[this.data.map] = {
       search: new ReactiveVar(null)
     };
-  self.location = GoogleMaps.instances[self.data.map].search;
+  this.location = GoogleMaps.instances[this.data.map].search;
+});
+Template.locationSearch.onRendered(function () {
+  var self = this;
   var input = document.getElementById(self.data.map);
-  this.autorun(function(){
+  this.autorun(function () {
     if (!GoogleMaps.loaded())
       return;
     var autoComplete = new google.maps.places.Autocomplete(input, {});

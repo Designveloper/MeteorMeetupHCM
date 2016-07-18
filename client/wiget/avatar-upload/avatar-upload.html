@@ -1,9 +1,9 @@
 <template name="avatarUpload">
   <div class="avatar {{configCls}}">
-    <img src="{{image}}">
+    <img src="{{imageUrl}}">
     <fieldset class="form-group hidden">
       <input type="file" id="avatar-input" class="form-control upload-file-input">
-      <input type="text" id="avatar-input-src" value={{image}} class="form-control" data-name="{{name}}">
+      <input type="text" id="avatar-input-src" value="{{image}}" class="form-control upload-file-value" data-name="{{name}}">
     </fieldset>
   </div>
 </template>

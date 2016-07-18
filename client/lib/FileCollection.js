@@ -11,3 +11,7 @@ Images = new FS.Collection("images", {
 });
 
 
+Attachments = new FS.Collection("attachments", {
+  stores: [new FS.Store.FileSystem("attachments")]
+});
+

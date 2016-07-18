@@ -1,5 +1,5 @@
 Template.avatarUpload.helpers({
-  'image': function(){
+  'imageUrl': function(){
     var tpl = Template.instance();
     var image = tpl.image.get() || this.data;
     if (image) {
@@ -10,6 +10,13 @@ Template.avatarUpload.helpers({
       return image;
     }
     return "/img/no-avatar.png"
+  },
+  'image': function(){
+    var tpl = Template.instance();
+    setTimeout(function(){
+      tpl.$(".upload-file-value").trigger('change');
+    },0);
+    return tpl.image.get();
   },
   'configCls': function(){
     return (this.configCls)?this.configCls:'';
@@ -28,5 +35,6 @@ Template.avatarUpload.events({
   }
 })
 Template.avatarUpload.onCreated(function(){
-  this.image = new ReactiveVar(null);
+  var data = this.data?this.data.data:null;
+  this.image = new ReactiveVar(data);
 })

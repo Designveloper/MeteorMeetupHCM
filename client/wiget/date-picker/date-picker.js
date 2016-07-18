@@ -7,10 +7,13 @@ Template.datePicker.helpers({
   },
   'name': function(){
     return this.name?this.name:'';
+  },
+  'date': function(){
+    return this.data?this.data:'';
   }
 });
 Template.datePicker.onRendered(function(){
   $(this.$('.date-picker')).datepicker({
-    startDate: '-3d'
+    startDate: '+1d'
   });
 });

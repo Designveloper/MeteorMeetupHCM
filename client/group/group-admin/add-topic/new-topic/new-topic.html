@@ -1,0 +1,53 @@
+<template name="newTopicTemplate">
+  <div class="new-topic-page page">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="header-page">
+            {{#if pathForRoute}}
+              {{> breadcrumb path=pathForRoute}}
+            {{/if}}
+            <div class="status-label">
+              <span class="icon-checkbox-bound">
+                  <a href="{{addEventRoute}}" class="icon-checkbox">
+                    <span class="text-active">Cancel</span>
+                  </a>
+                </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <form id="addTopicForm">
+          <div class="row">
+            <div class="col-md-6">
+              {{> avatarUpload name="image" data=data.image}}
+            </div>
+            <div class="col-md-6">
+              <fieldset class="form-group">
+                <label for="name-input">Name</label>
+                <input type="text" id="name-input" class="form-control" data-name="title" value="{{data.title}}">
+              </fieldset>
+              <fieldset class="form-group">
+                <label for="estimate-input">Estimate time</label>
+                <input type="number" min="15" max="180" id="estimate-input" class="form-control" data-name="timeEst" value="{{data.timeEst}}">
+              </fieldset>
+              <fieldset class="form-group">
+                <label for="content-input">Main Content</label>
+                <input  id="content-input" class="form-control" data-name="content" value="{{data.content}}">
+              </fieldset>
+              <fieldset class="form-group">
+                <label for="attachment-input">Attachment</label>
+                {{> fileUpload idEL="attachment-input" name="attachment" iconCls="fa fa-file fa-2x" data=data.attachment}}
+              </fieldset>
+            </div>
+          </div>
+
+          <div class="form-button row">
+            <button type="submit" class="btn btn-primary center-in-div">{{submitBtn}}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</template>

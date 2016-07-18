@@ -1,1 +1,8 @@
-<template name=""></template>
+<template name="addTopicTemplate">
+  <div class="add-topic-list">
+    {{#each topics}}
+      {{> topicSmallTemplate}}
+    {{/each}}
+    {{> topicSmallTemplate type="new"}}
+  </div>
+</template>

@@ -38,6 +38,8 @@ Template.groupAdminTemplate.helpers({
 
 Template.groupAdminTemplate.events({
   'click .add-event': function(){
-
+      //TODO init new Event
+      Session.set('new-event-topics',null);
+      Session.set('new-event-data',null);
   }
 });
