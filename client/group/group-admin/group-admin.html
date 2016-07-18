@@ -11,7 +11,7 @@
               <div class="status-label">
                 <span class="icon-checkbox-bound">
                   <a href="{{detailsRoute}}" class="icon-checkbox">
-                   <span class="text-active">Details page</span>
+                   <span class="text-active">Leave the group</span>
                   </a>
                 </span>
               </div>
@@ -21,23 +21,48 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-          {{#editWidget}}
+          {{#editWidget type="input" name="name" doSave=doSaveName}}
+            {{#if editMode}}
+              <fieldset class="form-group">
+                <label for="name-input">Name</label>
+                <input type="text" id="name-input" class="form-control"
+                       data-name="name" value="{{name}}">
+              </fieldset>
+            {{else}}
             <span class="group-name">{{name}}</span>
+            {{/if}}
           {{/editWidget}}
           </div>
           <div class="col-md-4">
             <div class="logo-tag-section section">
               {{>avatarUpload data=image}}
-              {{#editWidget configCls="tag-list"}}
-                {{#each tags}}
-                  <span class="label label-info">{{this}}</span>
-                {{/each}}
+              {{#editWidget configCls="tag-list" type="input" name="tags" doSave=doSaveTags}}
+                {{#if editMode}}
+                  <fieldset class="form-group">
+                    {{> tagWidget name='tags' data=tags}}
+                  </fieldset>
+                {{else}}
+                  {{#each tags}}
+                    <span class="label label-info">{{this}}</span>
+                  {{/each}}
+                {{/if}}
               {{/editWidget}}
             </div>
           </div>
           <div class="col-md-8">
             <div class="group-schedule-section section">
-              {{des}}
+              {{#editWidget configCls="tag-list" type="input" name="des" doSave=doSaveDes}}
+                {{#if editMode}}
+                <fieldset class="form-group">
+                  <fieldset class="form-group">
+                    <label for="des-input">Description</label>
+                    <textarea id="des-input" class="form-control" data-name="des">{{des}}</textarea>
+                  </fieldset>
+                </fieldset>
+                {{else}}
+                  {{des}}
+                {{/if}}
+              {{/editWidget}}
             </div>
           </div>
         </div>

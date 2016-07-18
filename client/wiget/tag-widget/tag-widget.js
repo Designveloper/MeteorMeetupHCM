@@ -16,8 +16,12 @@ Template.tagWidget.onRendered(function(){
   });
   var textarea = $(this.$('textarea'));
   var name = textarea.data('name');
+  var data = this.data?this.data.data:[];
   textarea.textext({
-      plugins : 'tags autocomplete'
+      plugins : 'tags autocomplete',
+      tags: {
+        items: data
+      }
     })
     .bind('getSuggestions', function(e, data)
     {

@@ -31,15 +31,48 @@ Template.groupAdminTemplate.helpers({
   'tags': function () {
     return ENUM.getTagList('group', ENUM.groupId());
   },
-  'addEventRoute': function(){
-    return '/group/admin/add-event/'+ ENUM.groupId();
+  'addEventRoute': function () {
+    return '/group/admin/add-event/' + ENUM.groupId();
+  },
+  'doSaveName': function () {
+    return function (data) {
+      try {
+        Group.update({_id: ENUM.groupId()}, {$set: {name: data.name}});
+      } catch(err){
+        return toastr.error(err.message)
+      }
+      toastr.success('updating name for the group is success!')
+    };
+  },
+  'doSaveTags': function () {
+    return function (data) {
+      data.tags = JSON.parse(data.tags);
+      data.group_id = ENUM.groupId();
+      Meteor.call('tags_update_by_group',data,function(err,res){
+        if (err){
+          return toastr.error(err.reason);
+        }
+        toastr.success('updating tags for the group is success!')
+      })
+
+    };
+  },
+  'doSaveDes': function () {
+    return function (data) {
+      try {
+        Group.update({_id: ENUM.groupId()}, {$set: {des: data.des}});
+      } catch(err){
+        return toastr.error(err.message)
+      }
+      toastr.success('updating description for the group is success!')
+    };
   }
 });
 
 Template.groupAdminTemplate.events({
-  'click .add-event': function(){
-      //TODO init new Event
-      Session.set('new-event-topics',null);
-      Session.set('new-event-data',null);
+  'click .add-event': function () {
+    //TODO init new Event
+    Session.set('new-event-topics', null);
+    Session.set('new-event-data', null);
   }
 });
