@@ -9,6 +9,8 @@ Template.breadcrumb.helpers({
       case "group":
         return Meteor.absoluteUrl('group/'+this._id);
         break;
+      case "url":
+        return this.url;
     }
   },
   'isRoute': function(){

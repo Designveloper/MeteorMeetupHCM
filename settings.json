@@ -4,5 +4,10 @@
       "MONGO_URL": "mongodb://admin:password@ds023303.mlab.com:23303/meteormeetup",
       "ROOT_URL": "http://meetup.designveloper.com"
     }
+  },
+  "public":{
+    "GOOGLE_MAP": {
+      "map": "AIzaSyDy5jaZTU2A3P0jS8Imwz-ByIa7M24S5Sk"
+    }
   }
 }

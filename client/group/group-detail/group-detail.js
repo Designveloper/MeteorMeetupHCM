@@ -22,6 +22,9 @@ Template.groupDetailTemplate.helpers({
       return event.date;
     });
     return data;
+  },
+  'adminRoute': function(){
+    return '/group/admin/'+ENUM.groupId();
   }
 })
 Template.groupDetailTemplate.events({

@@ -1,7 +1,7 @@
 Template.avatarUpload.helpers({
   'image': function(){
     var tpl = Template.instance();
-    var image = tpl.image.get();
+    var image = tpl.image.get() || this.data;
     if (image) {
       Meteor.subscribe('imageById', image);
       var imgs = Images.find({_id: image}).fetch();

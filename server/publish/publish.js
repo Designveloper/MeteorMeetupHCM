@@ -5,6 +5,10 @@ Meteor.publish(null, function () {
   });
 });
 
+Meteor.publish(null, function () {
+  if (!this.userId) return this.ready();
+  return Roles.find({userId: this.userId});
+});
 Meteor.publish('getUserById', function (userId) {
   if (!this.userId) return this.ready();
   return Meteor.users.find({_id: userId}, {
@@ -12,11 +16,12 @@ Meteor.publish('getUserById', function (userId) {
   });
 });
 
-Meteor.publish('userByIdsList', function(ids){
+Meteor.publish('userByIdsList', function (ids) {
   //if (!this.userId) return this.ready();
   if (Array.isArray(ids))
-    return Meteor.users.find({_id: {$in: ids}},{
-      fields: ENUM.USER_PUBLIC_FIELDS});
+    return Meteor.users.find({_id: {$in: ids}}, {
+      fields: ENUM.USER_PUBLIC_FIELDS
+    });
   return this.ready()
 });
 Meteor.publish('eventNGroupByUser', function () {
@@ -36,7 +41,10 @@ Meteor.publish('allUpComingEventOfUser', function () {
   var user = Meteor.users.findOne(this.userId);
   var groupList = user.groups;
   if (Array.isArray(groupList))
-    return EventData.find({group_id: {$in: groupList}, date: {$gte: new Date()}});
+    return EventData.find({
+      group_id: {$in: groupList},
+      date: {$gte: new Date()}
+    });
   return this.ready()
 });
 Meteor.publish('eventNMemberByGroup', function (groupId) {
@@ -64,19 +72,26 @@ Meteor.publish('voteByTypeNId', function (type, id) {
   return Vote.find({type: type, reference_id: id, byUser: this.userId})
 });
 
-Meteor.publish('voteComingForEvent', function(id){
-  return Vote.find({type: 'event', reference_id: id, is_here: true},{
+Meteor.publish('voteComingForEvent', function (id) {
+  return Vote.find({type: 'event', reference_id: id, is_here: true}, {
     fields: {
       'type': 1,
       'reference_id': 1,
       'byUser': 1,
       'is_here': 1
-    }})
+    }
+  })
 });
 
-Meteor.publish('loadAllBeacons',function(){
+Meteor.publish('loadAllBeacons', function () {
   return EstBeacon.find({})
 });
-Meteor.publish('allTags',function(){
-  return Tags.find({})
+Meteor.publish('allTags', function (type, ref) {
+  var selector = {
+    type: ENUM.TAGS_TYPE[type]
+  };
+  if (ref) {
+    selector.ref = ref;
+  }
+  return Tags.find(selector)
 });

@@ -1,0 +1,70 @@
+<template name="groupAdminTemplate">
+  {{#with group}}
+    <div class="group-admin-page page">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="header-page">
+              {{#if pathForRoute}}
+                {{> breadcrumb path=pathForRoute}}
+              {{/if}}
+              <div class="status-label">
+                <span class="icon-checkbox-bound">
+                  <a href="{{detailsRoute}}" class="icon-checkbox">
+                   <span class="text-active">Details page</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+          {{#editWidget}}
+            <span class="group-name">{{name}}</span>
+          {{/editWidget}}
+          </div>
+          <div class="col-md-4">
+            <div class="logo-tag-section section">
+              {{>avatarUpload data=image}}
+              {{#editWidget configCls="tag-list"}}
+                {{#each tags}}
+                  <span class="label label-info">{{this}}</span>
+                {{/each}}
+              {{/editWidget}}
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="group-schedule-section section">
+              {{des}}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="members-section section">
+              <h3 class="title">Members</h3>
+              {{> memberListTemplate}}
+            </div>
+            <div class="past-events-section section">
+              <h3 class="title">Schedule  <a href="{{addEventRoute}}" class="add-event"> <span class="fa fa-plus-square"></span> </a> </h3>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="events-upcomin-section section">
+                    {{> eventListTemplate type="details" sizeSlide="1/2"}}
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="group-schedule-section section">
+                    {{> calendarWidget data=getUpDate}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/with}}
+</template>

@@ -9,7 +9,15 @@
                 {{> breadcrumb path=pathForRoute}}
               {{/if}}
               <div class="status-label">
-               {{> iconCheckbox text="JOIN/LEAVE" name="is_joined_group" isChecked=isJoined}}
+                {{#if isOwnerGroup}}
+                  <span class="icon-checkbox-bound">
+                    <a href="{{adminRoute}}" class="icon-checkbox">
+                      <span class="text-active">ADMIN TOOLS</span>
+                    </a>
+                  </span>
+                {{else}}
+                  {{> iconCheckbox text="JOIN/LEAVE" name="is_joined_group" isChecked=isJoined}}
+                {{/if}}
               </div>
             </div>
           </div>
