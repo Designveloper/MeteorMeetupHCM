@@ -2,18 +2,14 @@ Template.eventDataTemplate.helpers({
   'subData': function(){
     Meteor.subscribe('voteByTypeNId', 'event', this._id);
   },
-  'routeToEvent': function () {
-    return Meteor.absoluteUrl("event/" + this._id);
+  'useEdit': function(){
+    return Template.parentData(1).useEdit;
   },
-  'mapName': function () {
-    return "map-event-" + this._id;
+  'url': function(){
+    return Template.parentData(1).url;
   },
-  'isJoinedEvent': function(){
-    var votes = Vote.find({type:'event', reference_id: this._id, byUser: Meteor.userId()}).fetch();
-    if (votes.length){
-      var vote = votes[0];
-      return vote.is_joined;
-    }
+  'editEventUrl': function(){
+    return '/group/admin/edit-event/' + this._id;
   }
 });
 

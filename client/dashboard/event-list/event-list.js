@@ -12,13 +12,14 @@ Template.eventListTemplate.helpers({
       }).fetch();
     else
       data =EventData.find({group_id: {$in: groupList}, date: {$gte: new Date()}}).fetch();
-
+    var self = this;
     setTimeout(function () {
       var dom1 = document.getElementById("event-slide");
       $(dom1).html('');
       Blaze.renderWithData(Template.eventDataTemplate, {
         data: data,
-        size: size
+        size: size,
+        useEdit: self.useEdit,
       }, dom1);
     }, 0);
     return !!data.length;
