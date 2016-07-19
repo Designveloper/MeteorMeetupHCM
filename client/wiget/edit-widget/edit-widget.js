@@ -36,6 +36,10 @@ Template.editWidget.events({
       tpl.data.doSave(data);
     }
     tpl.editMode.set(false);
+  },
+  'click .cancel-content': function (e, tpl) {
+    e.preventDefault();
+    tpl.editMode.set(false);
   }
 });
 

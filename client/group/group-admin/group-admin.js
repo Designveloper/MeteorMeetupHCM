@@ -74,5 +74,18 @@ Template.groupAdminTemplate.events({
     //TODO init new Event
     Session.set('new-event-topics', null);
     Session.set('new-event-data', null);
+  },
+  'click .leave-group': function(e, tpl){
+    e.preventDefault();
+    var answer = confirm('Are you sure to leave the groups? (You are still a member of the group)');
+    if (answer){
+      Meteor.call('roles_remove',{type:'owner_group', group_id: ENUM.groupId()}, function(err, res){
+        if (err){
+          return toastr.error(err.reason);
+        }
+        toastr.success('You leaved the group! Back to dashboard');
+        Router.go('/');
+      })
+    }
   }
 });

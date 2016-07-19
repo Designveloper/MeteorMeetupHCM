@@ -86,5 +86,22 @@ Template.newTopicTemplate.events({
     }
 
     Router.go("/group/admin/" + eventRoute + "/" + idRoute);
+  },
+  'click .remove-topic': function(e, tpl) {
+    if (!tpl.data || !tpl.data.isEdit)
+      return;
+    var topics = Session.get('new-event-topics');
+    var index = tpl.data.data.index;
+    var eventRoute = "add-event";
+    var idRoute = ENUM.groupId();
+    if (tpl.data && tpl.data.isEditEvent) {
+      eventRoute = "edit-event";
+      idRoute = ENUM.eventId();
+      var data = topics[index];
+      Topic.remove({_id: data._id});
+    }
+    topics.splice(index,1);
+    Session.set('new-event-topics',topics);
+    Router.go("/group/admin/" + eventRoute + "/" + idRoute);
   }
 })

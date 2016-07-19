@@ -4,6 +4,7 @@ Meteor.methods({
     var tags = data.tags;
     delete  data.tags;
     var groupId = Group.insert(data);
+    //Set Role for the user
     Roles.upsert({
       type: ENUM.ROLES_TYPE['owner_group'],
       userId: this.userId,
