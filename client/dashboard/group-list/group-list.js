@@ -6,7 +6,8 @@ Template.groupListTemplate.helpers({
     if (this.type == "all") {
       return Group.find({}).fetch();
     }
-    return Group.find({_id: {$in: groupList}}).fetch();
+    if (Array.isArray(groupList))
+      return Group.find({_id: {$in: groupList}}).fetch();
   },
   "routeForGroup": function () {
     return Meteor.absoluteUrl("group/" + this._id)

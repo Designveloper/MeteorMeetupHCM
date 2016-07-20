@@ -10,7 +10,7 @@ Template.eventListTemplate.helpers({
         group_id: ENUM.groupId(),
         date: {$gte: new Date()},
       }).fetch();
-    else
+    else if (Array.isArray(groupList))
       data =EventData.find({group_id: {$in: groupList}, date: {$gte: new Date()}}).fetch();
     var self = this;
     setTimeout(function () {
@@ -22,6 +22,6 @@ Template.eventListTemplate.helpers({
         useEdit: self.useEdit,
       }, dom1);
     }, 0);
-    return !!data.length;
+    return data && !!data.length;
   }
 })

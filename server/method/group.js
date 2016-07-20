@@ -5,11 +5,16 @@ Meteor.methods({
     delete  data.tags;
     var groupId = Group.insert(data);
     //Set Role for the user
-    Roles.upsert({
-      type: ENUM.ROLES_TYPE['owner_group'],
+    try {
+      var typeQuery = ENUM.roles.QUERY('group','organizer');
+      var typeUpsert = ENUM.ROLES_TYPE.group.organizer;
+    } catch (e) {
+      throw  e;
+    }
+    Roles.upsert(_.extend(typeQuery,{
       userId: this.userId,
       ref: groupId
-    }, {$set: {ref: groupId}});
+    }), {$set: {ref: groupId, type: typeUpsert}});
     Meteor.users.update({_id: this.userId}, {$push: {groups: groupId}});
     for (let tag of tags) {
       Tags.upsert({

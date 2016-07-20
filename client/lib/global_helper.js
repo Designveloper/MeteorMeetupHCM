@@ -2,13 +2,19 @@ Template.registerHelper('formatTime', function (time) {
   if (time == '')
     return time;
   return moment(ENUM.formatDateObject(time)).format('MM/DD/YYYY, hh:mm:ss');
-})
+});
+
+Template.registerHelper('emailUser', function (user) {
+  return ENUM.getEmailCurrentUser(user || this);
+});
+Template.registerHelper('nameUser', function (user) {
+  return ENUM.getNameCurrentUser(user || this);
+});
 Template.registerHelper('isOwnerGroup', function (id) {
-  var roles = Roles.find({
+  var roles = Roles.find(_.extend(ENUM.roles.QUERY('group','organizer'),{
     userId: Meteor.userId(),
-    type: ENUM.ROLES_TYPE['owner_group'],
     ref: id || ENUM.groupId()
-  }).fetch();
+  })).fetch();
   return !!roles.length;
 
 })

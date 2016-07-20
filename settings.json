@@ -5,6 +5,36 @@
       "ROOT_URL": "http://meetup.designveloper.com"
     }
   },
+  "env_address": {
+    "local": "/Users/hocnguyen/Documents/Project/meteor/demoApp",
+    "stag": "default"
+  },
+  "stag": {
+    "accounts": {
+      "google": {
+        "clientId": "261317114951-92baqvgt34b9qjsgeku3ddff65o71lbl.apps.googleusercontent.com",
+        "secret": "l8pTajiPNKeFXi4zFZ5uJss9",
+        "loginStyle": "popup"
+      },
+      "facebook": {
+        "appId": "1750863898532601",
+        "secret": "5075802686365cda8ddcb333535e6be3"
+      }
+    }
+  },
+  "local": {
+    "accounts": {
+      "google": {
+        "clientId": "261317114951-q0bgbr5nph8v0at91l07pq2edbqupu5u.apps.googleusercontent.com",
+        "secret": "P1oVUqqptUfNrOZz9YVltjTi",
+        "loginStyle": "popup"
+      },
+      "facebook": {
+        "appId": "1757363791215945",
+        "secret": "2430d5a490d6c2e6f8edbbf567b01128"
+      }
+    }
+  },
   "public":{
     "GOOGLE_MAP": {
       "map": "AIzaSyDy5jaZTU2A3P0jS8Imwz-ByIa7M24S5Sk"

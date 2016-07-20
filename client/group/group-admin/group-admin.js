@@ -38,7 +38,7 @@ Template.groupAdminTemplate.helpers({
     return function (data) {
       try {
         Group.update({_id: ENUM.groupId()}, {$set: {name: data.name}});
-      } catch(err){
+      } catch (err) {
         return toastr.error(err.message)
       }
       toastr.success('updating name for the group is success!')
@@ -48,8 +48,8 @@ Template.groupAdminTemplate.helpers({
     return function (data) {
       data.tags = JSON.parse(data.tags);
       data.group_id = ENUM.groupId();
-      Meteor.call('tags_update_by_group',data,function(err,res){
-        if (err){
+      Meteor.call('tags_update_by_group', data, function (err, res) {
+        if (err) {
           return toastr.error(err.reason);
         }
         toastr.success('updating tags for the group is success!')
@@ -61,7 +61,7 @@ Template.groupAdminTemplate.helpers({
     return function (data) {
       try {
         Group.update({_id: ENUM.groupId()}, {$set: {des: data.des}});
-      } catch(err){
+      } catch (err) {
         return toastr.error(err.message)
       }
       toastr.success('updating description for the group is success!')
@@ -75,12 +75,17 @@ Template.groupAdminTemplate.events({
     Session.set('new-event-topics', null);
     Session.set('new-event-data', null);
   },
-  'click .leave-group': function(e, tpl){
+  'click .leave-group': function (e, tpl) {
     e.preventDefault();
     var answer = confirm('Are you sure to leave the groups? (You are still a member of the group)');
-    if (answer){
-      Meteor.call('roles_remove',{type:'owner_group', group_id: ENUM.groupId()}, function(err, res){
-        if (err){
+    if (answer) {
+      Meteor.call('roles_remove', {
+        type: 'group',
+        role: 'organizer',
+        ref: ENUM.groupId(),
+        user_id: Meteor.userId()
+      }, function (err, res) {
+        if (err) {
           return toastr.error(err.reason);
         }
         toastr.success('You leaved the group! Back to dashboard');

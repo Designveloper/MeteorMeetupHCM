@@ -1,0 +1,44 @@
+<template name="memberManagementTemplate">
+  <div class="member-management">
+    <div class="row member-toolbar">
+      <div class="left">
+        <a href="#" class="invite-members"><span class="fa fa-inbox fa-4x"></span> </a>
+      </div>
+    </div>
+    <div class="row member-list">
+      {{#each members}}
+        <div class="group">
+          <div class="image">
+            <img src="{{imageSrc image}}" class="thumbnail circle">
+          </div>
+          <div class="content">
+            <div class="col-xs-6">
+              <h4>{{nameUser}}</h4>
+              <h5>{{emailUser}}</h5>
+            </div>
+            <div class="col-xs-4">
+              {{#editWidget type="input" doSave=doSaveRoles}}
+                {{#if editMode}}
+                  <select class="" data-name="role">
+                    {{#each rolesForGroup}}
+                      {{#if isSelected}}
+                        <option value="{{this}}" selected>{{this}}</option>
+                      {{else}}
+                        <option value="{{this}}">{{this}}</option>
+                      {{/if}}
+                    {{/each}}
+                  </select>
+                {{else}}
+                  <h4>{{currentRole}}</h4>
+                {{/if}}
+              {{/editWidget}}
+            </div>
+            <div class="col-xs-2">
+              <a href="#" class="remove-member" data-id="{{_id}}"> <span class="fa fa-remove fa-3x"></span></a>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</template>

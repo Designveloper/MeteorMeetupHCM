@@ -12,12 +12,6 @@ Template.userProfileTemplate.helpers({
     }
     return  Meteor.user();
   },
-  'name': function () {
-    return ENUM.getNameCurrentUser(this);
-  },
-  'email': function () {
-    return ENUM.getEmailCurrentUser(this);
-  },
   'Ages': function () {
     return ENUM.Ages();
   },

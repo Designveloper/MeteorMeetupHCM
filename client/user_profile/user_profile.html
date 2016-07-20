@@ -22,16 +22,16 @@
                   <label for="name-input">Name</label>
                   {{#if isAnother}}
                       <input type="text" id="name-input" class="form-control"
-                             value="{{name}}" data-name="profile.name" readonly disabled>
+                             value="{{nameUser}}" data-name="profile.name" readonly disabled>
                   {{else}}
                   <input type="text" id="name-input" class="form-control"
-                         value="{{name}}" data-name="profile.name">
+                         value="{{nameUser}}" data-name="profile.name">
                   {{/if}}
                 </fieldset>
                 <fieldset class="form-group">
                   <label for="name-input">Email</label>
                   <input type="email" id="name-input" class="form-control"
-                         value="{{email}}" readonly disabled>
+                         value="{{emailUser}}" readonly disabled>
                 </fieldset>
                 <fieldset class="form-group">
                   <label for="name-input">Phone</label>

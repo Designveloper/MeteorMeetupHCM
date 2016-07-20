@@ -1,29 +1,15 @@
-var google = {
-  // Use OAuth Credentials of web application/client here, for oauth from web browser.
-  // You have to create oAuth credentials for webclient from Google dev console.
-  // see https://github.com/sujith3g/meteor-g-plus/blob/master/public/screnshots/create.png
-  clientId: "261317114951-92baqvgt34b9qjsgeku3ddff65o71lbl.apps.googleusercontent.com",
-  clientSecret: "l8pTajiPNKeFXi4zFZ5uJss9",
-  //
-  //Localhost
-  //clientId: "261317114951-f4qv166tm6692si049lmta6qa7mdh638.apps.googleusercontent.com",
-  //clientSecret: "WMrhg9hNYC311b5VVHo4Za-L",
-  loginStyle: "redirect"
-};
-
 Meteor.startup(function() {
+  var settings = getSettings();
+  for (let service of ["google","facebook"]) {
+    var configure = settings.accounts[service];
+    Accounts.loginServiceConfiguration.remove({
+      service: service
+    });
 
-  Accounts.loginServiceConfiguration.remove({
-    service: "google"
-  });
-
-  Accounts.loginServiceConfiguration.insert({
-    service: "google",
-    clientId: google.clientId,
-    secret: google.clientSecret,
-    loginStyle: google.loginStyle
-  });
-
+    Accounts.loginServiceConfiguration.insert(_.extend({
+      service: service,
+    },configure));
+  }
 });
 
 Meteor.startup(function(){

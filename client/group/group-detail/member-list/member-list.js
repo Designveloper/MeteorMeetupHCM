@@ -12,7 +12,8 @@ Template.memberListTemplate.helpers({
           return vote.byUser;
         });
         Meteor.subscribe('userByIdsList', ids);
-        return Meteor.users.find({_id: {$in: ids}}).fetch();
+        if (Array.isArray(ids))
+          return Meteor.users.find({_id: {$in: ids}}).fetch();
       }
       return null;
     }
@@ -20,12 +21,6 @@ Template.memberListTemplate.helpers({
   },
   'avatar': function () {
     return ENUM.getAvatarCurrentUser(this) || ENUM.NO_AVATAR;
-  },
-  'email': function () {
-    return ENUM.getEmailCurrentUser(this);
-  },
-  'name': function () {
-    return ENUM.getNameCurrentUser(this);
   },
   getRouteProfile: function () {
     return "/user-profile/" + this._id;

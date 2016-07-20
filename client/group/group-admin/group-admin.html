@@ -1,4 +1,5 @@
 <template name="groupAdminTemplate">
+  {{> permissionWidget type="group" role='["organizer","co-organizer","moderate"]'}}
   {{#with group}}
     <div class="group-admin-page page">
       <div class="container">
@@ -70,7 +71,7 @@
           <div class="col-md-12">
             <div class="members-section section">
               <h3 class="title">Members</h3>
-              {{> memberListTemplate}}
+              {{> memberManagementTemplate}}
             </div>
             <div class="past-events-section section">
               <h3 class="title">Schedule  <a href="{{addEventRoute}}" class="add-event"> <span class="fa fa-plus-square"></span> </a> </h3>
