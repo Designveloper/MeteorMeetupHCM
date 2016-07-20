@@ -45,6 +45,7 @@ fortawesome:fontawesome
 # Format time
 rajit:bootstrap3-datepicker
 momentjs:moment
+tsega:bootstrap3-datetimepicker
 
 # Slider
 shcherbin:slickjs

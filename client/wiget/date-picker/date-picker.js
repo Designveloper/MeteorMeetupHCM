@@ -13,7 +13,11 @@ Template.datePicker.helpers({
   }
 });
 Template.datePicker.onRendered(function(){
-  $(this.$('.date-picker')).datepicker({
-    startDate: '+1d'
+  var date = new Date();
+  date.setDate(date.getDate()+1);
+  $(this.$('.date-picker')).datetimepicker({
+    inline: true,
+    sideBySide: true,
+    minDate: date
   });
 });
