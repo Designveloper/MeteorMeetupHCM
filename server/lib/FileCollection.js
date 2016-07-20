@@ -1,5 +1,5 @@
 Images = new FS.Collection("images", {
-  stores: [new FS.Store.FileSystem("images", {path: '~/upload/open_meetup/image'})]
+  stores: [new FS.Store.FileSystem("images", {path: '/app/upload/open_meetup/image'})]
 });
 
 Meteor.publish('imageById', function (id) {
@@ -22,7 +22,7 @@ Images.allow({
 })
 
 Attachments = new FS.Collection("attachments", {
-  stores: [new FS.Store.FileSystem("attachments", {path: "~/uploads/open_meetup/attach"})]
+  stores: [new FS.Store.FileSystem("attachments", {path: "/app/uploads/open_meetup/attach"})]
 });
 
 Meteor.publish('attachById', function (id) {
