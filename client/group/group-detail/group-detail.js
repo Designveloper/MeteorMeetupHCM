@@ -34,9 +34,9 @@ Template.groupDetailTemplate.events({
     var user = Meteor.user();
     var groups = user.groups;
     var groupId = ENUM.groupId();
-    var is_joined = -1;
-    if (Array.isArray(groups))
-      is_joined = groups.indexOf(groupId);
+    if (!Array.isArray(groups))
+      groups = [];
+    var is_joined = groups.indexOf(groupId);
     if ((is_joined !== -1) === data.is_joined_group) {
       return;
     }

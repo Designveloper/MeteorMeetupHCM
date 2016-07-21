@@ -96,3 +96,10 @@ Meteor.publish('allTags', function (type, ref) {
   }
   return Tags.find(getSelector(selector))
 });
+
+Meteor.publish('rolesForMemberList', function(list){
+  if (!Array.isArray(list))
+    return this.ready();
+  //TODO check permission
+  return Roles.find(getSelector({userId: {$in: list}}));
+})

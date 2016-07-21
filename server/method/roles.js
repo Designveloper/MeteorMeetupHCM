@@ -12,11 +12,12 @@ Meteor.methods({
     })), {$set: {delete_flg: 1}}, {multi: true});
   },
   'roles_update': function (data) {
+    Roles.update({
+      userId: data.user_id,
+      ref: data.ref
+    }, {$set: {delete_flg: 1}}, {multi: true});
     if (data.role === 'member')
-      return Roles.update({
-        userId: data.user_id,
-        ref: data.ref
-      }, {$set: {delete_flg: 1}});
+      return;
     try {
       var typeQuery = ENUM.roles.QUERY(data.type, data.role);
       var typeUpsert = ENUM.ROLES_TYPE[data.type][data.role];
@@ -26,6 +27,6 @@ Meteor.methods({
     Roles.upsert(getSelector(_.extend(typeQuery, {
       userId: data.user_id,
       ref: data.ref,
-    })), {$set: {type: typeUpsert}})
+    })), {$set: {type: typeUpsert, delete_flg: 0}})
   }
 })

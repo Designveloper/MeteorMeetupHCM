@@ -1,6 +1,11 @@
 Template.memberManagementTemplate.helpers({
   'members': function () {
-    return Meteor.users.find({groups: ENUM.groupId()}).fetch();
+    var members = Meteor.users.find({groups: ENUM.groupId()}).fetch();
+    var listMem = _.map(members, function(mem){
+      return mem._id;
+    });
+    Meteor.subscribe('rolesForMemberList', listMem);
+    return members;
   },
   'doSaveRoles': function () {
     var userId = this._id;
@@ -45,6 +50,7 @@ Template.memberManagementTemplate.events({
       type: 'group',
       role: 'all'
     };
-    Meteor.call('roles_remove',data, ENUM.funcRes('Remove the member out the group success!'));
+    Meteor.call('user_remove_out_group',data, ENUM.funcRes('Remove the member out the group success!'));
+
   }
 })
