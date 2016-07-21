@@ -17,6 +17,22 @@ Template.registerHelper('isOwnerGroup', function (id) {
   })).fetch();
   return !!roles.length;
 
+});
+
+Template.registerHelper('isManageGroup', function (id) {
+  var roles = Roles.find(_.extend(ENUM.roles.QUERY('group',ENUM.roles.getPermssionRoles('group','manage')),{
+    userId: Meteor.userId(),
+    ref: id || ENUM.groupId()
+  })).fetch();
+  return !!roles.length;
+
+})
+Template.registerHelper('isHavePermission', function (type, action) {
+  var role = ENUM.roles.getRoleCurrentUser(type, ENUM.roles.getRef(type));
+  var permission = ENUM.roles.getPermssionRoles(type,action);
+
+  return role && permission.indexOf(role.type.text) >=0;
+
 })
 Template.registerHelper('imageSrc', function (image) {
   if (image) {

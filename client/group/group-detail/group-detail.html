@@ -9,7 +9,7 @@
                 {{> breadcrumb path=pathForRoute}}
               {{/if}}
               <div class="status-label">
-                {{#if isOwnerGroup}}
+                {{#if isHavePermission 'group' 'manage'}}
                   <span class="icon-checkbox-bound">
                     <a href="{{adminRoute}}" class="icon-checkbox">
                       <span class="text-active">ADMIN TOOLS</span>

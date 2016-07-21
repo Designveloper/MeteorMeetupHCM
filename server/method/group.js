@@ -14,7 +14,7 @@ Meteor.methods({
     Roles.upsert(_.extend(typeQuery,{
       userId: this.userId,
       ref: groupId
-    }), {$set: {ref: groupId, type: typeUpsert}});
+    }), {$set: {ref: groupId, type: typeUpsert, context: Roles.contextList.isCreateGroup}});
     Meteor.users.update({_id: this.userId}, {$push: {groups: groupId}});
     for (let tag of tags) {
       Tags.upsert({
