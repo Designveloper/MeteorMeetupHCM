@@ -37,6 +37,10 @@
               <label for="location-input">Location</label>
               {{> locationSearch map=instanceForMap name="location" data=data.location}}
             </fieldset>
+            <fieldset class="form-group">
+              <label for="location-input">Attendee limit</label>
+              {{> radioGroup group_name="attende-limit" name="max_mem" data=dataRadioAttendeeLimit type="number" value=data.max_mem}}
+            </fieldset>
           </div>
           <div class="col-md-6">
             {{> mapWidget name=instanceForMap options=mapOptions location=data.location}}

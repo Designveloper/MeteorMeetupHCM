@@ -6,7 +6,9 @@ Template.placeHoldTemplate.helpers({
     return Counts.get('members-join-event-'+this._id)
   },
   'getRemainSlot': function(){
-    return this.max_mem - Counts.get('members-join-event-'+this._id);
+    if (this.max_mem)
+      return this.max_mem - Counts.get('members-join-event-'+this._id);
+    return  ENUM.unicode("&#8734;");
   },
   'isJoinedEvent': function(){
     var votes = Vote.find({type:'event', reference_id: this._id, byUser: Meteor.userId()}).fetch();

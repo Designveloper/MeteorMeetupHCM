@@ -1,0 +1,21 @@
+<template name="radioGroup">
+  <div class="radio-group-widget">
+    {{#each data}}
+      <div class="a-radio-option">
+        {{#if isChecked}}
+          <input type="radio" class="form-control radio-input" name="{{group_name}}" checked value="{{value}}">
+        {{else}}
+          <input type="radio" class="form-control radio-input" name="{{group_name}}" value="{{value}}">
+        {{/if}}
+        {{#if isInput}}
+          {{head}}
+            <input type="{{type}}" class="radio-el-value" value="{{value}}">
+          {{foot}}
+        {{else}}
+        {{text}}
+        {{/if}}
+      </div>
+    {{/each}}
+    <input class="hidden radio-group-value" type="{{type}}" data-name="{{name}}" value="{{value}}">
+  </div>
+</template>
