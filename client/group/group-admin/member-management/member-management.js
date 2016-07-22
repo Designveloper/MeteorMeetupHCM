@@ -38,6 +38,9 @@ Template.memberManagementTemplate.helpers({
         type: 'group',
         role: role
       });
+  },
+  avatar: function(){
+    return ENUM.getAvatarCurrentUser(this) || ENUM.NO_AVATAR;
   }
 });
 

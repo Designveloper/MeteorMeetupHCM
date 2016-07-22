@@ -22,7 +22,7 @@ Images.allow({
 })
 
 Attachments = new FS.Collection("attachments", {
-  stores: [new FS.Store.FileSystem("attachments", {path: "/app/uploads/open_meetup/attach"})]
+  stores: [new FS.Store.FileSystem("attachments", {path: "/app/upload/open_meetup/attach"})]
 });
 
 Meteor.publish('attachById', function (id) {
